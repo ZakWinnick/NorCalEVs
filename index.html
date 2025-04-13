@@ -108,18 +108,34 @@
   </footer>
 
   <!-- All JavaScript goes here at the end -->
-  <script>
+  <<script>
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.querySelector('.nav-menu');
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     const dropdownMenu = document.querySelector('.dropdown-menu');
   
-    // Toggle mobile menu
-    toggle.addEventListener('click', () => {
+    // Toggle mobile nav menu
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent click from bubbling to close handler
       menu.classList.toggle('active');
     });
   
-    // Toggle Social dropdown
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('active') &&
+          !menu.contains(e.target) &&
+          !toggle.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+  
+      if (!dropdownMenu.contains(e.target) &&
+          !dropdownToggle.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  
+    // Toggle dropdown menu
     dropdownToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       dropdownMenu.classList.toggle('show');
@@ -129,15 +145,7 @@
       );
     });
   
-    // Close dropdown when clicking anywhere else
-    document.addEventListener('click', (e) => {
-      if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
-        dropdownMenu.classList.remove('show');
-        dropdownToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  
-    // Close dropdown when clicking any dropdown link
+    // Close dropdown on menu item click
     dropdownMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         dropdownMenu.classList.remove('show');
@@ -145,6 +153,7 @@
       });
     });
   </script>
+  
   
 </body>
 </html>
