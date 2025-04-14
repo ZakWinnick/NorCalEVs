@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog | NorCal EVs</title>
+  <meta name="description" content="See the latest updates and changes to the NorCal EVs website." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="/NOR_CAL_EV_LOGO.png" alt="NorCal EVs logo" class="nav-logo-img" />
+        <span>NorCal EVs</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/leaders/" class="nav-link">Leaders</a></li>
+        <li><a href="/membership/" class="nav-link">Membership</a></li>
+        <li class="dropdown">
+          <button class="nav-link dropdown-toggle" aria-expanded="false">Social</button>
+          <ul class="dropdown-menu">
+            <li><a href="https://heylo.group/norcalevs" target="_blank">Heylo</a></li>
+            <li><a href="https://www.facebook.com/groups/norcalevs/" target="_blank">Facebook</a></li>
+            <li><a href="https://instagram.com/norcalevs" target="_blank">Instagram</a></li>
+            <li><a href="https://x.com/norcalevs" target="_blank">X</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <!-- Changelog Section -->
+  <section class="container">
+    <h1>NorCal EVs Website Changelog</h1>
+    <h2>2025.15 — Initial Release & Core Enhancements</h2>
+    <p><strong>Date:</strong> April 13, 2025</p>
+    <ul>
+      <li>Initial landing page design finalized and deployed</li>
+      <li>Hero section with full background image and centered, oversized logo</li>
+      <li>Responsive CTA and heading: "Driven by Community"</li>
+      <li>Sections: About, Events (Heylo embed), Connect</li>
+      <li>Social buttons for Heylo, Facebook, Instagram, and X</li>
+      <li>Mobile-friendly layout and styling with flexbox</li>
+      <li>Added top navigation bar with logo and menu items</li>
+      <li>Fully responsive hamburger menu on mobile</li>
+      <li>Dropdown menu under "Social" with tap-to-open behavior</li>
+      <li>Added outside-click handling to close mobile menu and dropdown</li>
+      <li>Included logo next to "NorCal EVs" in nav</li>
+      <li>Sticky navbar with blur and shadow on scroll</li>
+      <li>Added full SEO meta tags (title, description, keywords)</li>
+      <li>Integrated Open Graph and Twitter Card metadata</li>
+      <li>Included JSON-LD structured data (Organization schema)</li>
+      <li>Added robots.txt with sitemap reference</li>
+      <li>Created sitemap.xml with homepage, /leaders, and /membership</li>
+      <li>Created /leaders/ and /membership/ subdirectories with basic index.html</li>
+      <li>Shared global styles via /styles.css</li>
+      <li>Each page includes SEO meta and styled hero sections</li>
+      <li>Fixed issue where dropdown would not stay open</li>
+      <li>Fixed mobile nav menu not closing when tapping outside</li>
+      <li>Dropdown closes on link click</li>
+      <li>Improved font styling for Social dropdown toggle</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> NorCal EVs. All rights reserved. | <a href="https://norcalevs.org/changelog.html" target="_blank">Version 2025.15</a></p>
+  </footer>
+
+  <!-- JavaScript for menu and dropdowns -->
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.nav-menu');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+      if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    dropdownToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('show');
+      dropdownToggle.setAttribute('aria-expanded', dropdownMenu.classList.contains('show'));
+    });
+
+    dropdownMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        dropdownMenu.classList.remove('show');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
