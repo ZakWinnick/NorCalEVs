@@ -5,39 +5,379 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Changelog | NorCal EVs</title>
   <meta name="description" content="See the latest updates and changes to the NorCal EVs website." />
-  <link rel="stylesheet" href="/styles.css" />
+  
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary: #00ff88;
+      --secondary: #0088ff;
+      --dark: #0a0e27;
+      --light: #ffffff;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    /* Animated Background */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #0a0e27 0%, #0f172a 25%, #1e293b 50%, #0f172a 75%, #0a0e27 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: 1000;
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--light);
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+    
+    .nav-logo-img {
+      height: 40px;
+      width: auto;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: var(--light);
+      text-decoration: none;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .dropdown {
+      position: relative;
+    }
+    
+    .dropdown-toggle {
+      background: none;
+      border: none;
+      color: var(--light);
+      cursor: pointer;
+      font: inherit;
+      padding: 0.5rem 0;
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: rgba(10, 14, 39, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      margin-top: 0.5rem;
+      padding: 0.5rem 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      min-width: 150px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .dropdown-menu a {
+      display: block;
+      padding: 0.8rem 1.5rem;
+      color: var(--light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .dropdown-menu a:hover {
+      background: var(--glass);
+      color: var(--primary);
+    }
+    
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .hamburger {
+      width: 28px;
+      height: 3px;
+      background: var(--light);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    /* Changelog Section */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 7rem 2rem 4rem;
+    }
+    
     .changelog {
-      background: #f9f9f9;
-      padding: 4rem 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    }
-    .changelog h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .changelog h2 {
-      font-size: 1.5rem;
-      color: #0066cc;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem;
       margin-top: 2rem;
     }
+    
+    .changelog h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 900;
+    }
+    
+    .version-entry {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .version-entry:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+    }
+    
+    .version-entry.latest {
+      border-left: 4px solid var(--primary);
+    }
+    
+    .version-entry.latest::before {
+      content: 'LATEST';
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--dark);
+      padding: 0.25rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    .version-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .version-number {
+      font-size: 1.8rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .version-date {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1rem;
+    }
+    
+    .version-title {
+      font-size: 1.3rem;
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
     .changelog ul {
-      list-style: disc;
-      margin-left: 1.5rem;
-      margin-top: 1rem;
+      list-style: none;
+      margin-left: 0;
     }
+    
     .changelog ul li {
-      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 0.8rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.8;
     }
-    .changelog p {
-      font-style: italic;
+    
+    .changelog ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
+    .category {
+      display: inline-block;
+      background: rgba(0, 255, 136, 0.1);
+      color: var(--primary);
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
       margin-bottom: 1rem;
+      margin-right: 0.5rem;
+    }
+    
+    .category.design {
+      background: rgba(0, 136, 255, 0.1);
+      color: var(--secondary);
+    }
+    
+    .category.technical {
+      background: rgba(255, 136, 0, 0.1);
+      color: #ff8800;
+    }
+    
+    /* Footer */
+    footer {
+      background: rgba(10, 14, 39, 0.95);
+      border-top: 1px solid var(--glass-border);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 4rem;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(10, 14, 39, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        transition: right 0.3s ease;
+      }
+      
+      .nav-menu.active {
+        right: 0;
+      }
+      
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+      
+      .changelog {
+        padding: 2rem 1.5rem;
+      }
+      
+      .version-entry {
+        padding: 1.5rem;
+      }
+      
+      .version-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="animated-bg"></div>
+  
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
@@ -52,8 +392,8 @@
       </button>
       <ul class="nav-menu">
         <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/leaders/" class="nav-link">Leaders</a></li>
-        <li><a href="/membership/" class="nav-link">Membership</a></li>
+        <li><a href="/membership" class="nav-link">Membership</a></li>
+        <li><a href="/leaders" class="nav-link">Leaders</a></li>
         <li class="dropdown">
           <button class="nav-link dropdown-toggle" aria-expanded="false">Social</button>
           <ul class="dropdown-menu">
@@ -66,43 +406,92 @@
       </ul>
     </div>
   </nav>
-  <div class="nav-spacer"></div>
 
   <!-- Changelog Section -->
-  <section class="container changelog">
-    <h1>NorCal EVs Website Changelog</h1>
-    <h2>2025.15 — Initial Release & Core Enhancements</h2>
-    <p><strong>Date:</strong> April 13, 2025</p>
-    <ul>
-      <li>Initial landing page design finalized and deployed</li>
-      <li>Hero section with full background image and centered, oversized logo</li>
-      <li>Responsive CTA and heading: "Driven by Community"</li>
-      <li>Sections: About, Events (Heylo embed), Connect</li>
-      <li>Social buttons for Heylo, Facebook, Instagram, and X</li>
-      <li>Mobile-friendly layout and styling with flexbox</li>
-      <li>Added top navigation bar with logo and menu items</li>
-      <li>Fully responsive hamburger menu on mobile</li>
-      <li>Dropdown menu under "Social" with tap-to-open behavior</li>
-      <li>Added outside-click handling to close mobile menu and dropdown</li>
-      <li>Included logo next to "NorCal EVs" in nav</li>
-      <li>Sticky navbar with blur and shadow on scroll</li>
-      <li>Added full SEO meta tags (title, description, keywords)</li>
-      <li>Integrated Open Graph and Twitter Card metadata</li>
-      <li>Included JSON-LD structured data (Organization schema)</li>
-      <li>Added robots.txt with sitemap reference</li>
-      <li>Created sitemap.xml with homepage, /leaders, and /membership</li>
-      <li>Created /leaders/ and /membership/ subdirectories with basic index.html</li>
-      <li>Shared global styles via /styles.css</li>
-      <li>Each page includes SEO meta and styled hero sections</li>
-      <li>Fixed issue where dropdown would not stay open</li>
-      <li>Fixed mobile nav menu not closing when tapping outside</li>
-      <li>Dropdown closes on link click</li>
-      <li>Improved font styling for Social dropdown toggle</li>
-    </ul>
+  <section class="container">
+    <div class="changelog">
+      <h1>NorCal EVs Website Changelog</h1>
+      
+      <!-- Version 2025.35 -->
+      <div class="version-entry latest">
+        <div class="version-header">
+          <div class="version-number">Version 2025.35</div>
+          <div class="version-date">August 27, 2025</div>
+        </div>
+        <h2 class="version-title">Major Design Overhaul & Modernization</h2>
+        
+        <span class="category design">Design</span>
+        <span class="category">Features</span>
+        <span class="category technical">Technical</span>
+        
+        <ul>
+          <li><strong>Complete visual redesign</strong> with dark, futuristic theme representing the cutting-edge EV community</li>
+          <li>Implemented animated gradient backgrounds with smooth color transitions</li>
+          <li>Added floating particle effects for enhanced visual depth and movement</li>
+          <li>Introduced glassmorphic design system with blur effects and transparency</li>
+          <li>Created vibrant gradient text effects using electric green (#00ff88) and blue (#0088ff) color scheme</li>
+          <li>Added new statistics section showcasing community metrics (500+ members, 20+ events, 15 brands)</li>
+          <li>Redesigned about section with icon-based feature cards and enhanced hover effects</li>
+          <li>Transformed social links into interactive cards with shimmer animations</li>
+          <li>Enhanced hero section with dual CTAs ("Join the Revolution" and "View Events")</li>
+          <li>Implemented pulsing logo animation for dynamic brand presence</li>
+          <li>Added smooth scroll reveal animations for all page sections</li>
+          <li>Integrated advanced hover effects throughout navigation, buttons, and cards</li>
+          <li>Created parallax-style animated backgrounds</li>
+          <li>Improved mobile responsiveness with better touch targets and navigation</li>
+          <li>Embedded all CSS inline for simplified deployment</li>
+          <li>Maintained all existing SEO optimizations and structured data</li>
+          <li>Preserved Heylo event integration within new design framework</li>
+          <li>Enhanced performance using pure CSS animations instead of heavy JavaScript</li>
+          <li>Updated footer with additional links and modern styling</li>
+          <li>Added scroll-based navbar transparency effect</li>
+        </ul>
+      </div>
+      
+      <!-- Version 2025.15 -->
+      <div class="version-entry">
+        <div class="version-header">
+          <div class="version-number">Version 2025.15</div>
+          <div class="version-date">April 13, 2025</div>
+        </div>
+        <h2 class="version-title">Initial Release & Core Enhancements</h2>
+        
+        <span class="category">Core</span>
+        <span class="category technical">Technical</span>
+        
+        <ul>
+          <li>Initial landing page design finalized and deployed</li>
+          <li>Hero section with full background image and centered, oversized logo</li>
+          <li>Responsive CTA and heading: "Driven by Community"</li>
+          <li>Sections: About, Events (Heylo embed), Connect</li>
+          <li>Social buttons for Heylo, Facebook, Instagram, and X</li>
+          <li>Mobile-friendly layout and styling with flexbox</li>
+          <li>Added top navigation bar with logo and menu items</li>
+          <li>Fully responsive hamburger menu on mobile</li>
+          <li>Dropdown menu under "Social" with tap-to-open behavior</li>
+          <li>Added outside-click handling to close mobile menu and dropdown</li>
+          <li>Included logo next to "NorCal EVs" in nav</li>
+          <li>Sticky navbar with blur and shadow on scroll</li>
+          <li>Added full SEO meta tags (title, description, keywords)</li>
+          <li>Integrated Open Graph and Twitter Card metadata</li>
+          <li>Included JSON-LD structured data (Organization schema)</li>
+          <li>Added robots.txt with sitemap reference</li>
+          <li>Created sitemap.xml with homepage, /leaders, and /membership</li>
+          <li>Created /leaders/ and /membership/ subdirectories with basic index.html</li>
+          <li>Shared global styles via /styles.css</li>
+          <li>Each page includes SEO meta and styled hero sections</li>
+          <li>Fixed issue where dropdown would not stay open</li>
+          <li>Fixed mobile nav menu not closing when tapping outside</li>
+          <li>Dropdown closes on link click</li>
+          <li>Improved font styling for Social dropdown toggle</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <footer>
     <p>&copy; <script>document.write(new Date().getFullYear())</script> NorCal EVs. All rights reserved.</p>
+    <p>Driving the future, one EV at a time ⚡</p>
   </footer>
 
   <!-- JavaScript for menu and dropdowns -->
