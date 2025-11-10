@@ -1,0 +1,77 @@
+# Site settings
+title: NorCal EVs
+description: Northern California's premier electric vehicle enthusiast community
+url: https://norcalevs.org
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# GitHub Pages plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Theme
+theme: null
+
+# Collections
+collections:
+  events:
+    output: true
+    permalink: /events/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - README.md
+  - DEPLOYMENT.md
+  - CHANGELOG.md
+  - archive
+
+# Site metadata
+author: NorCal EVs
+email: contact@norcalevs.org
+twitter:
+  username: norcalevs
+  card: summary_large_image
+facebook:
+  publisher: https://www.facebook.com/groups/norcalevs/
+
+# Social links
+social:
+  name: NorCal EVs
+  links:
+    - https://heylo.group/norcalevs
+    - https://instagram.com/norcalevs
+    - https://x.com/norcalevs
+    - https://www.facebook.com/groups/norcalevs/
+    - https://youtube.com/@norcalevs
+
+# SEO
+logo: /NOR_CAL_EV_LOGO.png
+
+# Version
+version: 2025.35

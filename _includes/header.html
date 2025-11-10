@@ -1,0 +1,46 @@
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="{{ site.baseurl }}/" class="nav-logo">
+            <img src="{{ site.baseurl }}/assets/images/logo-200.png"
+                 srcset="{{ site.baseurl }}/assets/images/logo-200.png 200w, {{ site.baseurl }}/assets/images/logo-400.png 400w"
+                 sizes="40px"
+                 alt="{{ site.title }}"
+                 class="nav-logo-img"
+                 loading="eager" />
+            <span>{{ site.title }}</span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav-menu">
+            {% for item in site.data.navigation %}
+                {% if item.submenu %}
+                <li class="dropdown">
+                    <button class="nav-link dropdown-toggle" aria-expanded="false">{{ item.title }}</button>
+                    <ul class="dropdown-menu">
+                        {% for subitem in item.submenu %}
+                        <li><a href="{{ subitem.url }}" {% if subitem.external %}target="_blank"{% endif %}>{{ subitem.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% else %}
+                <li><a href="{{ site.baseurl }}{{ item.url }}" class="nav-link">{{ item.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <div class="nav-social">
+            <a href="https://x.com/NorCalEVs" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X" class="social-icon">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://instagram.com/NorCalEVs" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com/NorCalEVs" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" class="social-icon">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+        </div>
+    </div>
+</nav>

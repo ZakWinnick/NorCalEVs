@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <img src="{{ site.baseurl }}/assets/images/logo-400.png"
+             srcset="{{ site.baseurl }}/assets/images/logo-200.png 200w, {{ site.baseurl }}/assets/images/logo-400.png 400w, {{ site.baseurl }}/assets/images/logo-800.png 800w"
+             sizes="(max-width: 768px) 90vw, 280px"
+             alt="{{ site.title }}"
+             class="logo"
+             loading="eager" />
+        <h1>Driven by Community</h1>
+        <p>Connecting Northern California's Electric Vehicle Enthusiasts</p>
+        <div class="cta-group">
+            <a href="https://heylo.group/norcalevs" class="cta cta-primary">Join the Revolution</a>
+            <a href="#events" class="cta cta-secondary">View Events</a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats reveal">
+    <div class="stats-container">
+        {% for stat in site.data.stats %}
+        <div class="stat-item">
+            <div class="stat-number">{{ stat.number }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about reveal">
+    <div class="container">
+        <div class="section-header">
+            <h2>Accelerating the EV Revolution</h2>
+            <p>Building the Bay Area's most vibrant electric vehicle community</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="about-icon">⚡</div>
+                <h3>United Community</h3>
+                <p>From Tesla to Rivian, Ford to Lucid, we bring together owners of all electric vehicle brands under one unified community.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">🚗</div>
+                <h3>Epic Events</h3>
+                <p>Monthly meetups, scenic drives through California's coastline, tech talks, and exclusive EV showcases that bring our community together.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">🌱</div>
+                <h3>Sustainable Future</h3>
+                <p>Leading the charge toward zero emissions and promoting sustainable transportation solutions across Northern California.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Events Section -->
+<section class="events reveal" id="events">
+    <div class="container">
+        <div class="section-header">
+            <h2>Upcoming Events</h2>
+            <p>Join us for exciting meetups, drives, and community gatherings</p>
+        </div>
+        <div class="calendar-wrapper">
+            <div data-api-key="c5ad21d3-a523-40f1-a13b-8847cf0e27c6"
+                 data-community-id="c7893068-9bd1-4f37-b713-e6907a3ebf60"
+                 id="heylo-event-feed"></div>
+            <script src="https://www.heylo.com/embedded-events.min.js"></script>
+        </div>
+    </div>
+</section>
+
+<!-- Connect Section -->
+<section class="connect reveal">
+    <div class="container">
+        <div class="section-header">
+            <h2>Join the Movement</h2>
+            <p>Connect with us across all platforms</p>
+        </div>
+        <div class="social-grid">
+            {% for social in site.data.social %}
+            <a href="{{ social.url }}" target="_blank" class="social-card">
+                <div class="social-icon">{{ social.icon }}</div>
+                <h3>{{ social.name }}</h3>
+                <p>{{ social.description }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>

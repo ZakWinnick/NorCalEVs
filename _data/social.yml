@@ -1,0 +1,19 @@
+- name: Heylo
+  url: https://heylo.group/norcalevs
+  icon: "📱"
+  description: Our primary community hub
+
+- name: Facebook
+  url: https://www.facebook.com/groups/norcalevs/
+  icon: "👥"
+  description: Join our Facebook group
+
+- name: Instagram
+  url: https://instagram.com/norcalevs
+  icon: "📸"
+  description: Follow our journey
+
+- name: X (Twitter)
+  url: https://x.com/norcalevs
+  icon: "💬"
+  description: Latest updates & news
