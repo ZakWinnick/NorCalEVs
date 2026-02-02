@@ -2,66 +2,143 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Overview
+## Overview
 
-NorCal EVs website - Jekyll-based static site for Northern California's electric vehicle enthusiast community. Hosted on GitHub Pages at norcalevs.org.
+NorCal EVs website - Jekyll-based static site for Northern California's electric vehicle enthusiast community. Live at https://norcalevs.org, deployed via GitHub Pages.
 
-## Build & Development Commands
+## Development Commands
 
 ```bash
 # Install dependencies
 bundle install --path vendor/bundle
 
-# Local development server (http://localhost:4000)
+# Local development (http://localhost:4000)
 bundle exec jekyll serve
 
 # Build for production
 bundle exec jekyll build
 ```
 
-Deployment is automatic via GitHub Pages on push to `main` branch.
+Deployment: Automatic via GitHub Pages on push to `main`.
 
-## Architecture
+## Project Structure
 
-### Layout System
-- `_layouts/default.html` - Base template
-- `_layouts/home.html` - Homepage template
-- `_layouts/page.html` - Standard page template
-- `_includes/header.html`, `footer.html` - Reusable components
-- `_includes/scripts.html` - JavaScript includes
+```
+/
+├── _config.yml              # Site configuration
+├── _layouts/
+│   ├── default.html         # Base template
+│   ├── home.html            # Homepage
+│   └── page.html            # Standard pages
+├── _includes/
+│   ├── head.html            # <head> with meta/fonts/analytics
+│   ├── header.html          # Site header/nav
+│   ├── footer.html          # Site footer
+│   └── scripts.html         # JavaScript includes
+├── _data/
+│   ├── navigation.yml       # Nav menu items
+│   ├── social.yml           # Social media links
+│   └── stats.yml            # Community statistics
+├── assets/
+│   ├── css/
+│   │   ├── variables.css    # CSS custom properties
+│   │   ├── base.css         # Reset and base styles
+│   │   ├── components.css   # Reusable components
+│   │   ├── animations.css   # Animation definitions
+│   │   └── main.css         # Main stylesheet (imports others)
+│   └── images/              # Logos, favicons, hero
+├── index.md                 # Homepage content
+├── membership.md            # Membership page
+├── leaders.md               # Club leaders page
+├── Gemfile                  # Ruby dependencies
+└── CNAME                    # Custom domain
+```
 
-### Content Pages
-- `index.md` - Homepage content
-- `membership.md` - Membership information
-- `leaders.md` - Club leaders page
+## Configuration
 
-### Data Files
-Located in `_data/`:
-- `social.yml` - Social media links
-- `stats.yml` - Community statistics
+Key settings in `_config.yml`:
+- **URL**: `https://norcalevs.org`
+- **Theme**: Custom (no gem theme)
+- **Plugins**: jekyll-feed, jekyll-seo-tag, jekyll-sitemap
+- **Permalink**: `pretty` (no .html extensions)
+- **Version**: `2025.35`
+
+## Design System
 
 ### CSS Architecture
-Modular CSS in `assets/css/`:
-- `variables.css` - CSS custom properties (colors, spacing)
-- `base.css` - Base styles and resets
-- `main.css` - Main stylesheet
-- `animations.css` - Animation definitions
 
-### Design System
+Modular CSS with imports in `main.css`:
+1. `variables.css` - Custom properties (colors, spacing, fonts)
+2. `base.css` - Reset, typography, base elements
+3. `components.css` - Buttons, cards, sections
+4. `animations.css` - Keyframe animations
+
+### Theme
+
 - Modern glassmorphic design with animated gradients
 - Dark theme optimized
 - Mobile-first responsive layout
-- Font Awesome 6.x icons
+- `prefers-color-scheme` media query support
 
-## Brand Colors
+### Typography
 
-CSS variables defined in `assets/css/variables.css`. Dark mode uses `prefers-color-scheme` media queries.
+- Font Awesome 6.x icons via CDN
+- System font stack with fallbacks
 
-## Key Integrations
+## Data Files
 
-- **Heylo**: Event management embed (heylo.group/norcalevs)
-- **Tinylytics**: Analytics
-- **Font Awesome**: Icons via CDN
+### `_data/navigation.yml`
+```yaml
+- title: Home
+  url: /
+- title: Membership
+  url: /membership/
+```
+
+### `_data/social.yml`
+Social platform links and icons.
+
+### `_data/stats.yml`
+Community statistics displayed on homepage.
+
+## External Integrations
+
+| Service | Purpose | Location |
+|---------|---------|----------|
+| Heylo | Event management embed | heylo.group/norcalevs |
+| Tinylytics | Analytics | `_includes/head.html` |
+| Font Awesome | Icons | CDN in `_includes/head.html` |
+| GitHub Pages | Hosting | Automatic on push |
+
+## Adding Content
+
+### New Page
+1. Create `pagename.md` in root
+2. Add front matter:
+   ```yaml
+   ---
+   layout: page
+   title: Page Title
+   permalink: /pagename/
+   ---
+   ```
+
+### Event Collection
+Events can use `_events/` collection (configured but not populated):
+```yaml
+---
+layout: event
+title: Event Name
+date: 2024-01-15
+---
+```
+
+## SEO
+
+- `jekyll-seo-tag` plugin generates meta tags
+- Logo configured for social sharing: `/NOR_CAL_EV_LOGO.png`
+- Twitter card: `summary_large_image`
+- Sitemap auto-generated at `/sitemap.xml`
 
 ## Social Links
 
@@ -69,9 +146,3 @@ CSS variables defined in `assets/css/variables.css`. Dark mode uses `prefers-col
 - Facebook Group: facebook.com/groups/norcalevs
 - Heylo: heylo.group/norcalevs
 - Email: contact@norcalevs.org
-
-## Dependencies
-
-- Jekyll 3.9 (via github-pages gem)
-- jekyll-feed, jekyll-seo-tag, jekyll-sitemap plugins
-- Font Awesome (CDN)
