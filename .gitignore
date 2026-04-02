@@ -29,6 +29,9 @@ yarn.lock
 .env
 .env.local
 
+# Superpowers brainstorming files
+.superpowers/
+
 # Backup files
 *.bak
 *.backup
