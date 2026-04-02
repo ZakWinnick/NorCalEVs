@@ -2,147 +2,89 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Overview
+## Project Overview
 
-NorCal EVs website - Jekyll-based static site for Northern California's electric vehicle enthusiast community. Live at https://norcalevs.org, deployed via GitHub Pages.
+NorCal EVs (norcalevs.org) is a community website for Northern California electric vehicle enthusiasts. It uses a dark glassmorphic design with animated gradients, particle effects, and scroll-triggered reveal animations.
 
-## Development Commands
+## Build & Serve
 
 ```bash
-# Install dependencies
-bundle install --path vendor/bundle
-
-# Local development (http://localhost:4000)
-bundle exec jekyll serve
-
-# Build for production
-bundle exec jekyll build
+bundle install           # First-time dependency setup
+bundle exec jekyll serve # Local dev server at http://localhost:4000
+bundle exec jekyll serve --livereload  # With auto-reload
+JEKYLL_ENV=production bundle exec jekyll build  # Production build to _site/
 ```
 
-Deployment: Automatic via GitHub Pages on push to `main`.
+Jekyll 3.9 with Ruby 2.6+. No test suite.
 
-## Project Structure
+## Deployment
 
-```
-/
-├── _config.yml              # Site configuration
-├── _layouts/
-│   ├── default.html         # Base template
-│   ├── home.html            # Homepage
-│   └── page.html            # Standard pages
-├── _includes/
-│   ├── head.html            # <head> with meta/fonts/analytics
-│   ├── header.html          # Site header/nav
-│   ├── footer.html          # Site footer
-│   └── scripts.html         # JavaScript includes
-├── _data/
-│   ├── navigation.yml       # Nav menu items
-│   ├── social.yml           # Social media links
-│   └── stats.yml            # Community statistics
-├── assets/
-│   ├── css/
-│   │   ├── variables.css    # CSS custom properties
-│   │   ├── base.css         # Reset and base styles
-│   │   ├── components.css   # Reusable components
-│   │   ├── animations.css   # Animation definitions
-│   │   └── main.css         # Main stylesheet (imports others)
-│   └── images/              # Logos, favicons, hero
-├── index.md                 # Homepage content
-├── membership.md            # Membership page
-├── leaders.md               # Club leaders page
-├── Gemfile                  # Ruby dependencies
-└── CNAME                    # Custom domain
-```
+Push to `main` deploys automatically via GitHub Pages. The `CNAME` file maps the custom domain — do not modify it.
 
-## Configuration
+## Architecture
 
-Key settings in `_config.yml`:
-- **URL**: `https://norcalevs.org`
-- **Theme**: Custom (no gem theme)
-- **Plugins**: jekyll-feed, jekyll-seo-tag, jekyll-sitemap
-- **Permalink**: `pretty` (no .html extensions)
-- **Version**: `2025.35`
+### Data-Driven Content
 
-## Design System
+Site content is driven by YAML data files in `_data/`:
+- `navigation.yml` — main nav links and the Social dropdown submenu
+- `social.yml` — social platform cards rendered on the homepage (emoji icons, not Font Awesome)
+- `stats.yml` — community stats counters on the homepage
+
+To add/remove nav items or social links, edit these data files rather than templates.
+
+### Layout Chain
+
+`default.html` → wraps all pages. Includes animated background (`div.animated-bg`, `div.particles`), header, footer, and `scripts.html`.
+
+`home.html` → extends `default`. Contains hero, stats, about cards, Heylo events embed, and social grid. Content sections use `.reveal` class for scroll-triggered fade-in.
+
+`page.html` → extends `default`. Used for `membership.md` and `leaders.md`.
 
 ### CSS Architecture
 
-Modular CSS with imports in `main.css`:
-1. `variables.css` - Custom properties (colors, spacing, fonts)
-2. `base.css` - Reset, typography, base elements
-3. `components.css` - Buttons, cards, sections
-4. `animations.css` - Keyframe animations
+Two CSS systems coexist:
+- **`styles.css`** (root) — the original monolithic stylesheet (navbar, hero, sections, responsive)
+- **`assets/css/`** — modular refactor: `variables.css` (design tokens), `base.css`, `components.css`, `animations.css`, `main.css` (imports all)
 
-### Theme
+`_includes/head.html` determines which stylesheets are loaded. Check there when debugging style issues.
 
-- Modern glassmorphic design with animated gradients
-- Dark theme optimized
-- Mobile-first responsive layout
-- `prefers-color-scheme` media query support
+### Design Tokens
 
-### Typography
+Brand colors and spacing are defined as CSS custom properties in `assets/css/variables.css`:
+- Primary: `#00ff88` (electric green), Secondary: `#0088ff` (blue)
+- Dark background: `#0a0e27`
+- Glassmorphic effects: semi-transparent whites with `backdrop-filter: blur()`
 
-- Font Awesome 6.x icons via CDN
-- System font stack with fallbacks
+### JavaScript
 
-## Data Files
+All JS is inline in `_includes/scripts.html` — no build step, no external JS dependencies. Handles:
+- Particle generation (50 floating dots)
+- Navbar scroll effect (`.scrolled` class at 50px)
+- Mobile hamburger menu toggle
+- Dropdown menu for Social nav
+- Smooth scroll for anchor links
+- Scroll reveal animations (`.reveal` → `.active`)
 
-### `_data/navigation.yml`
-```yaml
-- title: Home
-  url: /
-- title: Membership
-  url: /membership/
-```
+### Analytics
 
-### `_data/social.yml`
-Social platform links and icons.
+Uses Tinylytics (`tinylytics.app`), loaded via script tag in `scripts.html`.
 
-### `_data/stats.yml`
-Community statistics displayed on homepage.
+### Events
 
-## External Integrations
+Heylo event feed is embedded via their JS widget in `home.html` with a hardcoded API key and community ID. This is a third-party embed, not a Jekyll collection (the `_events` collection in `_config.yml` is configured but unused).
 
-| Service | Purpose | Location |
-|---------|---------|----------|
-| Heylo | Event management embed | heylo.group/norcalevs |
-| Tinylytics | Analytics | `_includes/head.html` |
-| Font Awesome | Icons | CDN in `_includes/head.html` |
-| GitHub Pages | Hosting | Automatic on push |
+## Content Pages
 
-## Adding Content
+Pages use Markdown with YAML front matter. The homepage (`index.md`) has minimal content — the `home.html` layout handles all sections. Content pages (`membership.md`, `leaders.md`) use the `page` layout.
 
-### New Page
-1. Create `pagename.md` in root
-2. Add front matter:
-   ```yaml
-   ---
-   layout: page
-   title: Page Title
-   permalink: /pagename/
-   ---
-   ```
+## Key Conventions
 
-### Event Collection
-Events can use `_events/` collection (configured but not populated):
-```yaml
----
-layout: event
-title: Event Name
-date: 2024-01-15
----
-```
+- Dark theme throughout — all new sections should use dark backgrounds with light text
+- Glassmorphic card style: semi-transparent backgrounds, blur, subtle borders
+- Scroll animations: add `.reveal` class to new sections for automatic fade-in
+- Social links use emoji icons (not Font Awesome), defined in `_data/social.yml`
+- Version tracked in `_config.yml` as `version:` field (format: `YYYY.WW`)
 
-## SEO
+## Legacy Files
 
-- `jekyll-seo-tag` plugin generates meta tags
-- Logo configured for social sharing: `/NOR_CAL_EV_LOGO.png`
-- Twitter card: `summary_large_image`
-- Sitemap auto-generated at `/sitemap.xml`
-
-## Social Links
-
-- @norcalevs (Instagram, X/Twitter, YouTube)
-- Facebook Group: facebook.com/groups/norcalevs
-- Heylo: heylo.group/norcalevs
-- Email: contact@norcalevs.org
+The `includes/` directory (without underscore) at the project root contains old `header.html` and `footer.html` from a pre-Jekyll era. The active includes are in `_includes/`.
