@@ -75,7 +75,20 @@ nav.scrolled {
 }
 
 .nav-social-row {
-    display: none;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-left: 4px;
+}
+
+.nav-social-row a {
+    color: var(--text-faint);
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.nav-social-row a:hover {
+    color: var(--green);
 }
 
 /* ─── HERO ─── */
