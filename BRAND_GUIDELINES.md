@@ -19,11 +19,11 @@ The NorCal EVs logo is the primary visual identifier for the brand. It is a circ
 | `NOR_CAL_EV_LOGO.png` | Root directory | Social sharing / Open Graph image |
 
 ### Logo Usage Rules
-- **Always use on dark backgrounds.** The logo is designed for the dark navy (#0a0e27) brand background.
+- **Works on both dark and light backgrounds.** The site uses system-reactive light/dark mode.
 - **Maintain clear space** around the logo equal to at least the height of the "N" in "NorCal."
 - **Do not stretch, distort, or rotate** the logo.
 - **Do not place the logo on busy or low-contrast backgrounds** without a darkened overlay.
-- **Drop shadow effect:** When displayed prominently (hero sections), apply a green glow: `drop-shadow(0 10px 40px rgba(0, 255, 136, 0.3))`.
+- **Drop shadow effect:** When displayed prominently (hero sections), apply: `drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15))`.
 - **Do not add borders, outlines, or additional effects** beyond the approved drop shadow.
 
 ### Favicon
@@ -33,111 +33,87 @@ Favicon variants are provided in `assets/images/` at 16px, 32px, 64px, 192px, an
 
 ## Color Palette
 
-### Primary Colors
+### Brand Colors
 
 | Color | Hex | RGB | Usage |
 |-------|-----|-----|-------|
-| **Electric Green** | `#00ff88` | 0, 255, 136 | Primary brand color. CTAs, accents, highlights, hover states. Represents energy and sustainability. |
-| **Electric Blue** | `#0088ff` | 0, 136, 255 | Secondary brand color. Used alongside green in gradients. Represents technology and innovation. |
-| **Deep Navy** | `#0a0e27` | 10, 14, 39 | Background color. The foundation of the dark theme. |
-| **White** | `#ffffff` | 255, 255, 255 | Primary text color and highlights. |
+| **Primary Green** | `#2B542F` | 43, 84, 47 | Primary brand color. CTAs, accents, eyebrow labels, hover states. Represents sustainability and community. |
+| **Secondary Blue/Teal** | `#3A9AAF` | 58, 154, 175 | Secondary brand color. Used for accents and complementary highlights. Represents technology and innovation. |
+| **White** | `#FFFFFF` | 255, 255, 255 | Text on dark backgrounds, clean surfaces in light mode. |
 
-### Brand Gradient
-The signature NorCal EVs gradient combines Electric Green and Electric Blue:
-```
-linear-gradient(135deg, #00ff88, #0088ff)
-```
-Used for: headings, primary buttons, icon backgrounds, accent lines, and stat counters. This gradient is the most recognizable visual element of the brand after the logo.
+### Theme Colors (System-Reactive)
 
-### Glassmorphic Effects
+The site automatically switches between dark and light mode based on the user's OS preference via `prefers-color-scheme`.
+
+**Dark Mode:**
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| **Glass Surface** | `rgba(255, 255, 255, 0.05)` | Card backgrounds, navbar, translucent panels |
-| **Glass Border** | `rgba(255, 255, 255, 0.1)` | Subtle borders on cards and containers |
-| **Scrolled Navbar** | `rgba(10, 14, 39, 0.95)` | Navbar after scrolling |
-| **Footer** | `rgba(10, 14, 39, 0.95)` | Footer background |
+| `--bg` | `#0e0e1c` | Page background |
+| `--surface` | `#161628` | Cards, elevated sections |
+| `--text` | `#d8d8dc` | Primary text |
+| `--text-muted` | `rgba(216, 216, 220, 0.65)` | Body text, descriptions |
+| `--text-faint` | `rgba(216, 216, 220, 0.35)` | Lowest-priority text |
+| `--border` | `rgba(255, 255, 255, 0.06)` | Dividers, card borders |
 
-### Animated Background Gradient
-The page background is a slow-shifting gradient that creates subtle depth:
-```
-linear-gradient(135deg, #0a0e27 0%, #0f172a 25%, #1e293b 50%, #0f172a 75%, #0a0e27 100%)
-```
-
-### Shadow & Glow
+**Light Mode:**
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| **Green Glow (small)** | `0 10px 30px rgba(0, 255, 136, 0.3)` | Primary buttons, logo |
-| **Green Glow (medium)** | `0 15px 40px rgba(0, 255, 136, 0.4)` | Hover states |
-| **Dark Shadow** | `0 20px 60px rgba(0, 0, 0, 0.3)` | Containers, event embed |
-| **Card Hover Glow** | `0 15px 40px rgba(0, 255, 136, 0.15)` | Card hover states |
+| `--bg` | `#faf9f7` | Page background (warm off-white) |
+| `--surface` | `#ffffff` | Cards, elevated sections |
+| `--text` | `#2a2a3a` | Primary text |
+| `--text-muted` | `rgba(42, 42, 58, 0.65)` | Body text, descriptions |
+| `--text-faint` | `rgba(42, 42, 58, 0.4)` | Lowest-priority text |
+| `--border` | `rgba(0, 0, 0, 0.08)` | Dividers, card borders |
+
+### Shadow
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| **Shadow (dark mode)** | `0 24px 64px rgba(0, 0, 0, 0.25)` | Cards, join checklist |
+| **Shadow (light mode)** | `0 24px 64px rgba(0, 0, 0, 0.06)` | Cards, join checklist |
+| **Button hover** | `0 12px 32px rgba(43, 84, 47, 0.2)` | Primary button hover |
 
 ### Colors to Avoid
-- Do not use the legacy light theme colors (`#ffffff` background, `#333` text, `#0066cc` links) for new content. These exist only in the legacy `styles.css` and are being phased out.
+- Do not use the old electric green (`#00ff88`) or electric blue (`#0088ff`) — these have been replaced.
 - Do not introduce new brand colors without updating the CSS custom properties in `variables.css`.
 
 ---
 
 ## Typography
 
-### Font Stack
-```
--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif
-```
-System fonts are used for fast loading and native platform feel. No external font files are required.
+### Font Families
+- **Headings:** Raleway (Google Fonts) — weights 400, 600, 700, 800
+- **Body:** Source Sans 3 (Google Fonts) — weights 300, 400, 600
 
 ### Type Scale
 
-| Element | Size | Weight | Style |
-|---------|------|--------|-------|
-| **Hero H1** | `clamp(2.5rem, 5vw, 4rem)` | 900 (Black) | Gradient text, tight letter-spacing (-1px) |
-| **Section H2** | `clamp(2rem, 4vw, 3rem)` | Bold | Gradient text |
-| **Card H3** | `1.4rem` | Bold | White |
-| **Body Text** | `1rem` (base) | 400 (Regular) | `rgba(255, 255, 255, 0.7)` — slightly muted |
-| **Hero Tagline** | `1.3rem` | 300 (Light) | `rgba(255, 255, 255, 0.9)` |
-| **Stat Numbers** | `3rem` | 900 (Black) | Gradient text |
-| **Stat Labels** | `1.1rem` | 400 | `rgba(255, 255, 255, 0.7)` |
-| **Navigation** | Inherited | 500 (Medium) | White |
-| **Footer** | Inherited | 400 | `rgba(255, 255, 255, 0.5)` |
-
-### Gradient Text Treatment
-Important headings (H1, H2, stat numbers) use the brand gradient as text fill:
-```css
-background: linear-gradient(135deg, #00ff88, #0088ff);
--webkit-background-clip: text;
-background-clip: text;
--webkit-text-fill-color: transparent;
-```
+| Element | Font | Size | Weight |
+|---------|------|------|--------|
+| **Hero H1** | Raleway | `clamp(44px, 7vw, 76px)` | 800 |
+| **Section H2** | Raleway | `clamp(28px, 4vw, 40px)` | 700 |
+| **Card H3** | Raleway | 20px | 700 |
+| **Eyebrow** | Source Sans 3 | 12-13px | 600, uppercase, 3px letter-spacing |
+| **Body Text** | Source Sans 3 | 15-17px | 400 |
+| **Navigation** | Source Sans 3 | 15px | 400 |
+| **Buttons** | Source Sans 3 | 16px | 600 |
 
 ### Line Height
-- Body text: `1.6`
+- Body text: `1.7`
 - Card content: `1.8`
 
 ---
 
 ## Iconography
 
-### Header Navigation Icons
+### Navigation Social Icons
 The navbar social icons use **Font Awesome 6.x** (loaded via CDN):
-- X/Twitter: `fa-brands fa-x-twitter`
 - Instagram: `fa-brands fa-instagram`
 - Facebook: `fa-brands fa-facebook`
+- X/Twitter: `fa-brands fa-x-twitter`
 
-These are displayed in circular glassmorphic containers (36px diameter) that glow green on hover.
-
-### Homepage Social Cards
-The social cards on the homepage use **emoji icons** (not Font Awesome):
-- Heylo: `📱`
-- Facebook: `👥`
-- Instagram: `📸`
-- X/Twitter: `💬`
-
-### Section Icons
-About section cards use emoji in gradient-filled rounded squares (60px):
-- Community: `⚡`
-- Events: `🚗`
-- Sustainability: `🌱`
+Displayed inline in the nav bar (16px, muted text color, green on hover). On mobile, they appear as a row at the bottom of the hamburger menu (22px, separated by a border-top).
 
 ---
 
@@ -200,29 +176,24 @@ When describing NorCal EVs, lead with these ideas in this order:
 ## UI Components
 
 ### Buttons
-- **Primary CTA:** Pill-shaped (50px radius), gradient fill, green glow shadow. Dark text on gradient background.
-- **Secondary CTA:** Pill-shaped, transparent with glass border. White text, turns green on hover.
+- **Primary:** Green background (`--green`), dark text, 8px radius, `translateY(-1px)` hover with green shadow
+- **Ghost:** Transparent, border outline, muted text, hover darkens border
 
 ### Cards
-- Glassmorphic: `rgba(255, 255, 255, 0.05)` background with `rgba(255, 255, 255, 0.1)` border
-- Rounded corners: `20px`
-- Hover: lift up 5-10px, border turns green, subtle green glow
-- Accent line: 3px gradient bar appears at top on hover
+- Surface background (`--surface`), 1px border (`--border`), 14px radius
+- Hover: `translateY(-3px)`, green border tint, shadow, 3px green top accent line animates in
+- Photo header variant for "What We Do" cards (180px height, `object-fit: cover`)
 
 ### Navigation
-- Fixed position, glassmorphic with `backdrop-filter: blur(20px)`
-- Solidifies to near-opaque (`rgba(10, 14, 39, 0.95)`) on scroll
-- Link hover: gradient underline animates from left to right
-- Social icons in circular glass containers (hidden on mobile)
+- Fixed position, transparent at top, solid `--bg` background after scrolling 50px
+- Logo (36px) + wordmark left, text links + social icons + green "Join Us" button right
+- Mobile: hamburger menu, full-screen slide-in from right, social icons as row at bottom
 
 ### Scroll Animations
-- Sections fade in from below (30px translate, 0.8s ease) when scrolled into view
-- Applied via `.reveal` class, triggered by IntersectionObserver-style JS
-
-### Particles
-- 50 floating dots in Electric Green, 30% opacity
-- Drift upward continuously (20s cycle)
-- Purely decorative background effect
+- Sections fade up (24px translate, 0.8s ease) when entering viewport
+- Applied via `.reveal` class, triggered by IntersectionObserver at 15% threshold
+- Stagger delay on sibling reveals (100ms between children)
+- All animations disabled when `prefers-reduced-motion: reduce`
 
 ---
 
