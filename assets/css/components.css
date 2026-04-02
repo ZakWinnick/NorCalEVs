@@ -61,7 +61,7 @@ nav.scrolled {
 
 .nav-join {
     background: var(--green);
-    color: #0e0e1c !important;
+    color: var(--white) !important;
     padding: 10px 24px;
     border-radius: 8px;
     font-weight: 600 !important;
@@ -576,7 +576,7 @@ footer {
 }
 
 .page-content a.btn-primary {
-    color: #0e0e1c;
+    color: var(--white);
 }
 
 .page-content a.btn-ghost {

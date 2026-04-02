@@ -1,7 +1,7 @@
 /**
  * CSS Custom Properties
  * NorCal EVs — Premium Redesign
- * System-reactive light/dark mode
+ * Single-theme light palette
  */
 
 :root {
@@ -15,17 +15,17 @@
     --white: #FFFFFF;
 
     /* Surfaces */
-    --bg: #151515;
-    --surface: #1f1f1f;
+    --bg: #FFFFFF;
+    --surface: #F5F7F4;
 
     /* Text */
-    --text: #f2f2f2;
-    --text-muted: rgba(242, 242, 242, 0.68);
-    --text-faint: rgba(242, 242, 242, 0.4);
+    --text: #1E2420;
+    --text-muted: rgba(30, 36, 32, 0.68);
+    --text-faint: rgba(30, 36, 32, 0.42);
 
     /* Chrome */
-    --border: rgba(255, 255, 255, 0.08);
-    --shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    --border: rgba(43, 84, 47, 0.12);
+    --shadow: 0 20px 56px rgba(20, 28, 22, 0.08);
 
     /* Typography */
     --heading: 'Raleway', sans-serif;
@@ -34,20 +34,6 @@
     /* Layout */
     --section-pad: 120px;
     --container: 1100px;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --bg: #faf9f7;
-        --surface: #ffffff;
-        --text: #2a2a3a;
-        --text-muted: rgba(42, 42, 58, 0.65);
-        --text-faint: rgba(42, 42, 58, 0.4);
-        --border: rgba(0, 0, 0, 0.08);
-        --shadow: 0 24px 64px rgba(0, 0, 0, 0.06);
-        --green-dim: rgba(43, 84, 47, 0.1);
-        --teal-dim: rgba(58, 154, 175, 0.12);
-    }
 }
 
 @media (max-width: 1024px) {
