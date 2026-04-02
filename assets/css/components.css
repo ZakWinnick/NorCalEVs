@@ -5,12 +5,23 @@
 
 /* ─── NAV ─── */
 nav {
-    padding: 24px 40px;
-    max-width: var(--container);
-    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 100%;
+    z-index: 1000;
+    background: transparent;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav.scrolled {
+    background: var(--bg);
+    box-shadow: 0 1px 0 var(--border);
 }
 
 .nav-brand {
