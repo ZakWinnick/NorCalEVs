@@ -1,32 +1,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-{% if page.title %}
-<title>{{ page.title }} | {{ site.title }}</title>
-{% else %}
-<title>{{ site.title }} | Northern California's Cross-Brand EV Community</title>
-{% endif %}
-
-{% if page.description %}
-<meta name="description" content="{{ page.description }}" />
-{% else %}
-<meta name="description" content="{{ site.description }}" />
-{% endif %}
 <meta name="keywords" content="Electric Vehicles, EV Community, Northern California EVs, NorCal EVs, Cross-Brand EV, Tesla, Rivian, Lucid, Ford, Hyundai, Kia, EV Meetups, EV Drives, NorCal EV Events" />
 <meta name="author" content="{{ site.author }}" />
-
-<!-- Open Graph -->
-<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
-<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
-<meta property="og:image" content="{{ site.url }}{{ site.logo }}" />
-<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-<meta property="og:type" content="website" />
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
-<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
-<meta name="twitter:image" content="{{ site.url }}{{ site.logo }}" />
 
 <!-- Favicon -->
 <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon" />
@@ -50,18 +25,3 @@
 
 <!-- SEO Plugin -->
 {% seo %}
-
-<!-- Structured Data (JSON-LD) -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "{{ site.title }}",
-    "url": "{{ site.url }}",
-    "logo": "{{ site.url }}{{ site.logo }}",
-    "sameAs": [
-        {% for link in site.social.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %}
-    ],
-    "description": "{{ site.description }}"
-}
-</script>
