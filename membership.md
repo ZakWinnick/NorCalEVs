@@ -27,3 +27,45 @@ Whether you drive a Tesla, Rivian, Ford, Lucid, Hyundai, Kia, BMW, Mercedes, Vol
 ### Get Started
 
 Ready to connect? Head over to [Heylo](https://heylo.group/norcalevs) and introduce yourself. Or just show up to the next event — no commitment required.
+
+<!--
+MEMBERSHIP TIERS — Uncomment when pricing goes live
+
+<div class="tier-grid">
+<div class="tier-card">
+<h4>Individual</h4>
+<div class="tier-price">$50 / year</div>
+<ul>
+<li>Full event access and Heylo community</li>
+<li>Member communications and newsletter</li>
+<li>Voting rights on community decisions</li>
+</ul>
+</div>
+<div class="tier-card">
+<h4>Family</h4>
+<div class="tier-price">$90 / year</div>
+<ul>
+<li>Covers two adults and children under 17</li>
+<li>Same benefits as individual for all members</li>
+</ul>
+</div>
+<div class="tier-card">
+<h4>Founding Member</h4>
+<div class="tier-price">$45 first year (limited)</div>
+<ul>
+<li>Available first 6 months only</li>
+<li>Renews at $50/year after first year</li>
+<li>Recognition on website and in Heylo</li>
+<li>Early input on community direction</li>
+</ul>
+</div>
+<div class="tier-card">
+<h4>Lifetime</h4>
+<div class="tier-price">$1,000 one-time</div>
+<ul>
+<li>All individual benefits in perpetuity</li>
+<li>Lifetime recognition on website and Heylo</li>
+</ul>
+</div>
+</div>
+-->
