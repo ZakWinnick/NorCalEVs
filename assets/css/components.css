@@ -63,6 +63,10 @@ nav {
     box-shadow: 0 8px 24px rgba(0, 230, 122, 0.2);
 }
 
+.nav-social-row {
+    display: none;
+}
+
 /* ─── HERO ─── */
 .hero {
     max-width: var(--container);
@@ -591,6 +595,24 @@ footer {
         font-size: 18px;
         padding: 12px 0;
         display: block;
+    }
+
+    .nav-social-row {
+        display: flex;
+        gap: 20px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        margin-top: 8px;
+    }
+
+    .nav-social-row a {
+        font-size: 22px !important;
+        padding: 8px !important;
+        color: var(--text-muted);
+    }
+
+    .nav-social-row a:hover {
+        color: var(--green);
     }
 
     .hero { padding: 64px 24px 0; }
