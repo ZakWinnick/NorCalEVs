@@ -2,83 +2,124 @@
 layout: default
 ---
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-        <img src="{{ site.baseurl }}/assets/images/logo-400.png"
-             srcset="{{ site.baseurl }}/assets/images/logo-200.png 200w, {{ site.baseurl }}/assets/images/logo-400.png 400w, {{ site.baseurl }}/assets/images/logo-800.png 800w"
-             sizes="(max-width: 768px) 90vw, 280px"
-             alt="{{ site.title }}"
-             class="logo"
-             loading="eager" />
-        <h1>Driven by Community</h1>
-        <p>If it plugs in, it belongs here.</p>
-        <div class="cta-group">
-            <a href="https://heylo.group/norcalevs" class="cta cta-primary">Join the Community</a>
-            <a href="#events" class="cta cta-secondary">View Events</a>
+    <img src="{{ site.baseurl }}/assets/images/logo-400.png"
+         srcset="{{ site.baseurl }}/assets/images/logo-200.png 200w, {{ site.baseurl }}/assets/images/logo-400.png 400w"
+         sizes="140px"
+         alt="{{ site.title }}"
+         class="hero-logo"
+         loading="eager" />
+    <div class="hero-eyebrow">Northern California's Cross-Brand EV Community</div>
+    <h1>Driven by<br>Community.</h1>
+    <p class="hero-sub">If it plugs in, it belongs here. No brand requirements, no experience needed &mdash; just good people and good drives.</p>
+    <div class="hero-ctas">
+        <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join Us on Heylo</a>
+        <a href="#events" class="btn btn-ghost">View Events</a>
+    </div>
+</section>
+
+<!-- Hero Image -->
+<div class="hero-image">
+    <img src="{{ site.baseurl }}/assets/images/hero-background.jpg" alt="Northern California landscape">
+</div>
+
+<!-- Brand Strip -->
+<div class="brand-strip">
+    <div class="brand-strip-inner">
+        <span>Tesla</span>
+        <span>Rivian</span>
+        <span>Ford</span>
+        <span>Lucid</span>
+        <span>Hyundai</span>
+        <span>Kia</span>
+        <span>BMW</span>
+        <span>Mercedes</span>
+        <span>Polestar</span>
+        <span>Chevrolet</span>
+    </div>
+</div>
+
+<!-- What We Do -->
+<section class="section reveal">
+    <div class="wwd-header">
+        <div class="eyebrow">What We Do</div>
+        <h2 class="section-title">Events are why we exist.</h2>
+        <p class="section-desc">Everything else &mdash; the website, social media, partnerships &mdash; exists to support getting people together in person.</p>
+    </div>
+    <div class="wwd-grid">
+        <div class="wwd-card reveal">
+            <img class="wwd-card-img" src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80" alt="People gathering at a casual meetup" loading="lazy">
+            <div class="wwd-card-body">
+                <h3>Meetups</h3>
+                <p>Coffee shops, breweries, parks. Show up, meet people, talk cars. No agenda, no pressure.</p>
+                <div class="wwd-freq">Monthly</div>
+            </div>
+        </div>
+        <div class="wwd-card reveal">
+            <img class="wwd-card-img" src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&q=80" alt="Scenic Northern California road" loading="lazy">
+            <div class="wwd-card-body">
+                <h3>Drives</h3>
+                <p>Scenic group drives on NorCal's best roads &mdash; coast, wine country, mountains.</p>
+                <div class="wwd-freq">Every 4&ndash;6 Weeks</div>
+            </div>
+        </div>
+        <div class="wwd-card reveal">
+            <img class="wwd-card-img" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Workshop and learning event" loading="lazy">
+            <div class="wwd-card-body">
+                <h3>Learn &amp; Share</h3>
+                <p>Home charging, road trip planning, mods. Members teaching members.</p>
+                <div class="wwd-freq">Quarterly</div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- About Section -->
-<section class="about reveal">
-    <div class="container">
-        <div class="section-header">
-            <h2>All Brands, One Community</h2>
-            <p>Connecting EV owners, enthusiasts, and the EV-curious across Northern California</p>
-        </div>
-        <div class="about-grid">
-            <div class="about-card">
-                <div class="about-icon">⚡</div>
-                <h3>Cross-Brand by Design</h3>
-                <p>Tesla, Rivian, Ford, Lucid, Hyundai, Kia, and everything in between. The EV community is bigger than any one brand, and the best conversations happen when everyone's in the room.</p>
+<!-- Events -->
+<div class="events-bg" id="events">
+    <section class="section reveal">
+        <div class="events-header">
+            <div>
+                <div class="eyebrow">Upcoming</div>
+                <h2 class="section-title">What's Coming Up</h2>
             </div>
-            <div class="about-card">
-                <div class="about-icon">🚗</div>
-                <h3>Real Events, Real People</h3>
-                <p>Monthly meetups, scenic drives on NorCal's best roads, show and tells, and educational workshops. We get together in person — that's the whole point.</p>
-            </div>
-            <div class="about-card">
-                <div class="about-icon">🌱</div>
-                <h3>Leave It Better</h3>
-                <p>EVs exist because people care about what comes next. That same mindset applies to how we treat our members, our partners, and the communities we're part of.</p>
-            </div>
+            <a href="https://heylo.group/norcalevs" class="events-link" target="_blank" rel="noopener noreferrer">View all on Heylo &rarr;</a>
         </div>
-    </div>
-</section>
-
-<!-- Events Section -->
-<section class="events reveal" id="events">
-    <div class="container">
-        <div class="section-header">
-            <h2>Upcoming Events</h2>
-            <p>Meetups, drives, and community gatherings across Northern California</p>
-        </div>
-        <div class="calendar-wrapper">
+        <div class="events-embed">
             <div data-api-key="c5ad21d3-a523-40f1-a13b-8847cf0e27c6"
                  data-community-id="c7893068-9bd1-4f37-b713-e6907a3ebf60"
                  id="heylo-event-feed"></div>
             <script src="https://www.heylo.com/embedded-events.min.js"></script>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 
-<!-- Connect Section -->
-<section class="connect reveal">
-    <div class="container">
-        <div class="section-header">
-            <h2>Connect With Us</h2>
-            <p>Find us where you are</p>
+<!-- Photo Break -->
+<div class="photo-break-wrapper reveal">
+    <div class="photo-break">
+        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="Electric vehicle charging" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="Northern California coastline" loading="lazy">
+    </div>
+</div>
+
+<!-- Join -->
+<section class="section reveal">
+    <div class="join">
+        <div>
+            <div class="eyebrow">Get Involved</div>
+            <h2 class="join-title">Come as<br>you are.</h2>
+            <p class="join-body">NorCal EVs is free to join. Show up to an event, meet some people, see if it's your thing. No commitment, no sales pitch.</p>
+            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join Us on Heylo</a>
         </div>
-        <div class="social-grid">
-            {% for social in site.data.social %}
-            <a href="{{ social.url }}" target="_blank" class="social-card">
-                <div class="social-icon">{{ social.icon }}</div>
-                <h3>{{ social.name }}</h3>
-                <p>{{ social.description }}</p>
-            </a>
-            {% endfor %}
+        <div class="join-card">
+            <div class="join-card-title">What You Get</div>
+            <ul class="join-list">
+                <li><span class="join-check">&#10003;</span> All EV brands welcome</li>
+                <li><span class="join-check">&#10003;</span> EV-curious? You belong too</li>
+                <li><span class="join-check">&#10003;</span> Events across Northern California</li>
+                <li><span class="join-check">&#10003;</span> Community on Heylo</li>
+                <li><span class="join-check">&#10003;</span> No brand loyalty required</li>
+            </ul>
         </div>
     </div>
 </section>
