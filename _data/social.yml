@@ -1,7 +1,7 @@
 - name: Heylo
   url: https://heylo.group/norcalevs
   icon: "📱"
-  description: Our community hub — events, discussion, and announcements
+  description: Our community hub for events, discussion, and announcements
 
 - name: Facebook
   url: https://www.facebook.com/groups/norcalevs/
@@ -16,4 +16,4 @@
 - name: X (Twitter)
   url: https://x.com/norcalevs
   icon: "💬"
-  description: News, updates, and the broader EV conversation
+  description: News, updates, and broader EV conversation

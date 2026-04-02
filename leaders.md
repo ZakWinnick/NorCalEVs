@@ -6,7 +6,7 @@ description: "Meet the people behind NorCal EVs"
 
 ## Leadership
 
-NorCal EVs is a registered nonprofit organization run by volunteers who care about building the strongest cross-brand EV community in Northern California. Titles exist for clarity, not hierarchy — leaders are the people who make things happen.
+NorCal EVs is a registered nonprofit organization run by volunteers who care about building the strongest cross-brand EV community in Northern California. Titles exist for clarity, not hierarchy. Leaders are the people who make things happen.
 
 ### Board of Directors
 
@@ -19,13 +19,13 @@ As a registered nonprofit, NorCal EVs has a formal board that handles governance
 
 ### Community Leadership Team
 
-This is the operational layer — the people who run NorCal EVs day to day.
+This is the operational layer, the people who run NorCal EVs day to day.
 
-- **Events Lead** — Owns the event calendar and coordinates logistics
-- **Communications Lead** — Manages social media, newsletters, and Heylo announcements
-- **Membership Lead** — Owns the member experience from first visit to ongoing participation
-- **Partnerships Lead** — Builds and maintains relationships with other EV groups and businesses
-- **Regional Leads** — Point people for specific areas across Northern California (as the community grows)
+- **Events Lead**: Owns the event calendar and coordinates logistics
+- **Communications Lead**: Manages social media, newsletters, and Heylo announcements
+- **Membership Lead**: Owns the member experience from first visit to ongoing participation
+- **Partnerships Lead**: Builds and maintains relationships with other EV groups and businesses
+- **Regional Leads**: Point people for specific areas across Northern California, as the community grows
 
 ### What We're About
 
