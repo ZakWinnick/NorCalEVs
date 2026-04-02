@@ -2,20 +2,14 @@
 layout: default
 ---
 
-<section class="hero page-hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-        <h1>{{ page.title }}</h1>
-        {% if page.description %}
-        <p>{{ page.description }}</p>
-        {% endif %}
-    </div>
+<section class="page-hero">
+    <div class="eyebrow">{{ site.title }}</div>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+    <p>{{ page.description }}</p>
+    {% endif %}
 </section>
 
-<section class="content-section reveal">
-    <div class="container">
-        <div class="content-card">
-            {{ content }}
-        </div>
-    </div>
-</section>
+<div class="page-content">
+    {{ content }}
+</div>
