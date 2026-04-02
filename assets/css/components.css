@@ -100,9 +100,9 @@ nav.scrolled {
 }
 
 .hero-logo {
-    height: 168px;
+    height: 192px;
     width: auto;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
 }
 
@@ -840,7 +840,7 @@ footer {
     }
 
     .hero { padding: 64px 24px 0; }
-    .hero-logo { height: 132px; }
+    .hero-logo { height: 148px; }
     .hero-image { padding: 0 24px; }
     .wwd-grid { grid-template-columns: 1fr; }
     .join { grid-template-columns: 1fr; gap: 40px; text-align: center; }
