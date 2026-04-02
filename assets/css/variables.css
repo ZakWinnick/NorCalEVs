@@ -15,8 +15,8 @@
     --white: #FFFFFF;
 
     /* Surfaces */
-    --bg: #FFFFFF;
-    --surface: #F5F7F4;
+    --bg: #F3F3EE;
+    --surface: #FBFBF8;
 
     /* Text */
     --text: #1E2420;
@@ -24,8 +24,8 @@
     --text-faint: rgba(30, 36, 32, 0.42);
 
     /* Chrome */
-    --border: rgba(43, 84, 47, 0.12);
-    --shadow: 0 20px 56px rgba(20, 28, 22, 0.08);
+    --border: rgba(43, 84, 47, 0.14);
+    --shadow: 0 20px 56px rgba(20, 28, 22, 0.07);
 
     /* Typography */
     --heading: 'Raleway', sans-serif;
