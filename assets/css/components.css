@@ -580,6 +580,7 @@ footer {
         list-style: none;
         gap: 8px;
         border-top: 1px solid var(--border);
+        z-index: 1000;
     }
 
     .nav-right.active {
@@ -595,7 +596,8 @@ footer {
     .hero { padding: 64px 24px 0; }
     .hero-image { padding: 0 24px; }
     .wwd-grid { grid-template-columns: 1fr; }
-    .join { grid-template-columns: 1fr; gap: 40px; }
+    .join { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .join .btn-primary { display: inline-block; }
     .brand-strip { padding: 24px; }
     .brand-strip-inner { gap: 20px; }
     .brand-strip span { font-size: 11px; letter-spacing: 1.5px; }
