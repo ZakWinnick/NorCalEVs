@@ -65,8 +65,8 @@ page_class: "membership-page"
             <p>Tesla, Rivian, Ford, Lucid, Hyundai, Kia, BMW, Mercedes, Volkswagen, and everyone else share the same space here.</p>
         </div>
         <div class="membership-card">
-            <h3>Low commitment</h3>
-            <p>Join for free, show up when you can, and decide for yourself whether the community is your kind of thing.</p>
+            <h3>Easy to start</h3>
+            <p>Start with a first event, meet the community, and decide for yourself how involved you want to be over time.</p>
         </div>
     </div>
 </section>
