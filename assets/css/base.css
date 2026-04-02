@@ -18,6 +18,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 .section {
     max-width: var(--container);
     margin: 0 auto;
@@ -80,6 +84,13 @@ body {
 .btn-ghost:hover {
     color: var(--text);
     border-color: rgba(255, 255, 255, 0.15);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+    border-radius: 8px;
 }
 
 @media (prefers-color-scheme: light) {

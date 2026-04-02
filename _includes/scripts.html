@@ -20,17 +20,49 @@
     const menu = document.querySelector('.nav-right');
 
     if (toggle && menu) {
+        const closeMenu = ({ returnFocus = false } = {}) => {
+            menu.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-open');
+            if (returnFocus) toggle.focus();
+        };
+
+        const openMenu = () => {
+            menu.classList.add('active');
+            toggle.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('menu-open');
+        };
+
         toggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
+            const isOpen = menu.classList.contains('active');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        menu.addEventListener('click', (e) => {
+            if (e.target.closest('a')) closeMenu();
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menu.classList.contains('active')) {
+                closeMenu({ returnFocus: true });
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) closeMenu();
         });
     }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (menu && toggle && !menu.contains(e.target) && !toggle.contains(e.target)) {
-            menu.classList.remove('active');
-        }
-    });
 
     // Scroll reveal
     const revealElements = document.querySelectorAll('.reveal');
@@ -44,5 +76,41 @@
         }, { threshold: 0.15 });
 
         revealElements.forEach(el => observer.observe(el));
+    }
+
+    // Events embed fallback if the external widget does not populate
+    const heyloFeed = document.getElementById('heylo-event-feed');
+    const heyloStatus = document.getElementById('heylo-event-status');
+    const heyloFallback = document.getElementById('heylo-event-fallback');
+
+    if (heyloFeed && heyloStatus && heyloFallback) {
+        const feedHasContent = () => heyloFeed.children.length > 0 || heyloFeed.textContent.trim().length > 0;
+
+        const hideFallback = () => {
+            heyloStatus.hidden = true;
+            heyloFallback.hidden = true;
+        };
+
+        const showFallback = () => {
+            if (!feedHasContent()) {
+                heyloStatus.hidden = true;
+                heyloFallback.hidden = false;
+            }
+        };
+
+        const observer = new MutationObserver(() => {
+            if (feedHasContent()) {
+                hideFallback();
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(heyloFeed, { childList: true, subtree: true, characterData: true });
+        if (feedHasContent()) {
+            hideFallback();
+            observer.disconnect();
+        } else {
+            window.setTimeout(showFallback, 3500);
+        }
     }
 </script>

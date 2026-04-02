@@ -100,9 +100,9 @@ nav.scrolled {
 }
 
 .hero-logo {
-    height: 220px;
+    height: 168px;
     width: auto;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
 }
 
@@ -162,30 +162,46 @@ nav.scrolled {
 .brand-strip {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    padding: 28px 40px;
+    padding: 32px 40px;
     max-width: var(--container);
     margin: 0 auto;
+}
+
+.brand-strip-copy {
+    max-width: 760px;
+    margin: 0 auto 20px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-muted);
 }
 
 .brand-strip-inner {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 18px;
     flex-wrap: wrap;
     align-items: center;
 }
 
 .brand-strip span {
-    font-family: var(--heading);
-    font-size: 13px;
+    font-family: var(--body);
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 2.5px;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
-    color: var(--text-faint);
-    transition: color 0.2s;
+    color: var(--text-muted);
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    transition: color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
-.brand-strip span:hover { color: var(--text-muted); }
+.brand-strip span:hover {
+    color: var(--text);
+    border-color: rgba(0, 230, 122, 0.2);
+    transform: translateY(-1px);
+}
 
 /* ─── WHAT WE DO ─── */
 .wwd-header { margin-bottom: 64px; }
@@ -288,14 +304,27 @@ nav.scrolled {
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 56px;
+    min-height: 200px;
+    background: var(--bg);
+}
+
+.events-status {
     text-align: center;
     color: var(--text-faint);
     font-size: 14px;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg);
+    margin-bottom: 24px;
+}
+
+.events-fallback {
+    max-width: 420px;
+    margin: 28px auto 0;
+    text-align: center;
+}
+
+.events-fallback p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 
 /* ─── PHOTO BREAK ─── */
@@ -455,6 +484,7 @@ footer {
     background: none;
     border: none;
     cursor: pointer;
+    padding: 6px;
 }
 
 .hamburger {
@@ -538,6 +568,169 @@ footer {
 
 .page-content a:hover {
     border-bottom-color: var(--green);
+}
+
+.page-content a.btn,
+.page-content a.btn:hover {
+    border-bottom: none;
+}
+
+.page-content a.btn-primary {
+    color: #0e0e1c;
+}
+
+.page-content a.btn-ghost {
+    color: var(--text-muted);
+}
+
+.page-content a.btn-ghost:hover {
+    color: var(--text);
+}
+
+.membership-page.page-hero p {
+    max-width: 620px;
+}
+
+.membership-page.page-content {
+    max-width: var(--container);
+}
+
+.membership-intro-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
+    gap: 32px;
+    align-items: stretch;
+    margin-bottom: 48px;
+    padding: 40px;
+    background: linear-gradient(180deg, var(--surface), var(--bg));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.membership-intro-card h2,
+.membership-note h2 {
+    font-family: var(--heading);
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -1.4px;
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: var(--text);
+}
+
+.membership-lead {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 640px;
+    line-height: 1.75;
+}
+
+.membership-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.membership-sidecard,
+.membership-note {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.membership-sidecard-label {
+    font-family: var(--heading);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--green);
+    margin-bottom: 18px;
+}
+
+.membership-checklist {
+    list-style: none;
+}
+
+.membership-checklist li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.membership-checklist li:last-child {
+    border-bottom: none;
+}
+
+.membership-section {
+    margin-top: 56px;
+}
+
+.membership-section .section-title {
+    margin-top: 0;
+    color: var(--text);
+    max-width: 640px;
+}
+
+.membership-steps,
+.membership-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.membership-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.membership-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    min-height: 100%;
+}
+
+.membership-card h3 {
+    font-family: var(--heading);
+    font-size: 21px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+    letter-spacing: -0.4px;
+}
+
+.membership-card p,
+.membership-note p {
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+.membership-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    margin-bottom: 18px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: var(--green-dim);
+    color: var(--green);
+    font-family: var(--heading);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.membership-note {
+    margin-top: 56px;
+    padding: 40px;
 }
 
 /* ─── MEMBERSHIP TIER CARDS (hidden until pricing is live) ─── */
@@ -647,20 +840,39 @@ footer {
     }
 
     .hero { padding: 64px 24px 0; }
+    .hero-logo { height: 132px; }
     .hero-image { padding: 0 24px; }
     .wwd-grid { grid-template-columns: 1fr; }
     .join { grid-template-columns: 1fr; gap: 40px; text-align: center; }
     .join .btn-primary { display: inline-block; }
     .brand-strip { padding: 24px; }
-    .brand-strip-inner { gap: 20px; }
-    .brand-strip span { font-size: 11px; letter-spacing: 1.5px; }
+    .brand-strip-copy { font-size: 15px; margin-bottom: 18px; }
+    .brand-strip-inner { gap: 12px; }
+    .brand-strip span { font-size: 11px; letter-spacing: 1.2px; padding: 9px 12px; }
     .hero-ctas { flex-direction: column; }
     .btn { width: 100%; max-width: 300px; text-align: center; }
     footer { flex-direction: column; gap: 32px; padding: 40px 24px; }
     .footer-right { gap: 40px; }
     .events-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .events-embed { padding: 32px 20px; }
     .photo-break { grid-template-columns: 1fr; padding: 0 24px; }
     .photo-break img { height: 200px; }
+    .membership-intro-card,
+    .membership-steps,
+    .membership-benefits {
+        grid-template-columns: 1fr;
+    }
+    .membership-intro-card,
+    .membership-note {
+        padding: 28px 24px;
+    }
+    .membership-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .membership-actions .btn {
+        max-width: none;
+    }
     .tier-grid { grid-template-columns: 1fr; }
     .page-hero { padding: 80px 24px 40px; }
     .page-content { padding: 0 24px 64px; }

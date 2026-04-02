@@ -2,31 +2,80 @@
 layout: page
 title: "Membership"
 description: "Join Northern California's cross-brand EV community"
+page_class: "membership-page"
 ---
 
-## Join Us
+<section class="membership-intro-card">
+    <div>
+        <div class="eyebrow">Open Membership</div>
+        <h2>Join the community, then show up.</h2>
+        <p class="membership-lead">NorCal EVs is open to anyone in Northern California who owns, leases, or is interested in electric vehicles. No specific brand, model, or ownership status is required. If you're EV-curious and trying to figure out your first EV, you belong here too.</p>
+        <div class="membership-actions">
+            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join on Heylo</a>
+            <a href="{{ site.baseurl }}/#events" class="btn btn-ghost">View Upcoming Events</a>
+        </div>
+    </div>
+    <div class="membership-sidecard">
+        <div class="membership-sidecard-label">What To Expect</div>
+        <ul class="membership-checklist">
+            <li>Cross-brand community with no loyalty test</li>
+            <li>Meetups, drives, and practical EV conversations</li>
+            <li>A low-pressure way to meet people before you commit</li>
+            <li>Heylo for event details, updates, and discussion</li>
+        </ul>
+    </div>
+</section>
 
-NorCal EVs is open to anyone in Northern California who owns, leases, or is interested in electric vehicles. No specific brand, model, or ownership status is required. If you're EV-curious — thinking about going electric — you're welcome here too.
+<section class="membership-section">
+    <div class="eyebrow">How It Works</div>
+    <h2 class="section-title">Three steps. No friction.</h2>
+    <div class="membership-steps">
+        <div class="membership-card">
+            <div class="membership-step-number">01</div>
+            <h3>Join the Heylo group</h3>
+            <p>That is where event details, discussion, and announcements live. It is the simplest way to plug into the community.</p>
+        </div>
+        <div class="membership-card">
+            <div class="membership-step-number">02</div>
+            <h3>Follow along</h3>
+            <p>Check upcoming meetups, say hello, and get a feel for the kinds of drives and gatherings the group runs.</p>
+        </div>
+        <div class="membership-card">
+            <div class="membership-step-number">03</div>
+            <h3>Come to an event</h3>
+            <p>Show up, meet people, talk cars, chargers, road trips, or whatever else brought you here. No sales pitch. No pressure.</p>
+        </div>
+    </div>
+</section>
 
-### How to Join
+<section class="membership-section">
+    <div class="eyebrow">Why Join</div>
+    <h2 class="section-title">The point is being in the room.</h2>
+    <div class="membership-benefits">
+        <div class="membership-card">
+            <h3>Real community</h3>
+            <p>Access to events and drives built around actual in-person connection, not just posting online.</p>
+        </div>
+        <div class="membership-card">
+            <h3>Useful EV knowledge</h3>
+            <p>Road-trip planning, charging setups, ownership questions, and lessons learned from people already doing it.</p>
+        </div>
+        <div class="membership-card">
+            <h3>All brands welcome</h3>
+            <p>Tesla, Rivian, Ford, Lucid, Hyundai, Kia, BMW, Mercedes, Volkswagen, and everyone else share the same space here.</p>
+        </div>
+        <div class="membership-card">
+            <h3>Low commitment</h3>
+            <p>Join for free, show up when you can, and decide for yourself whether the community is your kind of thing.</p>
+        </div>
+    </div>
+</section>
 
-1. **Join our Heylo community** — [heylo.group/norcalevs](https://heylo.group/norcalevs)
-2. **Follow us on social media** — Stay connected on [Instagram](https://instagram.com/norcalevs), [Facebook](https://www.facebook.com/groups/norcalevs/), and [X](https://x.com/norcalevs)
-3. **Come to an event** — Check out our upcoming meetups and drives
-
-### What You Get
-
-- Access to all NorCal EVs events and drives
-- Membership in the Heylo community — event coordination, discussion, and announcements
-- Connection with EV owners across all brands and experience levels
-
-### All Brands Welcome
-
-Whether you drive a Tesla, Rivian, Ford, Lucid, Hyundai, Kia, BMW, Mercedes, Volkswagen, or any other EV — you belong here. NorCal EVs is cross-brand by design. The community is bigger than any one manufacturer, and the best conversations happen when the whole ecosystem is in the room.
-
-### Get Started
-
-Ready to connect? Head over to [Heylo](https://heylo.group/norcalevs) and introduce yourself. Or just show up to the next event — no commitment required.
+<section class="membership-note">
+    <div class="eyebrow">All Brands Welcome</div>
+    <h2>From Tesla to Kia to “still deciding.”</h2>
+    <p>The community is bigger than any one manufacturer. The best conversations happen when longtime EV owners, first-time buyers, and EV-curious newcomers all end up in the same parking lot.</p>
+</section>
 
 <!--
 MEMBERSHIP TIERS — Uncomment when pricing goes live
