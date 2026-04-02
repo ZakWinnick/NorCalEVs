@@ -417,6 +417,18 @@ footer {
     align-items: flex-start;
 }
 
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    width: 64px;
+    height: auto;
+    margin-bottom: 14px;
+}
+
 .footer-brand {
     font-family: var(--heading);
     font-weight: 700;
