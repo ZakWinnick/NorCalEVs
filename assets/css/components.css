@@ -724,6 +724,144 @@ footer {
     padding: 40px;
 }
 
+/* ─── LEADERS PAGE ─── */
+.leaders-page.page-hero p {
+    max-width: 620px;
+}
+
+.leaders-page.page-content {
+    max-width: var(--container);
+}
+
+.leaders-intro-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+    gap: 32px;
+    align-items: stretch;
+    margin-bottom: 48px;
+    padding: 40px;
+    background: linear-gradient(180deg, var(--surface), var(--bg));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.leaders-intro-card h2,
+.leaders-note h2 {
+    font-family: var(--heading);
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -1.4px;
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: var(--text);
+}
+
+.leaders-lead {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 640px;
+    line-height: 1.75;
+}
+
+.leaders-actions,
+.leaders-contact-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.leaders-sidecard,
+.leaders-note {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.leaders-sidecard-label {
+    font-family: var(--heading);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--teal);
+    margin-bottom: 18px;
+}
+
+.leaders-checklist {
+    list-style: none;
+}
+
+.leaders-checklist li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.leaders-checklist li:last-child {
+    border-bottom: none;
+}
+
+.leaders-section {
+    margin-top: 56px;
+}
+
+.leaders-section .section-title {
+    margin-top: 0;
+    color: var(--text);
+    max-width: 680px;
+}
+
+.leaders-grid,
+.leaders-values {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.leaders-grid-four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.leaders-card,
+.leaders-value-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    min-height: 100%;
+}
+
+.leaders-card-accent {
+    background: linear-gradient(180deg, var(--surface), rgba(var(--teal-rgb), 0.06));
+}
+
+.leaders-card h3,
+.leaders-value-card h3 {
+    font-family: var(--heading);
+    font-size: 21px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+    letter-spacing: -0.4px;
+}
+
+.leaders-card p,
+.leaders-value-card p,
+.leaders-note p {
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+.leaders-note {
+    margin-top: 56px;
+    padding: 40px;
+}
+
 /* ─── MEMBERSHIP TIER CARDS (hidden until pricing is live) ─── */
 .tier-grid {
     display: grid;
@@ -862,6 +1000,25 @@ footer {
         align-items: stretch;
     }
     .membership-actions .btn {
+        max-width: none;
+    }
+    .leaders-intro-card,
+    .leaders-grid,
+    .leaders-grid-four,
+    .leaders-values {
+        grid-template-columns: 1fr;
+    }
+    .leaders-intro-card,
+    .leaders-note {
+        padding: 28px 24px;
+    }
+    .leaders-actions,
+    .leaders-contact-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .leaders-actions .btn,
+    .leaders-contact-links .btn {
         max-width: none;
     }
     .tier-grid { grid-template-columns: 1fr; }
