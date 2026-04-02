@@ -1,9 +1,21 @@
-<!-- Footer -->
 <footer>
-    <div class="footer-content">
-        <div class="footer-bottom">
-            <p>&copy; <span id="year"></span> {{ site.title }}. All rights reserved.</p>
-            <p>Driven by Community. If it plugs in, it belongs here.</p>
+    <div>
+        <div class="footer-brand">{{ site.title }}</div>
+        <div class="footer-tagline">If it plugs in, it belongs here.</div>
+    </div>
+    <div class="footer-right">
+        <div class="footer-col">
+            <h4>Community</h4>
+            <a href="{{ site.baseurl }}/events">Events</a>
+            <a href="{{ site.baseurl }}/membership">Membership</a>
+            <a href="{{ site.baseurl }}/leaders">Leaders</a>
+        </div>
+        <div class="footer-col">
+            <h4>Connect</h4>
+            {% for social in site.data.social %}
+            <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer">{{ social.name }}</a>
+            {% endfor %}
         </div>
     </div>
 </footer>
+<div class="footer-copy">&copy; <span id="year"></span> {{ site.title }}. Driven by Community.</div>
