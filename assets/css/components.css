@@ -71,7 +71,7 @@ nav.scrolled {
 
 .nav-join:hover {
     transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(0, 230, 122, 0.2);
+    box-shadow: 0 8px 24px rgba(var(--green-rgb), 0.2);
 }
 
 .nav-social-row {
@@ -88,7 +88,7 @@ nav.scrolled {
 }
 
 .nav-social-row a:hover {
-    color: var(--green);
+    color: var(--teal);
 }
 
 /* ─── HERO ─── */
@@ -199,7 +199,7 @@ nav.scrolled {
 
 .brand-strip span:hover {
     color: var(--text);
-    border-color: rgba(0, 230, 122, 0.2);
+    border-color: rgba(var(--teal-rgb), 0.25);
     transform: translateY(-1px);
 }
 
@@ -226,7 +226,7 @@ nav.scrolled {
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: var(--green);
+    background: var(--teal);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s ease;
@@ -235,7 +235,7 @@ nav.scrolled {
 
 .wwd-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(0, 230, 122, 0.15);
+    border-color: rgba(var(--teal-rgb), 0.2);
     box-shadow: var(--shadow);
 }
 
@@ -293,7 +293,7 @@ nav.scrolled {
     font-family: var(--body);
     font-size: 14px;
     font-weight: 600;
-    color: var(--green);
+    color: var(--teal);
     text-decoration: none;
     transition: opacity 0.2s;
 }
@@ -405,7 +405,7 @@ nav.scrolled {
 .join-check {
     width: 22px;
     height: 22px;
-    background: var(--green-dim);
+    background: var(--teal-dim);
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -531,7 +531,7 @@ footer {
     letter-spacing: -0.5px;
     margin-top: 48px;
     margin-bottom: 16px;
-    color: var(--green);
+    color: var(--teal);
 }
 
 .page-content h3 {
@@ -560,14 +560,14 @@ footer {
 }
 
 .page-content a {
-    color: var(--green);
+    color: var(--teal);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s;
 }
 
 .page-content a:hover {
-    border-bottom-color: var(--green);
+    border-bottom-color: var(--teal);
 }
 
 .page-content a.btn,
@@ -648,7 +648,7 @@ footer {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--green);
+    color: var(--teal);
     margin-bottom: 18px;
 }
 
@@ -720,8 +720,8 @@ footer {
     margin-bottom: 18px;
     padding: 0 12px;
     border-radius: 999px;
-    background: var(--green-dim);
-    color: var(--green);
+    background: var(--teal-dim);
+    color: var(--teal);
     font-family: var(--heading);
     font-size: 14px;
     font-weight: 700;
@@ -757,7 +757,7 @@ footer {
 
 .tier-price {
     font-size: 14px;
-    color: var(--green);
+    color: var(--teal);
     font-weight: 600;
     margin-bottom: 16px;
 }
@@ -836,7 +836,7 @@ footer {
     }
 
     .nav-social-row a:hover {
-        color: var(--green);
+        color: var(--teal);
     }
 
     .hero { padding: 64px 24px 0; }

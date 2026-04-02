@@ -72,7 +72,7 @@ body.menu-open {
 
 .btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 12px 32px rgba(0, 230, 122, 0.2);
+    box-shadow: 0 12px 32px rgba(var(--green-rgb), 0.2);
 }
 
 .btn-ghost {
