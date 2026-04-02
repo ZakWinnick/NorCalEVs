@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-NorCal EVs (norcalevs.org) is a community website for Northern California electric vehicle enthusiasts. It uses a dark glassmorphic design with animated gradients, particle effects, and scroll-triggered reveal animations.
+NorCal EVs (norcalevs.org) is the website for Northern California's cross-brand EV community — a registered nonprofit connecting EV owners, enthusiasts, and the EV-curious across all brands. It uses a dark glassmorphic design with animated gradients, particle effects, and scroll-triggered reveal animations. See `BRAND_GUIDELINES.md` for voice, color, and language rules. The `NorCal EVs Playbook v1` PDF is the authoritative source for organizational identity, messaging, and operations.
 
 ## Build & Serve
 
@@ -28,7 +28,7 @@ Push to `main` deploys automatically via GitHub Pages. The `CNAME` file maps the
 Site content is driven by YAML data files in `_data/`:
 - `navigation.yml` — main nav links and the Social dropdown submenu
 - `social.yml` — social platform cards rendered on the homepage (emoji icons, not Font Awesome)
-- `stats.yml` — community stats counters on the homepage
+- `stats.yml` — community stats counters (currently not rendered on homepage)
 
 To add/remove nav items or social links, edit these data files rather than templates.
 
@@ -36,7 +36,7 @@ To add/remove nav items or social links, edit these data files rather than templ
 
 `default.html` → wraps all pages. Includes animated background (`div.animated-bg`, `div.particles`), header, footer, and `scripts.html`.
 
-`home.html` → extends `default`. Contains hero, stats, about cards, Heylo events embed, and social grid. Content sections use `.reveal` class for scroll-triggered fade-in.
+`home.html` → extends `default`. Contains hero, about cards, Heylo events embed, and social grid. Content sections use `.reveal` class for scroll-triggered fade-in.
 
 `page.html` → extends `default`. Used for `membership.md` and `leaders.md`.
 
@@ -84,6 +84,14 @@ Pages use Markdown with YAML front matter. The homepage (`index.md`) has minimal
 - Scroll animations: add `.reveal` class to new sections for automatic fade-in
 - Social links use emoji icons (not Font Awesome), defined in `_data/social.yml`
 - Version tracked in `_config.yml` as `version:` field (format: `YYYY.WW`)
+
+## Voice & Language (from Playbook)
+
+- **Tagline:** "Driven by Community. If it plugs in, it belongs here."
+- **Positioning:** "Northern California's cross-brand EV community"
+- Use "community" not "organization" or "club". Use "members" not "users" or "followers". Use "join us" not "sign up". Use "Northern California" not "Bay Area" (unless location-specific).
+- **Never use:** "revolution", "disrupting", "game-changing", "premier", "EV lifestyle", "tribe", excessive exclamation marks
+- Tone: clear, warm, modern, confident, inclusive. Like a friend who knows EVs, not a brand trying to sound like a community.
 
 ## Legacy Files
 

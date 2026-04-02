@@ -1,34 +1,46 @@
 ---
 layout: page
 title: "Our Leaders"
-description: "Meet the folks driving NorCal EVs forward"
+description: "Meet the people behind NorCal EVs"
 ---
 
-## Leadership Team
+## Leadership
 
-NorCal EVs is powered by a passionate group of EV enthusiasts dedicated to building the strongest electric vehicle community in Northern California.
+NorCal EVs is a registered nonprofit organization run by volunteers who care about building the strongest cross-brand EV community in Northern California. Titles exist for clarity, not hierarchy — leaders are the people who make things happen.
 
-### Our Mission
+### Board of Directors
 
-Our leadership team works tirelessly to:
+As a registered nonprofit, NorCal EVs has a formal board that handles governance, finances, legal compliance, and strategic direction.
 
-- Organize engaging events and meetups
-- Foster connections between EV owners across all brands
-- Promote sustainable transportation in Northern California
-- Provide education and resources to the EV community
-- Create memorable experiences for our members
+- **President**
+- **Vice President**
+- **Secretary**
+- **Treasurer**
 
-### Meet the Team
+### Community Leadership Team
 
-Our leadership includes EV owners from diverse backgrounds and brands, all united by a passion for electric vehicles and sustainable transportation. We're a volunteer-run organization committed to making NorCal EVs the premier EV community in the Bay Area.
+This is the operational layer — the people who run NorCal EVs day to day.
 
-### Want to Get Involved?
+- **Events Lead** — Owns the event calendar and coordinates logistics
+- **Communications Lead** — Manages social media, newsletters, and Heylo announcements
+- **Membership Lead** — Owns the member experience from first visit to ongoing participation
+- **Partnerships Lead** — Builds and maintains relationships with other EV groups and businesses
+- **Regional Leads** — Point people for specific areas across Northern California (as the community grows)
 
-We're always looking for passionate community members to help organize events, lead initiatives, and grow our community. If you're interested in taking on a leadership role, reach out to us on [Heylo](https://heylo.group/norcalevs)!
+### What We're About
+
+Our leadership team works to:
+
+- Organize consistent, welcoming events and drives
+- Connect EV owners across all brands and experience levels
+- Support education and resources for the EV community
+- Make it easy for new members to show up and feel like they belong
+
+### Get Involved
+
+We're always looking for community members who want to help organize events, lead initiatives, and grow what we're building. If you're interested, reach out on [Heylo](https://heylo.group/norcalevs).
 
 ### Contact Us
-
-Have questions or suggestions? Connect with our leadership team through:
 
 - **Heylo**: [heylo.group/norcalevs](https://heylo.group/norcalevs)
 - **Instagram**: [@norcalevs](https://instagram.com/norcalevs)

@@ -1,19 +1,19 @@
 - name: Heylo
   url: https://heylo.group/norcalevs
   icon: "📱"
-  description: Our primary community hub
+  description: Our community hub — events, discussion, and announcements
 
 - name: Facebook
   url: https://www.facebook.com/groups/norcalevs/
   icon: "👥"
-  description: Join our Facebook group
+  description: Join the conversation on Facebook
 
 - name: Instagram
   url: https://instagram.com/norcalevs
   icon: "📸"
-  description: Follow our journey
+  description: See what the community looks like in action
 
 - name: X (Twitter)
   url: https://x.com/norcalevs
   icon: "💬"
-  description: Latest updates & news
+  description: News, updates, and the broader EV conversation
