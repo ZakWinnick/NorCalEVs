@@ -266,15 +266,6 @@ nav.scrolled {
     line-height: 1.7;
 }
 
-.wwd-freq {
-    margin-top: 18px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--green);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
 /* ─── EVENTS ─── */
 .events-bg {
     background: var(--surface);
