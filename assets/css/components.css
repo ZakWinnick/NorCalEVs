@@ -621,6 +621,13 @@ footer {
         display: block;
     }
 
+    .nav-join {
+        display: block;
+        text-align: center;
+        padding: 14px 24px !important;
+        margin-top: 8px;
+    }
+
     .nav-social-row {
         display: flex;
         gap: 20px;
