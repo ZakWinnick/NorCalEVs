@@ -175,34 +175,6 @@ nav.scrolled {
     color: var(--text-muted);
 }
 
-.brand-strip-inner {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.brand-strip span {
-    font-family: var(--body);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 10px 14px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: var(--surface);
-    transition: color 0.2s, border-color 0.2s, transform 0.2s;
-}
-
-.brand-strip span:hover {
-    color: var(--text);
-    border-color: rgba(var(--teal-rgb), 0.25);
-    transform: translateY(-1px);
-}
-
 /* ─── WHAT WE DO ─── */
 .wwd-header { margin-bottom: 64px; }
 
@@ -988,8 +960,6 @@ footer {
     .join .btn-primary { display: inline-block; }
     .brand-strip { padding: 24px; }
     .brand-strip-copy { font-size: 15px; margin-bottom: 18px; }
-    .brand-strip-inner { gap: 12px; }
-    .brand-strip span { font-size: 11px; letter-spacing: 1.2px; padding: 9px 12px; }
     .hero-ctas { flex-direction: column; }
     .btn { width: 100%; max-width: 300px; text-align: center; }
     footer { flex-direction: column; gap: 32px; padding: 40px 24px; }
