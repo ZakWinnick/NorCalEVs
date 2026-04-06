@@ -9,20 +9,11 @@ page_class: "leaders-page"
     <div>
         <div class="eyebrow">Leadership</div>
         <h2>Built by members who make things happen.</h2>
-        <p class="leaders-lead">NorCal EVs is a registered nonprofit organization run by volunteers who care about building the strongest cross-brand EV community in Northern California. Titles exist for clarity, not hierarchy. Leadership here means helping the community show up consistently, stay welcoming, and keep moving forward.</p>
+        <p class="leaders-lead">NorCal EVs is run by volunteers who care about building the strongest cross-brand EV community in Northern California. Titles exist for clarity, not hierarchy. Leadership here means helping the community show up consistently, stay welcoming, and keep moving forward.</p>
         <div class="leaders-actions">
             <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Reach Out on Heylo</a>
             <a href="{{ site.baseurl }}/membership" class="btn btn-ghost">See Membership</a>
         </div>
-    </div>
-    <div class="leaders-sidecard">
-        <div class="leaders-sidecard-label">Current State</div>
-        <ul class="leaders-checklist">
-            <li>Leadership structure is defined</li>
-            <li>Individual names will be published as roles are finalized</li>
-            <li>The goal is consistency, not bureaucracy</li>
-            <li>Community members can grow into leadership over time</li>
-        </ul>
     </div>
 </section>
 
