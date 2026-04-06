@@ -107,5 +107,7 @@ page_class: "leaders-page"
         <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Message on Heylo</a>
         <a href="https://instagram.com/norcalevs" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://www.facebook.com/groups/norcalevs/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://x.com/norcalevs" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://bsky.app/profile/norcalevs.org" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Bluesky</a>
     </div>
 </section>
