@@ -19,6 +19,9 @@
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/base.css" />
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/animations.css" />
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/components.css" />
+{% if page.page_class == "store-page" %}
+<script src="{{ site.baseurl }}/assets/js/store.js" defer></script>
+{% endif %}
 
 <!-- Analytics -->
 <script src="https://tinylytics.app/embed/RJmqUry1W4AZBPb6SbJM.js" defer></script>
