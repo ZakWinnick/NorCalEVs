@@ -21,7 +21,9 @@
     }
 
     if (cartToggle) {
-        cartToggle.addEventListener('click', openCartDrawer);
+        cartToggle.addEventListener('click', function () {
+            openCartDrawer();
+        });
     }
     if (drawerClose) {
         drawerClose.addEventListener('click', closeCartDrawer);
