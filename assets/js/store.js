@@ -56,10 +56,10 @@
 
     function addToCart(variantId, quantity) {
         if (!cartId) return createCart(variantId, quantity);
-        return apiFetch('/carts/' + cartId + '/items', {
+        return apiFetch('/carts/' + cartId + '/add', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ variantId: variantId, quantity: quantity }),
+            body: JSON.stringify({ items: [{ variantId: variantId, quantity: quantity }] }),
         }).catch(function (e) {
             if (e.message.indexOf('404') !== -1) return createCart(variantId, quantity);
             throw e;
@@ -79,18 +79,18 @@
     }
 
     function changeQuantity(variantId, quantity) {
-        return apiFetch('/carts/' + cartId + '/items', {
-            method: 'PUT',
+        return apiFetch('/carts/' + cartId + '/change', {
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ variantId: variantId, quantity: quantity }),
+            body: JSON.stringify({ items: [{ variantId: variantId, quantity: quantity }] }),
         });
     }
 
     function removeFromCart(variantId) {
-        return apiFetch('/carts/' + cartId + '/items', {
-            method: 'DELETE',
+        return apiFetch('/carts/' + cartId + '/remove', {
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ variantId: variantId }),
+            body: JSON.stringify({ items: [{ variantId: variantId, quantity: 1 }] }),
         });
     }
 
