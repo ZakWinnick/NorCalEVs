@@ -42,7 +42,7 @@
             }
         }
         if (cartToggle) {
-            cartToggle.hidden = count === 0;
+            cartToggle.parentElement.style.display = count === 0 ? 'none' : '';
         }
     }
     updateCartBadge();
