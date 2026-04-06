@@ -17,3 +17,8 @@
   url: https://x.com/norcalevs
   icon: "💬"
   description: News, updates, and broader EV conversation
+
+- name: Bluesky
+  url: https://bsky.app/profile/norcalevs.org
+  icon: "🦋"
+  description: Follow us on Bluesky
