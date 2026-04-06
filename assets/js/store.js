@@ -173,7 +173,7 @@
             card.className = 'product-card reveal';
             card.setAttribute('tabindex', '0');
             card.setAttribute('role', 'button');
-            card.setAttribute('aria-label', 'View ' + product.name);
+            card.setAttribute('aria-label', 'View ' + stripHtml(product.name));
 
             var isSoldOut = product.state.type === 'SOLD_OUT';
 
@@ -194,7 +194,7 @@
             var img = document.createElement('img');
             img.className = 'product-card-image';
             img.src = product.images[0] ? product.images[0].url : '';
-            img.alt = product.name;
+            img.alt = stripHtml(product.name);
             img.loading = 'lazy';
             card.appendChild(img);
 
@@ -203,7 +203,7 @@
             body.className = 'product-card-body';
 
             var h3 = document.createElement('h3');
-            h3.textContent = product.name;
+            h3.textContent = stripHtml(product.name);
             body.appendChild(h3);
 
             var price = document.createElement('div');
@@ -220,7 +220,7 @@
                     var sw = document.createElement('div');
                     sw.className = 'product-swatch';
                     sw.style.background = c.swatch;
-                    sw.title = c.name;
+                    sw.title = stripHtml(c.name);
                     swatches.appendChild(sw);
                 });
                 body.appendChild(swatches);
@@ -367,10 +367,10 @@
             var el = document.createElement('div');
             el.className = 'color-opt' + (i === 0 ? ' selected' : '');
             el.style.background = color.swatch;
-            el.title = color.name;
+            el.title = stripHtml(color.name);
             el.setAttribute('role', 'radio');
             el.setAttribute('aria-checked', i === 0 ? 'true' : 'false');
-            el.setAttribute('aria-label', color.name);
+            el.setAttribute('aria-label', stripHtml(color.name));
             el.setAttribute('tabindex', '0');
             el.addEventListener('click', function () { selectColorOption(product, color, el); });
             el.addEventListener('keydown', function (e) {
@@ -398,10 +398,10 @@
             var isActive = size.inStock && (size.name === selectedSize || (!foundSelected && !selectedSize));
             var el = document.createElement('div');
             el.className = 'size-opt' + (isActive ? ' selected' : '') + (!size.inStock ? ' disabled' : '');
-            el.textContent = size.name;
+            el.textContent = stripHtml(size.name);
             el.setAttribute('role', 'radio');
             el.setAttribute('aria-checked', isActive ? 'true' : 'false');
-            el.setAttribute('aria-label', size.name + (!size.inStock ? ' (sold out)' : ''));
+            el.setAttribute('aria-label', stripHtml(size.name) + (!size.inStock ? ' (sold out)' : ''));
             el.setAttribute('tabindex', size.inStock ? '0' : '-1');
             if (isActive) { selectedSize = size.name; foundSelected = true; }
             if (size.inStock) {
@@ -431,10 +431,10 @@
         modalAddBtn.classList.remove('loading', 'added');
         modalAddBtn.disabled = product.state.type === 'SOLD_OUT';
 
-        modalTitle.textContent = product.name;
+        modalTitle.textContent = stripHtml(product.name);
         modalDesc.textContent = stripHtml(product.description);
         modalImage.src = product.images[0] ? product.images[0].url : '';
-        modalImage.alt = product.name;
+        modalImage.alt = stripHtml(product.name);
 
         renderThumbnails(product.images);
         renderColorOptions(product);
@@ -512,7 +512,7 @@
             var itemImg = document.createElement('img');
             itemImg.className = 'cart-item-img';
             itemImg.src = v.images && v.images[0] ? v.images[0].url : '';
-            itemImg.alt = v.product.name;
+            itemImg.alt = stripHtml(v.product.name);
             el.appendChild(itemImg);
 
             var info = document.createElement('div');
@@ -520,12 +520,12 @@
 
             var nameEl = document.createElement('div');
             nameEl.className = 'cart-item-name';
-            nameEl.textContent = v.product.name;
+            nameEl.textContent = stripHtml(v.product.name);
             info.appendChild(nameEl);
 
             var varEl = document.createElement('div');
             varEl.className = 'cart-item-variant';
-            varEl.textContent = variantText;
+            varEl.textContent = stripHtml(variantText);
             info.appendChild(varEl);
 
             var bottom = document.createElement('div');

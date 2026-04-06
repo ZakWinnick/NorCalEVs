@@ -49,6 +49,18 @@
     }
     updateCartBadge();
 
+    // Strip HTML tags and decode entities from API strings
+    function stripHtml(str) {
+        if (!str) return '';
+        return str
+            .replace(/<[^>]*>/g, ' ')
+            .replace(/&#(\d+);/g, function (m, code) { return String.fromCharCode(code); })
+            .replace(/&#x([0-9a-fA-F]+);/g, function (m, code) { return String.fromCharCode(parseInt(code, 16)); })
+            .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ')
+            .replace(/\s+/g, ' ').trim();
+    }
+
     // Global cart API and drawer rendering
     var globalCartToken = '{{ site.fourthwall.token }}';
     var globalCheckoutDomain = '{{ site.fourthwall.checkout_domain }}';
@@ -102,7 +114,7 @@
             var img = document.createElement('img');
             img.className = 'cart-item-img';
             img.src = v.images && v.images[0] ? v.images[0].url : '';
-            img.alt = v.product.name;
+            img.alt = stripHtml(v.product.name);
             el.appendChild(img);
 
             var info = document.createElement('div');
@@ -110,12 +122,12 @@
 
             var nameEl = document.createElement('div');
             nameEl.className = 'cart-item-name';
-            nameEl.textContent = v.product.name;
+            nameEl.textContent = stripHtml(v.product.name);
             info.appendChild(nameEl);
 
             var varEl = document.createElement('div');
             varEl.className = 'cart-item-variant';
-            varEl.textContent = parts.join(' \u00B7 ') || 'Standard';
+            varEl.textContent = stripHtml(parts.join(' \u00B7 ') || 'Standard');
             info.appendChild(varEl);
 
             var bottom = document.createElement('div');
