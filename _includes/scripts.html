@@ -49,70 +49,172 @@
     }
     updateCartBadge();
 
-    // Global cart: fetch and render drawer on non-store pages
+    // Global cart API and drawer rendering
     var globalCartToken = '{{ site.fourthwall.token }}';
     var globalCheckoutDomain = '{{ site.fourthwall.checkout_domain }}';
+    var globalApiBase = 'https://storefront-api.fourthwall.com/v1';
+
+    function globalCartApi(path, options) {
+        options = options || {};
+        var sep = path.indexOf('?') !== -1 ? '&' : '?';
+        var url = globalApiBase + path + sep + 'storefront_token=' + globalCartToken;
+        return fetch(url, options).then(function (res) {
+            if (!res.ok) throw new Error('API ' + res.status);
+            return res.json();
+        });
+    }
+
+    function globalRenderDrawer(cart) {
+        var drawerEmpty = document.getElementById('drawer-empty');
+        var drawerFooter = document.getElementById('drawer-footer');
+        var drawerItemsEl = document.getElementById('drawer-items');
+        var drawerSubtotal = document.getElementById('drawer-subtotal');
+        if (!drawerItemsEl) return;
+
+        drawerItemsEl.querySelectorAll('.cart-item').forEach(function (el) { el.remove(); });
+
+        if (!cart || !cart.items || cart.items.length === 0) {
+            if (drawerEmpty) drawerEmpty.hidden = false;
+            if (drawerFooter) drawerFooter.hidden = true;
+            // Update badge to 0
+            localStorage.setItem('ncev_cart_count', '0');
+            updateCartBadge();
+            return;
+        }
+
+        if (drawerEmpty) drawerEmpty.hidden = true;
+        if (drawerFooter) drawerFooter.hidden = false;
+
+        var subtotal = 0;
+        var totalCount = 0;
+        cart.items.forEach(function (item) {
+            var v = item.variant;
+            var lineTotal = v.unitPrice.value * item.quantity;
+            subtotal += lineTotal;
+            totalCount += item.quantity;
+            var parts = [];
+            if (v.attributes.color) parts.push(v.attributes.color.name);
+            if (v.attributes.size) parts.push(v.attributes.size.name);
+
+            var el = document.createElement('div');
+            el.className = 'cart-item';
+
+            var img = document.createElement('img');
+            img.className = 'cart-item-img';
+            img.src = v.images && v.images[0] ? v.images[0].url : '';
+            img.alt = v.product.name;
+            el.appendChild(img);
+
+            var info = document.createElement('div');
+            info.className = 'cart-item-info';
+
+            var nameEl = document.createElement('div');
+            nameEl.className = 'cart-item-name';
+            nameEl.textContent = v.product.name;
+            info.appendChild(nameEl);
+
+            var varEl = document.createElement('div');
+            varEl.className = 'cart-item-variant';
+            varEl.textContent = parts.join(' \u00B7 ') || 'Standard';
+            info.appendChild(varEl);
+
+            var bottom = document.createElement('div');
+            bottom.className = 'cart-item-bottom';
+
+            var priceEl = document.createElement('div');
+            priceEl.className = 'cart-item-price';
+            priceEl.textContent = '$' + lineTotal.toFixed(2);
+            bottom.appendChild(priceEl);
+
+            var controls = document.createElement('div');
+            controls.className = 'cart-item-controls';
+
+            var qtyWrap = document.createElement('div');
+            qtyWrap.className = 'cart-item-qty';
+
+            var minusBtn = document.createElement('button');
+            minusBtn.className = 'cart-qty-btn';
+            minusBtn.setAttribute('aria-label', 'Decrease');
+            minusBtn.textContent = '\u2212';
+            minusBtn.dataset.action = 'minus';
+            minusBtn.dataset.variant = v.id;
+            qtyWrap.appendChild(minusBtn);
+
+            var qtyVal = document.createElement('span');
+            qtyVal.className = 'cart-qty-val';
+            qtyVal.textContent = item.quantity;
+            qtyWrap.appendChild(qtyVal);
+
+            var plusBtn = document.createElement('button');
+            plusBtn.className = 'cart-qty-btn';
+            plusBtn.setAttribute('aria-label', 'Increase');
+            plusBtn.textContent = '+';
+            plusBtn.dataset.action = 'plus';
+            plusBtn.dataset.variant = v.id;
+            qtyWrap.appendChild(plusBtn);
+
+            controls.appendChild(qtyWrap);
+
+            var removeBtn = document.createElement('button');
+            removeBtn.className = 'cart-item-remove';
+            removeBtn.textContent = 'Remove';
+            removeBtn.dataset.variant = v.id;
+            controls.appendChild(removeBtn);
+
+            bottom.appendChild(controls);
+            info.appendChild(bottom);
+            el.appendChild(info);
+            drawerItemsEl.appendChild(el);
+        });
+
+        if (drawerSubtotal) drawerSubtotal.textContent = '$' + subtotal.toFixed(2);
+        localStorage.setItem('ncev_cart_count', String(totalCount));
+        updateCartBadge();
+    }
 
     function globalFetchCart() {
         var cartId = localStorage.getItem('ncev_cart_id');
         if (!cartId) return;
-        fetch('https://storefront-api.fourthwall.com/v1/carts/' + cartId + '?storefront_token=' + globalCartToken)
-            .then(function (res) {
-                if (!res.ok) throw new Error('Cart ' + res.status);
-                return res.json();
-            })
-            .then(function (cart) {
-                if (!cart || !cart.items || cart.items.length === 0) return;
-                var drawerEmpty = document.getElementById('drawer-empty');
-                var drawerFooter = document.getElementById('drawer-footer');
-                var drawerItems = document.getElementById('drawer-items');
-                var drawerSubtotal = document.getElementById('drawer-subtotal');
-                if (!drawerItems) return;
-                drawerItems.querySelectorAll('.cart-item').forEach(function (el) { el.remove(); });
-                if (drawerEmpty) drawerEmpty.hidden = true;
-                if (drawerFooter) drawerFooter.hidden = false;
-                var subtotal = 0;
-                cart.items.forEach(function (item) {
-                    var v = item.variant;
-                    var lineTotal = v.unitPrice.value * item.quantity;
-                    subtotal += lineTotal;
-                    var parts = [];
-                    if (v.attributes.color) parts.push(v.attributes.color.name);
-                    if (v.attributes.size) parts.push(v.attributes.size.name);
-                    var el = document.createElement('div');
-                    el.className = 'cart-item';
-                    var img = document.createElement('img');
-                    img.className = 'cart-item-img';
-                    img.src = v.images && v.images[0] ? v.images[0].url : '';
-                    img.alt = v.product.name;
-                    el.appendChild(img);
-                    var info = document.createElement('div');
-                    info.className = 'cart-item-info';
-                    var name = document.createElement('div');
-                    name.className = 'cart-item-name';
-                    name.textContent = v.product.name;
-                    info.appendChild(name);
-                    var variant = document.createElement('div');
-                    variant.className = 'cart-item-variant';
-                    variant.textContent = parts.join(' \u00B7 ') || 'Standard';
-                    info.appendChild(variant);
-                    var bottom = document.createElement('div');
-                    bottom.className = 'cart-item-bottom';
-                    var price = document.createElement('div');
-                    price.className = 'cart-item-price';
-                    price.textContent = '$' + lineTotal.toFixed(2);
-                    bottom.appendChild(price);
-                    var qty = document.createElement('div');
-                    qty.className = 'cart-item-controls';
-                    qty.textContent = 'Qty: ' + item.quantity;
-                    bottom.appendChild(qty);
-                    info.appendChild(bottom);
-                    el.appendChild(info);
-                    drawerItems.appendChild(el);
-                });
-                if (drawerSubtotal) drawerSubtotal.textContent = '$' + subtotal.toFixed(2);
-            })
+        globalCartApi('/carts/' + cartId)
+            .then(function (cart) { globalRenderDrawer(cart); })
             .catch(function () {});
+    }
+
+    // Drawer event delegation for quantity and remove
+    var globalDrawerItems = document.getElementById('drawer-items');
+    if (globalDrawerItems) {
+        globalDrawerItems.addEventListener('click', function (e) {
+            var qtyBtn = e.target.closest('.cart-qty-btn');
+            var rmBtn = e.target.closest('.cart-item-remove');
+            var cartId = localStorage.getItem('ncev_cart_id');
+            if (!cartId) return;
+
+            if (qtyBtn) {
+                var vid = qtyBtn.dataset.variant;
+                var qtyEl = qtyBtn.parentElement.querySelector('.cart-qty-val');
+                var curQty = parseInt(qtyEl.textContent, 10);
+                if (qtyBtn.dataset.action === 'minus') {
+                    if (curQty <= 1) return;
+                    curQty--;
+                } else {
+                    if (curQty >= 10) return;
+                    curQty++;
+                }
+                globalCartApi('/carts/' + cartId + '/change', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ items: [{ variantId: vid, quantity: curQty }] }),
+                }).then(function (cart) { globalRenderDrawer(cart); }).catch(function () {});
+            }
+
+            if (rmBtn) {
+                globalCartApi('/carts/' + cartId + '/remove', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ items: [{ variantId: rmBtn.dataset.variant, quantity: 1 }] }),
+                }).then(function (cart) { globalRenderDrawer(cart); }).catch(function () {});
+            }
+        });
     }
 
     // Global checkout button handler
