@@ -98,6 +98,11 @@
 
     function formatPrice(n) { return '$' + n.toFixed(2); }
 
+    function stripHtml(str) {
+        if (!str) return '';
+        return str.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
     function getUniqueColors(product) {
         var seen = {};
         var result = [];
@@ -416,7 +421,7 @@
         modalAddBtn.disabled = product.state.type === 'SOLD_OUT';
 
         modalTitle.textContent = product.name;
-        modalDesc.textContent = product.description || '';
+        modalDesc.textContent = stripHtml(product.description);
         modalImage.src = product.images[0] ? product.images[0].url : '';
         modalImage.alt = product.name;
 
