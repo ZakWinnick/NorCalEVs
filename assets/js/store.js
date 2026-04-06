@@ -424,9 +424,7 @@
         renderColorOptions(product);
 
         var colors = getUniqueColors(product);
-        if (colors.length <= 1) {
-            renderSizeOptions(product, colors.length === 1 ? colors[0].name : null);
-        }
+        renderSizeOptions(product, selectedColor);
 
         updateModalPrice();
         modalBackdrop.hidden = false;
