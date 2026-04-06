@@ -93,6 +93,21 @@ layout: default
     </div>
 </div>
 
+<!-- Sponsors -->
+<section class="section reveal">
+    <div class="sponsors">
+        <div class="eyebrow">Our Sponsors</div>
+        <h2 class="section-title">Proudly supported by</h2>
+        <div class="sponsors-grid">
+            {% for sponsor in site.data.sponsors %}
+            <a href="{{ sponsor.url }}" class="sponsor-card" target="_blank" rel="noopener noreferrer">
+                <img src="{{ site.baseurl }}/assets/images/{{ sponsor.logo }}" alt="{{ sponsor.name }}" loading="lazy">
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 <!-- Join -->
 <section class="section reveal">
     <div class="join">
