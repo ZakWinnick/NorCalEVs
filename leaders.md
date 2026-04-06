@@ -19,7 +19,7 @@ page_class: "leaders-page"
 
 <section class="leaders-section">
     <div class="eyebrow">Board Roles</div>
-    <h2 class="section-title">The nonprofit foundation.</h2>
+    <h2 class="section-title">The team that keeps things moving.</h2>
     <div class="leaders-grid leaders-grid-four">
         <div class="leaders-card">
             <h3>President</h3>
