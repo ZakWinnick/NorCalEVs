@@ -310,7 +310,7 @@ nav.scrolled {
 }
 
 /* ─── SPONSORS ─── */
-.sponsors { text-align: center; }
+.sponsors { text-align: center; padding-bottom: 0; margin-bottom: -40px; }
 
 .sponsors-grid {
     display: flex;
