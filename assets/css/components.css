@@ -326,16 +326,11 @@ nav.scrolled {
     align-items: center;
     justify-content: center;
     padding: 24px 32px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
     transition: all 0.3s ease;
 }
 
 .sponsor-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(var(--teal-rgb), 0.2);
-    box-shadow: var(--shadow);
 }
 
 .sponsor-card img {
