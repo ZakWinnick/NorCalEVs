@@ -100,7 +100,18 @@
 
     function stripHtml(str) {
         if (!str) return '';
-        return str.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        return str
+            .replace(/<[^>]*>/g, ' ')
+            .replace(/&#(\d+);/g, function (m, code) { return String.fromCharCode(code); })
+            .replace(/&#x([0-9a-fA-F]+);/g, function (m, code) { return String.fromCharCode(parseInt(code, 16)); })
+            .replace(/&amp;/g, '&')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'")
+            .replace(/&nbsp;/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
     }
 
     function getUniqueColors(product) {
