@@ -104,10 +104,10 @@ page_class: "leaders-page"
     <h2>Interested in helping build this?</h2>
     <p>We are always looking for community members who want to help organize events, welcome new people, and contribute to the next stage of NorCal EVs. If that sounds like you, start the conversation on Heylo or message us on social.</p>
     <div class="leaders-contact-links">
+        <a href="https://bsky.app/profile/norcalevs.org" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Bluesky</a>
+        <a href="https://www.facebook.com/groups/norcalevs/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Message on Heylo</a>
         <a href="https://instagram.com/norcalevs" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.facebook.com/groups/norcalevs/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a href="https://x.com/norcalevs" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="https://bsky.app/profile/norcalevs.org" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Bluesky</a>
     </div>
 </section>
