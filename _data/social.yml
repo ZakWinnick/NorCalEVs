@@ -1,3 +1,8 @@
+- name: Heylo
+  url: https://heylo.group/norcalevs
+  icon: "📱"
+  description: Our community hub for events, discussion, and announcements
+
 - name: Bluesky
   url: https://bsky.app/profile/norcalevs.org
   icon: "🦋"
@@ -7,11 +12,6 @@
   url: https://www.facebook.com/groups/norcalevs/
   icon: "👥"
   description: Join the conversation on Facebook
-
-- name: Heylo
-  url: https://heylo.group/norcalevs
-  icon: "📱"
-  description: Our community hub for events, discussion, and announcements
 
 - name: Instagram
   url: https://instagram.com/norcalevs
