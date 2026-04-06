@@ -1,4 +1,48 @@
 <script>
+    // Global cart icon + drawer toggle
+    const cartToggle = document.getElementById('cart-toggle');
+    const cartBadge = document.getElementById('cart-badge');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+    const drawerClose = cartDrawer ? cartDrawer.querySelector('.drawer-close') : null;
+
+    function openCartDrawer() {
+        if (!cartDrawer || !drawerBackdrop) return;
+        cartDrawer.classList.add('open');
+        drawerBackdrop.hidden = false;
+        document.body.classList.add('menu-open');
+    }
+
+    function closeCartDrawer() {
+        if (!cartDrawer || !drawerBackdrop) return;
+        cartDrawer.classList.remove('open');
+        drawerBackdrop.hidden = true;
+        document.body.classList.remove('menu-open');
+    }
+
+    if (cartToggle) {
+        cartToggle.addEventListener('click', openCartDrawer);
+    }
+    if (drawerClose) {
+        drawerClose.addEventListener('click', closeCartDrawer);
+    }
+    if (drawerBackdrop) {
+        drawerBackdrop.addEventListener('click', closeCartDrawer);
+    }
+
+    // Update cart badge from localStorage
+    function updateCartBadge() {
+        if (!cartBadge) return;
+        const count = parseInt(localStorage.getItem('ncev_cart_count') || '0', 10);
+        if (count > 0) {
+            cartBadge.textContent = count;
+            cartBadge.hidden = false;
+        } else {
+            cartBadge.hidden = true;
+        }
+    }
+    updateCartBadge();
+
     // Set current year
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -54,8 +98,9 @@
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && menu.classList.contains('active')) {
-                closeMenu({ returnFocus: true });
+            if (e.key === 'Escape') {
+                if (menu.classList.contains('active')) closeMenu({ returnFocus: true });
+                closeCartDrawer();
             }
         });
 
