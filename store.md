@@ -20,7 +20,7 @@ page_class: "store-page"
   <div class="store-error" id="store-error" hidden>
     <p>Unable to load products right now.</p>
     <button class="btn btn-ghost" id="store-retry">Try Again</button>
-    <p class="store-error-fallback">Or visit our store directly at <a href="https://norcalevs-shop.fourthwall.com" target="_blank" rel="noopener noreferrer">norcalevs-shop.fourthwall.com</a></p>
+    <p class="store-error-fallback">Or visit our store directly at <a href="https://shop.norcalevs.org" target="_blank" rel="noopener noreferrer">shop.norcalevs.org</a></p>
   </div>
 </section>
 
