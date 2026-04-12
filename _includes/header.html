@@ -14,7 +14,7 @@
     <ul class="nav-right" id="site-nav-menu">
         {% for item in site.data.navigation %}
             {% unless item.submenu %}
-            <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+            <li><a href="{% if item.external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a></li>
             {% endunless %}
         {% endfor %}
         <li class="nav-social-row">
@@ -23,7 +23,6 @@
             <a href="https://instagram.com/norcalevs" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://x.com/norcalevs" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
         </li>
-        <li><button class="nav-cart" id="cart-toggle" aria-label="Open cart" type="button"><i class="fa-solid fa-bag-shopping"></i><span class="cart-badge" id="cart-badge" hidden>0</span></button></li>
         <li><a href="https://heylo.group/norcalevs" class="nav-join" target="_blank" rel="noopener noreferrer">Join Us</a></li>
     </ul>
 </nav>

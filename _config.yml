@@ -75,9 +75,3 @@ logo: /NOR_CAL_EV_LOGO.png
 
 # Version
 version: 2025.35
-
-# Fourthwall Storefront
-fourthwall:
-  token: "ptkn_d9dfa9b2-94b6-4832-aa87-fba88c7065df"
-  checkout_domain: "shop.norcalevs.org"
-  collection: "all"
