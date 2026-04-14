@@ -176,6 +176,13 @@ canvas {
     box-shadow: 0 16px 30px rgba(var(--green-rgb), 0.16);
 }
 
+a.btn-primary,
+a.btn-primary:visited,
+a.btn-primary:hover,
+a.btn-primary:focus-visible {
+    color: var(--white);
+}
+
 .btn-primary:hover {
     box-shadow: 0 20px 34px rgba(var(--green-rgb), 0.22);
 }
