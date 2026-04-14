@@ -179,7 +179,7 @@
 .home-stage {
     width: min(100%, var(--container));
     margin: 0 auto;
-    padding: 56px 40px 0;
+    padding: 88px 40px 0;
     max-width: 100%;
 }
 
@@ -1088,6 +1088,10 @@
 }
 
 @media (max-width: 960px) {
+    .home-stage {
+        padding-top: 64px;
+    }
+
     .site-nav {
         width: min(calc(100% - 24px), var(--container));
         padding: 10px 12px 10px 14px;
@@ -1212,7 +1216,7 @@
     }
 
     .home-stage {
-        padding-top: 38px;
+        padding-top: 44px;
     }
 
     .stage-copy {
