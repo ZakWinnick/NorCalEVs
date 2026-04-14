@@ -21,7 +21,7 @@ body {
         linear-gradient(180deg, var(--bg) 0%, var(--bg-strong) 100%);
     color: var(--text);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     position: relative;
 }
@@ -70,12 +70,22 @@ img {
     max-width: 100%;
 }
 
+iframe,
+svg,
+video,
+canvas {
+    max-width: 100%;
+}
+
 .section,
 .home-stage,
 .page-shell,
-.page-content-wrap {
+.page-content-wrap,
+.site-footer,
+.footer-copy {
     position: relative;
     z-index: 1;
+    overflow-x: clip;
 }
 
 .section {
@@ -190,6 +200,10 @@ button:focus-visible {
 
     .section-title {
         font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .section-desc {
+        font-size: 0.98rem;
     }
 
     .btn {

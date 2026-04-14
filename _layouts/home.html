@@ -9,53 +9,15 @@ layout: default
             <h1>Driven by Community. <span>If it plugs in, it belongs here.</span></h1>
             <p class="stage-sub">NorCal EVs brings owners, enthusiasts, and the EV-curious together across every brand through drives, meetups, and practical conversation across Northern California.</p>
             <div class="stage-actions">
-                <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join Us on Heylo</a>
+                <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Community</a>
                 <a href="#events" class="btn btn-ghost">See Upcoming Events</a>
             </div>
-            <ul class="stage-pillars" aria-label="Community highlights">
-                <li>Meetups that stay easy to join</li>
-                <li>Roads, chargers, and real owner experience</li>
-                <li>A community bigger than any one badge</li>
-            </ul>
         </div>
 
         <div class="stage-visual">
-            <div class="stage-signal">
-                <div class="stage-mark">
-                    <img src="{{ site.baseurl }}/assets/images/logo-400.png"
-                         srcset="{{ site.baseurl }}/assets/images/logo-200.png 200w, {{ site.baseurl }}/assets/images/logo-400.png 400w"
-                         sizes="96px"
-                         alt="{{ site.title }}"
-                         class="stage-logo"
-                         loading="eager" />
-                    <div>
-                        <div class="stage-mark-title">{{ site.title }}</div>
-                        <p>Built around local roads, parking lot conversations, and the people who keep showing up.</p>
-                    </div>
-                </div>
-
-                <div class="stage-route">
-                    <div class="stage-route-label">A Northern California rhythm</div>
-                    <div class="stage-route-stops" aria-hidden="true">
-                        <span>Bay</span>
-                        <span>Delta</span>
-                        <span>Foothills</span>
-                    </div>
-                </div>
-            </div>
-
             <div class="stage-photo-frame">
                 <img src="{{ site.baseurl }}/assets/images/hero-background.jpg" alt="Northern California landscape" class="stage-photo" />
                 <div class="stage-photo-note">The roads are great. The reason people come back is the community.</div>
-            </div>
-
-            <div class="stage-stats" aria-label="Community stats">
-                {% for stat in site.data.stats %}
-                <div class="stage-stat">
-                    <strong>{{ stat.number }}</strong>
-                    <span>{{ stat.label }}</span>
-                </div>
-                {% endfor %}
             </div>
         </div>
     </div>
@@ -73,18 +35,18 @@ layout: default
     <div class="rhythm-grid">
         <article class="rhythm-card">
             <div class="rhythm-index">01</div>
-            <h3>All EVs welcome</h3>
-            <p>Tesla, Rivian, Kia, Ford, Lucid, BMW, Hyundai, or still deciding. The community works because nobody has to pass a brand loyalty test first.</p>
+            <h3>Meetups that stay easy to join</h3>
+            <p>Low-pressure gatherings, good people, and no expectation that you already know everyone or know everything.</p>
         </article>
         <article class="rhythm-card accent">
             <div class="rhythm-index">02</div>
-            <h3>Useful from day one</h3>
-            <p>Charging setup, road trip planning, local shops, ownership lessons, and the little details you usually only learn by asking someone who has already done it.</p>
+            <h3>Real owner experience</h3>
+            <p>Charging setup, road trip planning, local shops, and practical EV knowledge that comes from people who are already doing it.</p>
         </article>
         <article class="rhythm-card">
             <div class="rhythm-index">03</div>
-            <h3>Built to keep moving</h3>
-            <p>Meetups, drives, and community touchpoints across Northern California keep the group grounded in places and people, not just feeds and notifications.</p>
+            <h3>Bigger than any one badge</h3>
+            <p>Tesla, Rivian, Ford, Kia, Lucid, Hyundai, BMW, or still deciding. If it plugs in, you belong here.</p>
         </article>
     </div>
 </section>
@@ -93,14 +55,14 @@ layout: default
     <div class="events-layout">
         <div class="events-copy">
             <div class="eyebrow">Upcoming</div>
-            <h2 class="section-title">Live events, straight from Heylo.</h2>
-            <p class="section-desc">Heylo is where the calendar, updates, and conversations live. If you want the easiest path into the community, start there and then come to a meetup.</p>
+            <h2 class="section-title">See what the community is doing next.</h2>
+            <p class="section-desc">Our online calendar helps members keep up with meetups, drives, and updates. The important part is still showing up in person.</p>
             <ul class="events-points">
                 <li>See what is coming up next</li>
                 <li>Follow event updates and details</li>
                 <li>Meet the community before your first drive</li>
             </ul>
-            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Open Heylo</a>
+            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Community</a>
         </div>
 
         <div class="events-panel">
@@ -109,13 +71,13 @@ layout: default
                 <a href="https://heylo.group/norcalevs" class="events-link" target="_blank" rel="noopener noreferrer">View all events</a>
             </div>
             <div class="events-embed">
-                <div class="events-status" id="heylo-event-status">Loading live events from Heylo...</div>
+                <div class="events-status" id="heylo-event-status">Loading upcoming events...</div>
                 <div id="heylo-event-feed"
                      data-api-key="4655dcc1-deca-40d8-b6df-06ccec55c3f8"
                      data-community-id="c7893068-9bd1-4f37-b713-e6907a3ebf60"></div>
                 <div class="events-fallback" id="heylo-event-fallback" hidden>
-                    <p>The live feed is still available on Heylo if the embedded widget does not load here.</p>
-                    <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Open Events on Heylo</a>
+                    <p>The live calendar is still available if the embedded widget does not load here.</p>
+                    <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View the Calendar</a>
                 </div>
                 <script src="https://www.heylo.com/embedded-events.min.js"></script>
             </div>
@@ -129,7 +91,7 @@ layout: default
             <div class="eyebrow">Stay Connected</div>
             <h2 class="section-title">Use the channel that fits the moment.</h2>
         </div>
-        <p class="section-desc">Heylo is the primary hub, and the rest of the social presence helps people find the community, keep up with events, and stay in the loop between meetups.</p>
+        <p class="section-desc">The community shows up in a few places. Use whichever channel helps you keep up, then come join us in person.</p>
     </div>
 
     <div class="social-grid">
@@ -166,13 +128,13 @@ layout: default
         <div class="join-band-copy">
             <div class="eyebrow">Get Involved</div>
             <h2 class="join-title">The easiest way in is still the best way in.</h2>
-            <p class="join-body">Join the Heylo group, pick an event that feels right, and come say hello. No pressure. No gatekeeping. Just a strong EV community that knows how to make room for new people.</p>
+            <p class="join-body">Join the community online, pick an event that feels right, and come say hello. No pressure. No gatekeeping. Just a strong EV community that knows how to make room for new people.</p>
         </div>
         <div class="join-steps">
             <div class="join-step">
                 <span>01</span>
-                <strong>Join on Heylo</strong>
-                <p>Get event details, updates, and the main community conversation.</p>
+                <strong>Join the community</strong>
+                <p>Start with our online hub for event details, updates, and conversation.</p>
             </div>
             <div class="join-step">
                 <span>02</span>
@@ -184,7 +146,7 @@ layout: default
                 <strong>Show up</strong>
                 <p>Meet people, ask questions, and get a feel for the community in person.</p>
             </div>
-            <a href="https://heylo.group/norcalevs" class="btn btn-primary join-band-button" target="_blank" rel="noopener noreferrer">Join Us on Heylo</a>
+            <a href="https://heylo.group/norcalevs" class="btn btn-primary join-band-button" target="_blank" rel="noopener noreferrer">Join the Community</a>
         </div>
     </div>
 </section>

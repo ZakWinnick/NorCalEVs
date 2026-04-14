@@ -11,7 +11,7 @@ page_class: "membership-page"
         <h2>Join the community, then show up.</h2>
         <p class="membership-lead">NorCal EVs is open to anyone in Northern California who owns, leases, or is interested in electric vehicles. No specific brand, model, or ownership status is required. If you're EV-curious and trying to figure out your first EV, you belong here too.</p>
         <div class="membership-actions">
-            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join on Heylo</a>
+            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Community</a>
             <a href="{{ site.baseurl }}/#events" class="btn btn-ghost">View Upcoming Events</a>
         </div>
     </div>
