@@ -185,8 +185,8 @@
 
 .stage-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
-    gap: 34px;
+    grid-template-columns: minmax(0, 0.98fr) minmax(420px, 0.82fr);
+    gap: 72px;
     align-items: stretch;
     max-width: 100%;
 }
@@ -233,7 +233,6 @@
 .stage-visual {
     display: grid;
     align-items: center;
-    padding-top: 56px;
 }
 
 .stage-photo-frame {
@@ -1075,16 +1074,18 @@
     }
 }
 
+@media (max-width: 1280px) {
+    .stage-grid {
+        gap: 48px;
+    }
+}
+
 @media (max-width: 1100px) {
     .stage-grid,
     .partners-panel,
     .join-band,
     .footer-grid {
         grid-template-columns: 1fr;
-    }
-
-    .stage-visual {
-        padding-top: 0;
     }
 
     .social-grid {
