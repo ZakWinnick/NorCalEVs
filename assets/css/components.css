@@ -233,6 +233,7 @@
 .stage-visual {
     display: grid;
     align-items: center;
+    padding-top: 56px;
 }
 
 .stage-photo-frame {
@@ -1080,6 +1081,10 @@
     .join-band,
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+
+    .stage-visual {
+        padding-top: 0;
     }
 
     .social-grid {
