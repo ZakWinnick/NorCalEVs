@@ -347,6 +347,8 @@
 
 .events-copy .section-title {
     color: var(--white);
+    max-width: 8ch;
+    text-wrap: balance;
 }
 
 .events-copy .section-desc {
@@ -1225,6 +1227,12 @@
         padding: 22px 14px;
     }
 
+    .events-copy .section-title {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+        line-height: 0.98;
+        max-width: 9ch;
+    }
+
     .page-hero h1 {
         font-size: clamp(2.3rem, 11vw, 3.5rem);
         line-height: 0.95;
@@ -1289,6 +1297,29 @@
 
     .stage-photo {
         height: 220px;
+    }
+
+    .events-copy,
+    .events-panel,
+    .stage-photo-frame,
+    .page-hero,
+    .partners-panel,
+    .join-band,
+    .footer-grid,
+    .membership-intro-card,
+    .leaders-intro-card {
+        padding: 20px;
+    }
+
+    .events-copy .section-title {
+        font-size: clamp(1.8rem, 8.5vw, 2.35rem);
+        max-width: 10ch;
+    }
+
+    .events-copy .section-desc,
+    .events-points li {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .footer-brand-link {
