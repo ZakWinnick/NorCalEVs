@@ -243,7 +243,6 @@
     backdrop-filter: blur(16px);
     overflow: hidden;
     padding: 18px;
-    animation: float-panel 7s ease-in-out infinite;
 }
 
 .stage-photo {
