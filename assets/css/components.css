@@ -320,7 +320,7 @@
 
 .events-layout {
     display: grid;
-    grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
+    grid-template-columns: minmax(380px, 0.82fr) minmax(0, 1.18fr);
     gap: 24px;
     align-items: start;
 }
@@ -347,7 +347,7 @@
 
 .events-copy .section-title {
     color: var(--white);
-    max-width: 8ch;
+    max-width: 11ch;
     text-wrap: balance;
 }
 
@@ -1047,11 +1047,16 @@
 }
 
 /* Responsive */
+@media (max-width: 1180px) {
+    .events-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 1100px) {
     .stage-grid,
     .partners-panel,
     .join-band,
-    .events-layout,
     .footer-grid {
         grid-template-columns: 1fr;
     }
