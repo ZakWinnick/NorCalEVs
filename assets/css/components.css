@@ -21,6 +21,7 @@
     backdrop-filter: blur(16px);
     box-shadow: 0 14px 40px rgba(24, 39, 31, 0.06);
     transition: background 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, transform 0.24s ease;
+    max-width: 100%;
 }
 
 .site-nav.scrolled {
@@ -78,6 +79,7 @@
     justify-content: space-between;
     gap: 22px;
     flex: 1;
+    min-width: 0;
 }
 
 .nav-links,
@@ -178,6 +180,7 @@
     width: min(100%, var(--container));
     margin: 0 auto;
     padding: 56px 40px 0;
+    max-width: 100%;
 }
 
 .stage-grid {
@@ -185,6 +188,7 @@
     grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
     gap: 34px;
     align-items: stretch;
+    max-width: 100%;
 }
 
 .stage-copy,
@@ -323,11 +327,14 @@
     grid-template-columns: minmax(380px, 0.82fr) minmax(0, 1.18fr);
     gap: 24px;
     align-items: start;
+    max-width: 100%;
 }
 
 .events-copy,
 .events-panel {
     border-radius: var(--radius-xl);
+    min-width: 0;
+    max-width: 100%;
 }
 
 .events-copy {
@@ -349,6 +356,7 @@
     color: var(--white);
     max-width: 11ch;
     text-wrap: balance;
+    overflow-wrap: anywhere;
 }
 
 .events-copy .section-desc {
@@ -398,6 +406,7 @@
     font-weight: 600;
     color: var(--teal);
     text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
 .events-embed {
@@ -407,17 +416,20 @@
     background: rgba(255, 252, 245, 0.58);
     border: 1px solid rgba(21, 50, 41, 0.08);
     overflow: hidden;
+    max-width: 100%;
 }
 
 #heylo-event-feed {
     width: 100%;
     max-width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
+    min-width: 0;
 }
 
 #heylo-event-feed iframe,
 #heylo-event-feed > * {
     max-width: 100% !important;
+    min-width: 0 !important;
 }
 
 .events-status {
@@ -457,6 +469,7 @@
     text-decoration: none;
     color: inherit;
     transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+    min-width: 0;
 }
 
 .social-card:hover {
@@ -512,6 +525,7 @@
     border: 1px solid rgba(21, 50, 41, 0.1);
     background: rgba(255, 252, 245, 0.72);
     box-shadow: var(--shadow);
+    max-width: 100%;
 }
 
 .sponsors-grid {
@@ -554,6 +568,7 @@
     background: linear-gradient(135deg, rgba(var(--green-rgb), 0.14), rgba(var(--teal-rgb), 0.16) 45%, rgba(255, 252, 245, 0.84) 100%);
     border: 1px solid rgba(21, 50, 41, 0.1);
     box-shadow: var(--shadow);
+    max-width: 100%;
 }
 
 .join-band-copy {
@@ -639,6 +654,7 @@
     background: rgba(19, 53, 45, 0.95);
     color: var(--text-on-dark);
     box-shadow: var(--shadow);
+    max-width: 100%;
 }
 
 .footer-brand-link {
@@ -740,6 +756,7 @@
     border: 1px solid rgba(21, 50, 41, 0.1);
     box-shadow: var(--shadow);
     overflow: hidden;
+    max-width: 100%;
 }
 
 .page-hero::after {
@@ -835,6 +852,7 @@
     border: 1px solid rgba(21, 50, 41, 0.1);
     background: rgba(255, 252, 245, 0.72);
     box-shadow: var(--shadow);
+    max-width: 100%;
 }
 
 .membership-intro-card {
@@ -1099,6 +1117,8 @@
         pointer-events: none;
         transform: translateY(-8px);
         transition: opacity 0.24s ease, transform 0.24s ease;
+        max-width: calc(100vw - 24px);
+        overflow-x: hidden;
     }
 
     .nav-panel.active {
@@ -1176,7 +1196,7 @@
     }
 
     .site-nav {
-        width: calc(100% - 16px);
+        width: calc(100% - 12px);
         padding: 8px 10px 8px 12px;
         border-radius: 28px;
     }
@@ -1226,10 +1246,44 @@
     .events-panel-top {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
     }
 
     .events-embed {
         padding: 22px 14px;
+    }
+
+    .events-copy,
+    .events-panel,
+    .events-embed,
+    .events-panel-top,
+    #heylo-event-feed {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .events-copy .section-title,
+    .events-copy .section-desc,
+    .events-points li,
+    .events-link,
+    .events-kicker {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    #heylo-event-feed {
+        display: none;
+    }
+
+    .events-status {
+        display: none;
+    }
+
+    .events-fallback {
+        display: block;
+        max-width: none;
+        margin-top: 0;
     }
 
     .events-copy .section-title {
@@ -1300,6 +1354,33 @@
         width: calc(100% - 32px);
     }
 
+    .site-nav {
+        width: calc(100% - 8px);
+        margin-top: 8px;
+        padding: 8px 8px 8px 10px;
+    }
+
+    .nav-panel {
+        top: 72px;
+        left: 6px;
+        right: 6px;
+        padding: 18px 16px;
+        max-width: calc(100vw - 12px);
+    }
+
+    .events-embed,
+    .join-steps,
+    .membership-note,
+    .leaders-note,
+    .membership-card,
+    .leaders-card,
+    .leaders-value-card,
+    .social-card,
+    .rhythm-card,
+    .join-step {
+        padding: 18px;
+    }
+
     .stage-photo {
         height: 220px;
     }
@@ -1319,6 +1400,11 @@
     .events-copy .section-title {
         font-size: clamp(1.8rem, 8.5vw, 2.35rem);
         max-width: 10ch;
+    }
+
+    .events-copy,
+    .events-panel {
+        padding: 18px;
     }
 
     .events-copy .section-desc,
