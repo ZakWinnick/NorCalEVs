@@ -15,13 +15,13 @@ page_class: "membership-page"
             <a href="{{ site.baseurl }}/#events" class="btn btn-ghost">View Upcoming Events</a>
         </div>
     </div>
-    <div class="membership-sidecard">
+        <div class="membership-sidecard">
         <div class="membership-sidecard-label">What To Expect</div>
         <ul class="membership-checklist">
             <li>Cross-brand community with no loyalty test</li>
             <li>Meetups, drives, and practical EV conversations</li>
             <li>A low-pressure way to meet people before you commit</li>
-            <li>Heylo for event details, updates, and discussion</li>
+            <li>Our online hub for event details, updates, and discussion</li>
         </ul>
     </div>
 </section>
@@ -32,7 +32,7 @@ page_class: "membership-page"
     <div class="membership-steps">
         <div class="membership-card">
             <div class="membership-step-number">01</div>
-            <h3>Join the Heylo group</h3>
+            <h3>Join the community online</h3>
             <p>That is where event details, discussion, and announcements live. It is the simplest way to plug into the community.</p>
         </div>
         <div class="membership-card">

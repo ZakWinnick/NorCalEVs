@@ -11,7 +11,7 @@ page_class: "leaders-page"
         <h2>Built by members who make things happen.</h2>
         <p class="leaders-lead">NorCal EVs is run by volunteers who care about building the strongest cross-brand EV community in Northern California. Titles exist for clarity, not hierarchy. Leadership here means helping the community show up consistently, stay welcoming, and keep moving forward.</p>
         <div class="leaders-actions">
-            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Reach Out on Heylo</a>
+            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Reach Out</a>
             <a href="{{ site.baseurl }}/membership" class="btn btn-ghost">See Membership</a>
         </div>
     </div>
@@ -23,7 +23,7 @@ page_class: "leaders-page"
     <div class="leaders-grid leaders-grid-four">
         <div class="leaders-card">
             <h3>President</h3>
-            <p>Sets direction, keeps momentum, and helps make sure the organization stays aligned with its mission.</p>
+            <p>Sets direction, keeps momentum, and helps make sure the community stays aligned with its mission.</p>
         </div>
         <div class="leaders-card">
             <h3>Vice President</h3>
@@ -31,7 +31,7 @@ page_class: "leaders-page"
         </div>
         <div class="leaders-card">
             <h3>Secretary</h3>
-            <p>Maintains records, documentation, and board communication so the organization stays organized and accountable.</p>
+            <p>Maintains records, documentation, and board communication so the community stays organized and accountable.</p>
         </div>
         <div class="leaders-card">
             <h3>Treasurer</h3>
@@ -50,7 +50,7 @@ page_class: "leaders-page"
         </div>
         <div class="leaders-card">
             <h3>Communications Lead</h3>
-            <p>Manages social media, newsletters, and community announcements across Heylo and other channels.</p>
+            <p>Manages social media, newsletters, and community announcements across our online hub and other channels.</p>
         </div>
         <div class="leaders-card">
             <h3>Membership Lead</h3>
@@ -93,9 +93,9 @@ page_class: "leaders-page"
 <section class="leaders-note">
     <div class="eyebrow">Get Involved</div>
     <h2>Interested in helping build this?</h2>
-    <p>We are always looking for community members who want to help organize events, welcome new people, and contribute to the next stage of NorCal EVs. If that sounds like you, start the conversation on Heylo or message us on social.</p>
+    <p>We are always looking for community members who want to help organize events, welcome new people, and contribute to the next stage of NorCal EVs. If that sounds like you, start the conversation in our online hub or message us on social.</p>
     <div class="leaders-contact-links">
-        <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Message on Heylo</a>
+        <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Start the Conversation</a>
         <a href="https://bsky.app/profile/norcalevs.org" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Bluesky</a>
         <a href="https://www.facebook.com/groups/norcalevs/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a href="https://instagram.com/norcalevs" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Instagram</a>
