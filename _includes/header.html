@@ -1,28 +1,42 @@
-<nav>
-    <a href="{{ site.baseurl }}/" class="nav-brand">
-        <img src="{{ site.baseurl }}/assets/images/logo-200.png"
-             alt="{{ site.title }}"
-             class="nav-logo"
-             loading="eager" />
-        {{ site.title }}
+<nav class="site-nav">
+    <a href="{{ site.baseurl }}/" class="nav-brand" aria-label="{{ site.title }} home">
+        <span class="nav-brand-mark">
+            <img src="{{ site.baseurl }}/assets/images/logo-200.png"
+                 alt="{{ site.title }}"
+                 class="nav-logo"
+                 loading="eager" />
+        </span>
+        <span class="nav-brand-text">
+            <span class="nav-brand-name">{{ site.title }}</span>
+            <span class="nav-brand-tag">Driven by Community</span>
+        </span>
     </a>
+
     <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav-menu">
         <span class="hamburger"></span>
         <span class="hamburger"></span>
         <span class="hamburger"></span>
     </button>
-    <ul class="nav-right" id="site-nav-menu">
-        {% for item in site.data.navigation %}
-            {% unless item.submenu %}
-            <li><a href="{% if item.external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a></li>
-            {% endunless %}
-        {% endfor %}
-        <li class="nav-social-row">
-            <a href="https://bsky.app/profile/norcalevs.org" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
-            <a href="https://www.facebook.com/groups/norcalevs" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://instagram.com/norcalevs" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://x.com/norcalevs" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-        </li>
-        <li><a href="https://heylo.group/norcalevs" class="nav-join" target="_blank" rel="noopener noreferrer">Join Us</a></li>
-    </ul>
+
+    <div class="nav-panel" id="site-nav-menu">
+        <ul class="nav-links">
+            {% for item in site.data.navigation %}
+                {% unless item.submenu %}
+                <li>
+                    <a href="{% if item.external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a>
+                </li>
+                {% endunless %}
+            {% endfor %}
+        </ul>
+
+        <div class="nav-meta">
+            <div class="nav-social-row">
+                <a href="https://bsky.app/profile/norcalevs.org" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+                <a href="https://www.facebook.com/groups/norcalevs" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com/norcalevs" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/norcalevs" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <a href="https://heylo.group/norcalevs" class="nav-join" target="_blank" rel="noopener noreferrer">Join Us on Heylo</a>
+        </div>
+    </div>
 </nav>

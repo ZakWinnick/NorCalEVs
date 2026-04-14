@@ -3,10 +3,10 @@
 <head>
     {% include head.html %}
 </head>
-<body>
+<body class="{% if page.layout %}layout-{{ page.layout }}{% endif %}{% if page.page_class %} {{ page.page_class }}{% endif %}">
     {% include header.html %}
 
-    <main>
+    <main id="top">
         {{ content }}
     </main>
 

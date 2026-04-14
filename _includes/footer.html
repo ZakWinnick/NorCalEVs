@@ -1,25 +1,39 @@
-<footer>
-    <div class="footer-left">
-        <img src="{{ site.baseurl }}/assets/images/logo-200.png"
-             alt="{{ site.title }}"
-             class="footer-logo"
-             loading="lazy" />
-        <div class="footer-brand">{{ site.title }}</div>
-        <div class="footer-tagline">If it plugs in, it belongs here.</div>
-    </div>
-    <div class="footer-right">
-        <div class="footer-col">
-            <h4>Community</h4>
-            <a href="{{ site.baseurl }}/#events">Events</a>
-            <a href="{{ site.baseurl }}/membership">Membership</a>
-            <a href="{{ site.baseurl }}/leaders">Leaders</a>
-            <a href="https://shop.norcalevs.org" target="_blank" rel="noopener noreferrer">Shop</a>
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-brand-block">
+            <a href="{{ site.baseurl }}/" class="footer-brand-link">
+                <img src="{{ site.baseurl }}/assets/images/logo-200.png"
+                     alt="{{ site.title }}"
+                     class="footer-logo"
+                     loading="lazy" />
+                <div>
+                    <div class="footer-brand">{{ site.title }}</div>
+                    <div class="footer-tagline">If it plugs in, it belongs here.</div>
+                </div>
+            </a>
+            <p class="footer-blurb">Northern California's cross-brand EV community for owners, enthusiasts, and the EV-curious.</p>
         </div>
-        <div class="footer-col">
-            <h4>Connect</h4>
-            {% for social in site.data.social %}
-            <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer">{{ social.name }}</a>
-            {% endfor %}
+
+        <div class="footer-cta-card">
+            <div class="footer-card-label">Start Here</div>
+            <p>Join the Heylo group, find an event, and meet the community in person.</p>
+            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join Us on Heylo</a>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>Community</h4>
+                <a href="{{ site.baseurl }}/#events">Events</a>
+                <a href="{{ site.baseurl }}/membership">Membership</a>
+                <a href="{{ site.baseurl }}/leaders">Leaders</a>
+                <a href="https://shop.norcalevs.org" target="_blank" rel="noopener noreferrer">Shop</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                {% for social in site.data.social %}
+                <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer">{{ social.name }}</a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </footer>

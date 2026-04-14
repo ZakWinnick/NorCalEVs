@@ -1,45 +1,56 @@
 /**
  * CSS Custom Properties
- * NorCal EVs — Premium Redesign
- * Single-theme light palette
+ * NorCal EVs redesign
  */
 
 :root {
-    /* Brand */
     --green: #2B542F;
     --green-rgb: 43, 84, 47;
-    --green-dim: rgba(43, 84, 47, 0.14);
+    --green-deep: #173328;
     --teal: #3A9AAF;
     --teal-rgb: 58, 154, 175;
-    --teal-dim: rgba(58, 154, 175, 0.14);
-    --white: #FFFFFF;
+    --sand: #d6c7a1;
+    --sand-rgb: 214, 199, 161;
+    --cream: #f4efe3;
+    --white: #fffdf8;
 
-    /* Surfaces */
-    --bg: #F3F3EE;
-    --surface: #FBFBF8;
+    --bg: #ece6d8;
+    --bg-strong: #e4dcc9;
+    --surface: rgba(255, 252, 245, 0.78);
+    --surface-strong: #13352d;
+    --surface-soft: #e3ece1;
+    --panel: #f8f3e8;
 
-    /* Text */
-    --text: #1E2420;
-    --text-muted: rgba(30, 36, 32, 0.68);
-    --text-faint: rgba(30, 36, 32, 0.42);
+    --text: #153229;
+    --text-muted: rgba(21, 50, 41, 0.74);
+    --text-faint: rgba(21, 50, 41, 0.5);
+    --text-on-dark: rgba(255, 252, 245, 0.92);
 
-    /* Chrome */
-    --border: rgba(43, 84, 47, 0.14);
-    --shadow: 0 20px 56px rgba(20, 28, 22, 0.07);
+    --border: rgba(21, 50, 41, 0.12);
+    --border-strong: rgba(21, 50, 41, 0.22);
+    --shadow: 0 28px 70px rgba(23, 39, 33, 0.12);
+    --shadow-soft: 0 18px 40px rgba(23, 39, 33, 0.08);
 
-    /* Typography */
-    --heading: 'Raleway', sans-serif;
-    --body: 'Source Sans 3', sans-serif;
+    --heading: 'Space Grotesk', sans-serif;
+    --body: 'Instrument Sans', sans-serif;
 
-    /* Layout */
-    --section-pad: 120px;
-    --container: 1100px;
+    --container: 1180px;
+    --narrow: 760px;
+    --section-pad: 112px;
+    --radius-xl: 34px;
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
 }
 
 @media (max-width: 1024px) {
-    :root { --section-pad: 80px; }
+    :root {
+        --section-pad: 88px;
+    }
 }
 
 @media (max-width: 768px) {
-    :root { --section-pad: 64px; }
+    :root {
+        --section-pad: 72px;
+    }
 }
