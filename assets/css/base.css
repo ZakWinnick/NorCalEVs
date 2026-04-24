@@ -11,7 +11,6 @@
 }
 
 html {
-    scroll-behavior: smooth;
     width: 100%;
 }
 
@@ -63,11 +62,13 @@ body.menu-open {
     overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    body::before,
-    body::after {
-        display: none;
-    }
+/* Decorative fixed + blur pseudo-elements force GPU repaints on every scroll
+   frame. Kill them on every breakpoint — the body already carries a radial
+   gradient in its base background so removing them costs almost nothing
+   visually and eliminates desktop and mobile scroll jank. */
+body::before,
+body::after {
+    display: none;
 }
 
 main,

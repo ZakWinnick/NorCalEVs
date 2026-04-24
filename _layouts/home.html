@@ -54,10 +54,9 @@ layout: default
             </div>
         </div>
         <div class="brand-tile" data-brand="ford">
-            <img src="{{ site.baseurl }}/assets/images/community/brand-f150-lightning.jpg" alt="Ford F-150 Lightning" class="brand-tile-img" loading="lazy" />
+            <img src="{{ site.baseurl }}/assets/images/community/brand-ford.jpg" alt="Ford" class="brand-tile-img" loading="lazy" />
             <div class="brand-tile-overlay">
                 <span class="brand-tile-label">Ford</span>
-                <span class="brand-tile-sub">F-150 Lightning</span>
             </div>
         </div>
     </div>
@@ -70,7 +69,6 @@ layout: default
             <div class="eyebrow">Upcoming</div>
             <h2 class="section-title">See what the community is doing next.</h2>
             <p class="section-desc">Meetups, drives, show &amp; tells, and education events, posted as they're scheduled. All members welcome, and the first event is always free.</p>
-            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Community</a>
         </div>
 
         <div class="events-panel">
@@ -93,15 +91,6 @@ layout: default
     </div>
 </section>
 
-<section class="section invite-band reveal">
-    <div class="invite-inner">
-        <div class="eyebrow">The easiest way in</div>
-        <h2 class="invite-title">Show up once. No pressure.</h2>
-        <p class="invite-body">Grab a coffee, meet a few people, see what the community feels like in person. That's the entire pitch.</p>
-        <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Community</a>
-    </div>
-</section>
-
 <section class="section partners-section reveal">
     <div class="partners-panel">
         <div class="partners-copy">
@@ -119,14 +108,3 @@ layout: default
     </div>
 </section>
 
-<section class="section social-row-section reveal">
-    <p class="social-row-label">Use whichever channel fits the moment.</p>
-    <div class="social-row">
-        {% for social in site.data.social %}
-        <a href="{{ social.url }}" class="social-chip" target="_blank" rel="noopener noreferrer">
-            <span class="social-chip-icon" aria-hidden="true">{{ social.icon }}</span>
-            <span class="social-chip-name">{{ social.name }}</span>
-        </a>
-        {% endfor %}
-    </div>
-</section>
