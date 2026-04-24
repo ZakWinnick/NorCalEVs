@@ -510,12 +510,21 @@
 #heylo-event-feed {
     width: 100%;
     max-width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden;
     min-width: 0;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    touch-action: pan-x;
+}
+
+@media (min-width: 769px) {
+    /* Only create a horizontal scroll zone on desktop, where a stylus or
+       trackpad can use it. On mobile iOS, the horizontal scroll container
+       was intercepting vertical drags and making the whole page feel stuck. */
+    #heylo-event-feed {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        touch-action: pan-x;
+    }
 }
 
 #heylo-event-feed iframe,
@@ -1359,14 +1368,20 @@
         padding: 10px 12px 10px 14px;
         margin-top: 12px;
         gap: 12px;
-        /* Drop backdrop-filter on mobile — blur on a sticky element repaints
-           every scroll frame and causes stuck-feeling scroll on iOS Safari */
+        /* On mobile: drop sticky + backdrop-filter entirely. Sticky elements
+           with blur are the single biggest cause of stuck-feeling scroll on
+           iOS Safari. Nav scrolls away with the page, which on a phone is
+           fine — user can scroll to top to reach nav again. */
+        position: static;
         backdrop-filter: none;
         background: rgba(var(--card-rgb), 0.96);
     }
 
+    /* No visual change on mobile scroll — keeps the compositor idle */
     .site-nav.scrolled {
-        background: rgba(var(--card-rgb), 1);
+        background: rgba(var(--card-rgb), 0.96);
+        border-color: rgba(var(--ink-rgb), 0.1);
+        box-shadow: 0 14px 40px rgba(24, 39, 31, 0.06);
     }
 
     .nav-brand {

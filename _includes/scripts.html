@@ -3,19 +3,30 @@
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Navbar scroll effect
+    // Navbar scroll effect — idempotent, only touches the DOM on threshold cross
     const navbar = document.querySelector('.site-nav');
     if (navbar) {
+        let isScrolled = false;
+        let ticking = false;
+
         const syncNavScroll = () => {
-            if (window.scrollY > 24) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+            const shouldBeScrolled = window.scrollY > 24;
+            if (shouldBeScrolled !== isScrolled) {
+                navbar.classList.toggle('scrolled', shouldBeScrolled);
+                isScrolled = shouldBeScrolled;
+            }
+            ticking = false;
+        };
+
+        const onScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(syncNavScroll);
+                ticking = true;
             }
         };
 
         syncNavScroll();
-        window.addEventListener('scroll', syncNavScroll, { passive: true });
+        window.addEventListener('scroll', onScroll, { passive: true });
     }
 
     // Mobile menu toggle
