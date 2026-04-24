@@ -1368,16 +1368,12 @@
         padding: 10px 12px 10px 14px;
         margin-top: 12px;
         gap: 12px;
-        /* On mobile: drop sticky + backdrop-filter entirely. Sticky elements
-           with blur are the single biggest cause of stuck-feeling scroll on
-           iOS Safari. Nav scrolls away with the page, which on a phone is
-           fine — user can scroll to top to reach nav again. */
-        position: static;
         backdrop-filter: none;
         background: rgba(var(--card-rgb), 0.96);
     }
 
-    /* No visual change on mobile scroll — keeps the compositor idle */
+    /* No visual change on mobile scroll — keeps the compositor idle so the
+       sticky nav isn't repainting every frame */
     .site-nav.scrolled {
         background: rgba(var(--card-rgb), 0.96);
         border-color: rgba(var(--ink-rgb), 0.1);
