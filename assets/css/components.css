@@ -482,7 +482,7 @@
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--text-faint);
+    color: rgba(var(--on-dark-rgb), 0.56);
 }
 
 .events-link {
@@ -493,13 +493,16 @@
     overflow-wrap: anywhere;
 }
 
+/* The Heylo embed renders its own light event cards; isolate it so our
+   dark-parent cream text color does not cascade in and turn white-on-white. */
 .events-embed {
     flex: 1;
     min-height: 280px;
     padding: 32px 28px;
     border-radius: calc(var(--radius-xl) - 8px);
-    background: rgba(var(--card-rgb), 0.58);
-    border: 1px solid rgba(var(--ink-rgb), 0.08);
+    background: #fbf8f1;
+    border: 1px solid rgba(21, 50, 41, 0.08);
+    color: #1e2420;
     overflow: hidden;
     max-width: 100%;
 }
@@ -512,6 +515,7 @@
     min-width: 0;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
+    color: #1e2420;
 }
 
 #heylo-event-feed iframe,
@@ -522,7 +526,7 @@
 
 .events-status {
     text-align: center;
-    color: var(--text-faint);
+    color: rgba(21, 50, 41, 0.6);
     margin-bottom: 16px;
 }
 
@@ -530,6 +534,11 @@
     max-width: 420px;
     margin: 28px auto 0;
     text-align: center;
+    color: #1e2420;
+}
+
+.events-fallback p {
+    color: rgba(21, 50, 41, 0.72);
 }
 
 .events-fallback p {
