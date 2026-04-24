@@ -500,15 +500,11 @@
     border-radius: calc(var(--radius-xl) - 8px);
     background: rgba(var(--card-rgb), 0.58);
     border: 1px solid rgba(var(--ink-rgb), 0.08);
+    /* Break the cream cascade from .events-layout so Heylo-injected text
+       picks up a theme-appropriate color instead of white-on-white */
+    color: var(--text);
     overflow: hidden;
     max-width: 100%;
-}
-
-/* Heylo injects its own white event cards regardless of our theme, so force
-   dark text inside the widget only. Parent embed wrapper stays theme-aware. */
-#heylo-event-feed,
-#heylo-event-feed * {
-    color: #1e2420;
 }
 
 #heylo-event-feed {
