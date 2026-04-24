@@ -17,16 +17,17 @@ bundle exec jekyll serve --livereload  # With auto-reload
 JEKYLL_ENV=production bundle exec jekyll build  # Production build to _site/
 ```
 
-Jekyll 3.9 with Ruby 3.x (intended via rbenv at `~/.rbenv/versions/3.1.6`). The system Ruby (2.6) is too old.
+Jekyll 3.9 with Ruby 3.3.11 via rbenv. Project pins the version in `.ruby-version`, which rbenv honors automatically. System Ruby (2.6) is too old.
 
-**Local Ruby is currently broken.** The rbenv 3.1.6 install is missing the `socket` stdlib module, and the Bundler 2.3 the system ships with can't read the Bundler 4.0.9 lockfile. Workaround that does work:
+First-time setup on a fresh machine:
 
 ```bash
-# Use Homebrew's Ruby 4.0.2 with gems installed to user dir
-PATH="/Users/zakwinnick/.gem/ruby/4.0.0/bin:/opt/homebrew/opt/ruby/bin:$PATH" \
-  jekyll serve --port 4000 --host 127.0.0.1 --livereload
-# Temporarily rename Gemfile + Gemfile.lock to .bak first so Jekyll skips Bundler
+rbenv install 3.3.11        # or whatever matches .ruby-version
+gem install bundler -v 4.0.9  # version bundled with Gemfile.lock
+bundle install              # installs gems to ./vendor/bundle (gitignored)
 ```
+
+The project was previously pinned to Ruby 3.1.6, but 3.1 reached EOL in March 2026 and ruby-build's newer install logic (20260327+) ships 3.1.x without the `socket` stdlib module, which breaks Bundler and Jekyll. 3.3.11 is the active LTS track and installs cleanly.
 
 No test suite.
 
