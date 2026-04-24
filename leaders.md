@@ -9,7 +9,7 @@ page_class: "leaders-page"
     <div>
         <div class="eyebrow">Leadership</div>
         <h2>Built by members who make things happen.</h2>
-        <p class="leaders-lead">NorCal EVs is run by volunteers who care about building the strongest cross-brand EV community in Northern California. Titles exist for clarity, not hierarchy. Leadership here means helping the community show up consistently, stay welcoming, and keep moving forward.</p>
+        <p class="leaders-lead">NorCal EVs is a registered 501(c)(7) community run by volunteers who care about building the strongest cross-brand EV community in Northern California. Titles exist for clarity, not hierarchy. Leadership here means helping the community show up consistently, stay welcoming, and keep moving forward.</p>
         <div class="leaders-actions">
             <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Reach Out</a>
             <a href="{{ site.baseurl }}/membership" class="btn btn-ghost">See Membership</a>
@@ -18,8 +18,9 @@ page_class: "leaders-page"
 </section>
 
 <section class="leaders-section">
-    <div class="eyebrow">Board Roles</div>
+    <div class="eyebrow">Board of Directors</div>
     <h2 class="section-title">The team that keeps things moving.</h2>
+    <p class="board-meta">The board handles governance, finances, legal compliance, and strategic direction. It meets at least quarterly.</p>
     <div class="leaders-grid leaders-grid-four">
         <div class="leaders-card">
             <h3>President</h3>
@@ -41,59 +42,49 @@ page_class: "leaders-page"
 </section>
 
 <section class="leaders-section">
-    <div class="eyebrow">Community Team</div>
+    <div class="eyebrow">Community Leadership Team</div>
     <h2 class="section-title">The people who run the day-to-day work.</h2>
     <div class="leaders-grid">
         <div class="leaders-card">
             <h3>Events Lead</h3>
-            <p>Owns the calendar, coordinates logistics, and makes sure meetups and drives actually happen.</p>
+            <p>Owns the event calendar, coordinates logistics, and makes sure meetups and drives actually happen on schedule.</p>
         </div>
         <div class="leaders-card">
             <h3>Communications Lead</h3>
-            <p>Manages social media, newsletters, and community announcements across our online hub and other channels.</p>
+            <p>Manages social media, email and newsletter, and community announcements across our online hub.</p>
         </div>
         <div class="leaders-card">
             <h3>Membership Lead</h3>
-            <p>Owns the member experience from first interest through repeat participation and long-term engagement.</p>
+            <p>Owns the member experience from sign-up to renewal — welcoming new members and keeping people engaged.</p>
         </div>
         <div class="leaders-card">
             <h3>Partnerships Lead</h3>
-            <p>Builds relationships with other EV groups, local businesses, and aligned community partners.</p>
+            <p>Builds and maintains relationships with other EV groups, local businesses, and aligned community partners.</p>
         </div>
         <div class="leaders-card">
             <h3>Regional Leads</h3>
-            <p>Serve as point people in different parts of Northern California as the community expands geographically.</p>
-        </div>
-        <div class="leaders-card leaders-card-accent">
-            <h3>More Roles Over Time</h3>
-            <p>As NorCal EVs grows, additional leadership roles can be added where they help the community operate better.</p>
+            <p>Point people for specific NorCal areas as the community grows beyond any one city or corridor.</p>
         </div>
     </div>
 </section>
 
 <section class="leaders-section">
-    <div class="eyebrow">What Leadership Means</div>
-    <h2 class="section-title">The job is to make the community stronger.</h2>
-    <div class="leaders-values">
-        <div class="leaders-value-card">
-            <h3>Consistency</h3>
-            <p>Run events regularly, communicate clearly, and make NorCal EVs feel dependable.</p>
-        </div>
-        <div class="leaders-value-card">
-            <h3>Welcoming Culture</h3>
-            <p>Make it easy for new people to show up, ask questions, and feel like they belong.</p>
-        </div>
-        <div class="leaders-value-card">
-            <h3>Cross-Brand Focus</h3>
-            <p>Keep the community broader than any one manufacturer, owner group, or social circle.</p>
-        </div>
-    </div>
+    <div class="eyebrow">Leadership Expectations</div>
+    <h2 class="section-title">What we ask of anyone stepping up.</h2>
+    <ul class="leadership-expectations">
+        <li>Be an active, dues-paying member</li>
+        <li>Attend events regularly, not just organize them</li>
+        <li>Respond to communications within 48 hours</li>
+        <li>Follow through on commitments</li>
+        <li>Represent NorCal EVs values in how they show up</li>
+        <li>Ask for help when they need it</li>
+    </ul>
 </section>
 
 <section class="leaders-note">
     <div class="eyebrow">Get Involved</div>
     <h2>Interested in helping build this?</h2>
-    <p>We are always looking for community members who want to help organize events, welcome new people, and contribute to the next stage of NorCal EVs. If that sounds like you, start the conversation in our online hub or message us on social.</p>
+    <p>We're always looking for community members who want to help organize events, welcome new people, and contribute to the next stage of NorCal EVs. If that sounds like you, start the conversation in our online hub or message us on social.</p>
     <div class="leaders-contact-links">
         <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Start the Conversation</a>
         <a href="https://bsky.app/profile/norcalevs.org" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Bluesky</a>

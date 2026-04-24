@@ -34,7 +34,7 @@ Site content is driven by YAML data files in `_data/`:
 
 `default.html` → wraps all pages. Includes head, header, footer, and scripts.
 
-`home.html` → extends `default`. Contains: hero (logo + tagline + CTAs) → hero image → brand strip → What We Do cards → Heylo events embed → photo break → join section.
+`home.html` → extends `default`. Contains: hero split (logo + photo + tagline + CTAs) → About paragraph with 501(c)(7) mention → cross-brand typographic strip (Tesla/Rivian/Lucid/Ford tiles) → Heylo events embed → single invitation callout → Community Partners (sponsors) → compact social row.
 
 `page.html` → extends `default`. Used for `membership.md` and `leaders.md`. Supports `page_class` front matter for page-specific CSS scoping (e.g., `membership-page`, `leaders-page`).
 
@@ -74,7 +74,7 @@ Heylo event feed embedded via their JS widget in `home.html` with a hardcoded AP
 
 The homepage (`index.md`) has minimal front matter — the `home.html` layout handles all sections. Inner pages (`membership.md`, `leaders.md`) use the `page` layout with custom HTML sections and page-specific CSS classes.
 
-Membership page has commented-out tier cards (Individual $50/yr, Family $90/yr, Founding Member $45, Lifetime $1,000) ready to uncomment when pricing goes live.
+Membership page shows the playbook's four live tiers: Base Model (free), Standard Range ($5/mo), Long Range ($50/yr, marked "Best Value"), and Max Pack ($500 lifetime). Includes a placeholder note about a time-limited founding member coupon at launch. All CTAs still point to Heylo — no payment provider is wired up yet.
 
 ## Voice & Language (from Playbook)
 
