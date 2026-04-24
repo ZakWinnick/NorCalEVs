@@ -1,6 +1,6 @@
 # NorCal EVs Brand Guidelines
 
-Official brand reference for NorCal EVs — Northern California's cross-brand EV community.
+Official brand reference for NorCal EVs: Northern California's cross-brand EV community.
 
 ---
 
@@ -76,7 +76,7 @@ The site automatically switches between dark and light mode based on the user's 
 | **Button hover** | `0 12px 32px rgba(43, 84, 47, 0.2)` | Primary button hover |
 
 ### Colors to Avoid
-- Do not use the old electric green (`#00ff88`) or electric blue (`#0088ff`) — these have been replaced.
+- Do not use the old electric green (`#00ff88`) or electric blue (`#0088ff`): these have been replaced.
 - Do not introduce new brand colors without updating the CSS custom properties in `variables.css`.
 
 ---
@@ -84,8 +84,8 @@ The site automatically switches between dark and light mode based on the user's 
 ## Typography
 
 ### Font Families
-- **Headings:** Raleway (Google Fonts) — weights 400, 600, 700, 800
-- **Body:** Source Sans 3 (Google Fonts) — weights 300, 400, 600
+- **Headings:** Raleway (Google Fonts): weights 400, 600, 700, 800
+- **Body:** Source Sans 3 (Google Fonts): weights 300, 400, 600
 
 ### Type Scale
 
@@ -122,11 +122,11 @@ Displayed inline in the nav bar (16px, muted text color, green on hover). On mob
 NorCal EVs should sound like a friend who knows a lot about EVs and genuinely wants you to come hang out. Confident but not loud. Knowledgeable but not preachy. Welcoming but not desperate.
 
 ### Voice Attributes
-- **Clear** — Say what you mean. No jargon, no filler.
-- **Warm** — This is a community, not a company. Human, approachable, genuinely inviting.
-- **Modern** — Current without chasing trends. No outdated slang, no corporate buzzwords.
-- **Confident** — NorCal EVs knows what it is. No overselling or hype.
-- **Inclusive** — Every EV owner and every curious person is welcome, regardless of brand, budget, or experience level.
+- **Clear**: Say what you mean. No jargon, no filler.
+- **Warm**: This is a community, not a company. Human, approachable, genuinely inviting.
+- **Modern**: Current without chasing trends. No outdated slang, no corporate buzzwords.
+- **Confident**: NorCal EVs knows what it is. No overselling or hype.
+- **Inclusive**: Every EV owner and every curious person is welcome, regardless of brand, budget, or experience level.
 
 ### Official Tagline
 **"Driven by Community. If it plugs in, it belongs here."**
@@ -137,10 +137,10 @@ The first half speaks to identity. The second half speaks to inclusivity. Use in
 
 | Context | Sounds Like | Doesn't Sound Like |
 |---------|-------------|---------------------|
-| Event announcement | "Join us Saturday at Oxbow Market — all EVs welcome, coffee's on us." | "Don't miss this EPIC gathering of EV enthusiasts!!!" |
+| Event announcement | "Join us Saturday at Oxbow Market: all EVs welcome, coffee's on us." | "Don't miss this EPIC gathering of EV enthusiasts!!!" |
 | Social post | "First drive of the year. Twelve cars, three brands, one great road." | "We're THRILLED to announce our latest community activation event!" |
 | Website copy | "No brand requirements. Just good people and good drives." | "Join the revolution and be part of the movement!" |
-| New member | "Welcome in — what do you drive?" | "We're so excited to have another member join our amazing community!" |
+| New member | "Welcome in: what do you drive?" | "We're so excited to have another member join our amazing community!" |
 
 ### Language Guide
 
@@ -155,21 +155,21 @@ The first half speaks to identity. The second half speaks to inclusivity. Use in
 | "connect" | "network" |
 
 ### Language to Avoid
-- "Revolution" / "Join the revolution" — overused, doesn't feel authentic
-- "Disrupting" / "game-changing" — startup language, not community language
-- "EV lifestyle" — vague
-- "Tribe" — dated and culturally loaded
-- "Content creator" language — NorCal EVs is not a media brand
-- "Premier" — corporate-sounding
+- "Revolution" / "Join the revolution": overused, doesn't feel authentic
+- "Disrupting" / "game-changing": startup language, not community language
+- "EV lifestyle": vague
+- "Tribe": dated and culturally loaded
+- "Content creator" language: NorCal EVs is not a media brand
+- "Premier": corporate-sounding
 - Excessive exclamation marks or ALL CAPS enthusiasm
 - Any language that implies you need to already be an EV expert to belong
 
 ### Messaging Hierarchy
 When describing NorCal EVs, lead with these ideas in this order:
-1. **What it is** — a cross-brand EV community in Northern California
-2. **Who it's for** — EV owners, enthusiasts, and the EV-curious across all brands
-3. **What it does** — events, drives, meetups, education, connection
-4. **Why it matters** — the EV community is stronger when it's not fragmented by brand
+1. **What it is**: a cross-brand EV community in Northern California
+2. **Who it's for**: EV owners, enthusiasts, and the EV-curious across all brands
+3. **What it does**: events, drives, meetups, education, connection
+4. **Why it matters**: the EV community is stronger when it's not fragmented by brand
 
 ---
 
@@ -229,4 +229,4 @@ The Open Graph / Twitter Card image is `NOR_CAL_EV_LOGO.png` in the repository r
 
 ---
 
-*Version: 2025.35 — Last updated from website codebase analysis*
+*Version: 2025.35: Last updated from website codebase analysis*

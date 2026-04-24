@@ -9,7 +9,7 @@
 
 ## About
 
-NorCal EVs is a registered nonprofit connecting EV owners, enthusiasts, and the EV-curious across all brands in Northern California. The website serves as the front door — explaining what NorCal EVs is, making joining easy, and building credibility.
+NorCal EVs is a registered nonprofit connecting EV owners, enthusiasts, and the EV-curious across all brands in Northern California. The website serves as the front door: explaining what NorCal EVs is, making joining easy, and building credibility.
 
 ## Tech Stack
 

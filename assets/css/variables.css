@@ -14,12 +14,22 @@
     --cream: #f4efe3;
     --white: #fffdf8;
 
+    /* Semantic surfaces */
     --bg: #ece6d8;
     --bg-strong: #e4dcc9;
     --surface: rgba(255, 252, 245, 0.78);
     --surface-strong: #13352d;
     --surface-soft: #e3ece1;
     --panel: #f8f3e8;
+
+    /* Theme-aware RGB tokens used in rgba() calls throughout the stylesheet.
+       Light mode = warm cream card + deep forest ink.
+       Dark mode swaps both (see @media prefers-color-scheme below). */
+    --card-rgb: 255, 252, 245;
+    --ink-rgb: 21, 50, 41;
+    /* Always-light RGB for text/overlays on always-dark surfaces
+       (events-copy, footer-grid, nav-join). Does not invert in dark mode. */
+    --on-dark-rgb: 255, 252, 245;
 
     --text: #153229;
     --text-muted: rgba(21, 50, 41, 0.74);
@@ -41,6 +51,41 @@
     --radius-lg: 24px;
     --radius-md: 18px;
     --radius-sm: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --green: #6ca870;
+        --green-rgb: 108, 168, 112;
+        --green-deep: #0e1a14;
+        --teal: #5ec2d8;
+        --teal-rgb: 94, 194, 216;
+        --sand: #8a7f65;
+        --sand-rgb: 138, 127, 101;
+        --cream: #1b2420;
+        --white: #f5efe0;
+
+        --bg: #141a17;
+        --bg-strong: #0d1210;
+        --surface: rgba(28, 38, 33, 0.82);
+        --surface-strong: #0a1a14;
+        --surface-soft: #1a2520;
+        --panel: #1d2622;
+
+        --card-rgb: 28, 38, 33;
+        --ink-rgb: 243, 237, 224;
+        --on-dark-rgb: 243, 237, 224;
+
+        --text: #f2ecde;
+        --text-muted: rgba(243, 237, 224, 0.74);
+        --text-faint: rgba(243, 237, 224, 0.48);
+        --text-on-dark: rgba(243, 237, 224, 0.94);
+
+        --border: rgba(243, 237, 224, 0.12);
+        --border-strong: rgba(243, 237, 224, 0.22);
+        --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+        --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.3);
+    }
 }
 
 @media (max-width: 1024px) {

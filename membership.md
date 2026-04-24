@@ -9,7 +9,7 @@ page_class: "membership-page"
     <div>
         <div class="eyebrow">Open Membership</div>
         <h2>Join the community, then show up.</h2>
-        <p class="membership-lead">NorCal EVs is a registered 501(c)(7) community open to anyone in Northern California who owns, leases, or is curious about electric vehicles. No specific brand, model, or ownership status required — if you're EV-curious and trying to figure out your first EV, you belong here too.</p>
+        <p class="membership-lead">NorCal EVs is a registered 501(c)(7) community open to anyone in Northern California who owns, leases, or is curious about electric vehicles. No specific brand, model, or ownership status required. If you're EV-curious and trying to figure out your first EV, you belong here too.</p>
         <span class="first-event-microcopy">Your first event is always free</span>
         <div class="membership-actions">
             <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Community</a>
@@ -77,7 +77,6 @@ page_class: "membership-page"
             <div class="tier-price">$5 <span>/ month</span></div>
             <ul>
                 <li>All Base Model benefits</li>
-                <li>Free member-only events</li>
                 <li>10% off paid events</li>
                 <li>10% off the NorCal EVs store</li>
             </ul>
@@ -114,7 +113,7 @@ page_class: "membership-page"
         <li>Free admission to member-only events (Standard Range and up)</li>
         <li>Tier-based discounts on paid events and the NorCal EVs store</li>
         <li>Voting rights on community decisions (Long Range and Max Pack)</li>
-        <li>Real-world community — drives, meetups, and shared experiences across every brand</li>
+        <li>Real-world community: drives, meetups, and shared experiences across every brand</li>
     </ul>
 </section>
 

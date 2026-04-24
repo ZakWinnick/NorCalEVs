@@ -23,7 +23,7 @@ page_class: "leaders-page"
     <p class="board-meta">The board handles governance, finances, legal compliance, and strategic direction. It meets at least quarterly.</p>
     <div class="leaders-grid leaders-grid-four">
         <div class="leaders-card">
-            <h3>President</h3>
+            <h3>Executive Director</h3>
             <p>Sets direction, keeps momentum, and helps make sure the community stays aligned with its mission.</p>
         </div>
         <div class="leaders-card">
@@ -55,7 +55,7 @@ page_class: "leaders-page"
         </div>
         <div class="leaders-card">
             <h3>Membership Lead</h3>
-            <p>Owns the member experience from sign-up to renewal — welcoming new members and keeping people engaged.</p>
+            <p>Owns the member experience from sign-up to renewal, welcoming new members and keeping people engaged.</p>
         </div>
         <div class="leaders-card">
             <h3>Partnerships Lead</h3>
