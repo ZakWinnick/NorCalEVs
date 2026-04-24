@@ -49,7 +49,6 @@ bundle exec jekyll serve
 - **Website:** [norcalevs.org](https://norcalevs.org)
 - **Heylo:** [heylo.group/norcalevs](https://heylo.group/norcalevs)
 - **Instagram:** [@norcalevs](https://instagram.com/norcalevs)
-- **Facebook:** [NorCal EVs Group](https://www.facebook.com/groups/norcalevs/)
 - **X:** [@norcalevs](https://x.com/norcalevs)
 
 ## License

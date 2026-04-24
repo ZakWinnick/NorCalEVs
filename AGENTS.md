@@ -27,7 +27,7 @@ Push to `main` deploys automatically via GitHub Pages. The `CNAME` file maps the
 
 Site content is driven by YAML data files in `_data/`:
 - `navigation.yml` — main nav links and the Social dropdown submenu
-- `social.yml` — social platform cards (Heylo, Facebook, Instagram, X)
+- `social.yml` — social platform cards (Heylo, Bluesky, Instagram, X)
 - `stats.yml` — community stats (currently not rendered on homepage)
 
 ### Layout Chain

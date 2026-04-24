@@ -8,11 +8,6 @@
   icon: "🦋"
   description: Follow us on Bluesky
 
-- name: Facebook
-  url: https://www.facebook.com/groups/norcalevs/
-  icon: "👥"
-  description: Join the conversation on Facebook
-
 - name: Instagram
   url: https://instagram.com/norcalevs
   icon: "📸"
