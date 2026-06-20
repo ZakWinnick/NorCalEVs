@@ -7,7 +7,8 @@
    ============================================================ */
 
 /* ---- Theme tokens ---- */
-:root, :root[data-theme="light"] {
+/* Light by default; dark follows the OS setting automatically (no toggle). */
+:root {
   --bg: #f5f5f1;            /* page background */
   --bg-alt: #ebebe5;        /* alternating / hover surface */
   --card: #ffffff;          /* lifted panel */
@@ -31,50 +32,33 @@
   --volt-ink: #04232a;      /* text on accent */
 }
 
-:root[data-theme="dark"] {
-  --bg: #0b0f0d;
-  --bg-alt: #141a17;
-  --card: #141a17;
-  --fg: #eef0ec;
-  --fg-muted: #9aa19d;
-  --fg-faint: #6f766f;
-
-  --band: #060908;          /* deeper than page for rhythm */
-  --band-fg: #eef0ec;
-  --band-fg-muted: rgba(238, 240, 236, 0.60);
-  --band-line: rgba(238, 240, 236, 0.12);
-
-  --line: rgba(238, 240, 236, 0.12);
-  --line-strong: rgba(238, 240, 236, 0.24);
-
-  --nav-bg: rgba(11, 15, 13, 0.92);
-
-  --volt: #19cee6;
-  --volt-deep: #14b4cc;
-  --volt-ink: #04232a;
-}
-
-/* follow OS setting when the user has not chosen explicitly */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root {
     --bg: #0b0f0d;
     --bg-alt: #141a17;
     --card: #141a17;
     --fg: #eef0ec;
     --fg-muted: #9aa19d;
     --fg-faint: #6f766f;
-    --band: #060908;
+
+    --band: #060908;          /* deeper than page for rhythm */
     --band-fg: #eef0ec;
     --band-fg-muted: rgba(238, 240, 236, 0.60);
     --band-line: rgba(238, 240, 236, 0.12);
+
     --line: rgba(238, 240, 236, 0.12);
     --line-strong: rgba(238, 240, 236, 0.24);
+
     --nav-bg: rgba(11, 15, 13, 0.92);
+
     --volt: #19cee6;
     --volt-deep: #14b4cc;
     --volt-ink: #04232a;
   }
 }
+
+/* tell the browser both schemes exist so form controls/scrollbars match */
+:root { color-scheme: light dark; }
 
 /* ---- Shared sizing ---- */
 :root {
@@ -194,23 +178,6 @@ h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 700; line-height: 1
   padding: 9px 16px; transition: background 0.15s ease, border-color 0.15s ease;
 }
 .nav-cta:hover { background: var(--volt-deep); border-color: var(--volt-deep); }
-
-/* theme toggle */
-.nav-theme {
-  display: inline-grid; place-items: center;
-  width: 38px; height: 38px;
-  background: transparent; border: 1px solid var(--line-strong); border-radius: var(--radius);
-  color: var(--fg); transition: border-color 0.15s ease, color 0.15s ease;
-}
-.nav-theme:hover { border-color: var(--volt); color: var(--volt-deep); }
-.nav-theme svg { width: 18px; height: 18px; }
-.nav-theme .icon-sun { display: none; }
-:root[data-theme="dark"] .nav-theme .icon-sun { display: block; }
-:root[data-theme="dark"] .nav-theme .icon-moon { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .nav-theme .icon-sun { display: block; }
-  :root:not([data-theme="light"]) .nav-theme .icon-moon { display: none; }
-}
 
 .nav-has-sub { position: relative; }
 .nav-sub {
@@ -333,13 +300,20 @@ h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 700; line-height: 1
 .sponsors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; margin-top: 40px; border-top: 1px solid var(--line-strong); border-left: 1px solid var(--line-strong); }
 .sponsor-card { display: grid; place-items: center; padding: 34px; border-right: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); min-height: 150px; transition: background 0.15s ease; }
 .sponsor-card:hover { background: var(--bg-alt); }
-.sponsor-card img { max-height: 72px; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.78; transition: filter 0.2s ease, opacity 0.2s ease; }
-.sponsor-card:hover img { filter: grayscale(0); opacity: 1; }
-:root[data-theme="dark"] .sponsor-card img { filter: grayscale(1) invert(1) brightness(1.6); }
-:root[data-theme="dark"] .sponsor-card:hover img { filter: grayscale(0) invert(1) brightness(1.6); }
+/* Logos show in full color by default (correct for touch / no-hover devices). */
+.sponsor-card img { max-height: 72px; width: auto; object-fit: contain; transition: filter 0.2s ease, opacity 0.2s ease; }
+/* Only hover-capable devices get the grayscale-rest, colorize-on-hover effect. */
+@media (hover: hover) {
+  .sponsor-card img { filter: grayscale(1); opacity: 0.78; }
+  .sponsor-card:hover img { filter: grayscale(0); opacity: 1; }
+}
+/* Dark mode: invert so logos read on the dark card; touch shows this resting state. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .sponsor-card img { filter: grayscale(1) invert(1) brightness(1.6); }
-  :root:not([data-theme="light"]) .sponsor-card:hover img { filter: grayscale(0) invert(1) brightness(1.6); }
+  .sponsor-card img { filter: invert(1) brightness(1.6); }
+}
+@media (prefers-color-scheme: dark) and (hover: hover) {
+  .sponsor-card img { filter: grayscale(1) invert(1) brightness(1.6); }
+  .sponsor-card:hover img { filter: grayscale(0) invert(1) brightness(1.6); }
 }
 .sponsors-link { display: inline-block; margin-top: 30px; }
 

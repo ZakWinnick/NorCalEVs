@@ -52,7 +52,7 @@ High-contrast, precise, engineered. Defined entirely by tokens + components in `
 
 ### Theming (light/dark)
 
-`global.css` defines light tokens on `:root` and dark tokens on `:root[data-theme="dark"]`, plus a `@media (prefers-color-scheme: dark)` block for `:root:not([data-theme="light"])` so the site follows the OS by default. The nav theme toggle (`.nav-theme` in `Nav.astro`) flips `data-theme` and persists to `localStorage`. An inline script in `BaseLayout`'s `<head>` applies the saved theme before paint to avoid a flash. New surfaces should use semantic tokens (never raw hex) so they theme automatically.
+Theme is **fully automatic** and follows the OS via `prefers-color-scheme`. There is no toggle. `global.css` defines light tokens on `:root` and dark overrides in a single `@media (prefers-color-scheme: dark) { :root { ... } }` block (`color-scheme: light dark` is also set). New surfaces must use the semantic tokens (`--bg`, `--fg`, `--card`, `--band`, `--line`, `--volt`, etc.), never raw hex, so they theme automatically. Note: hover-dependent effects need a touch fallback (see the sponsor logos, which gate grayscale behind `@media (hover: hover)` so they show in color on mobile).
 
 ### Integrations
 

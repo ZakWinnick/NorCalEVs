@@ -19,7 +19,10 @@ export const navigation: NavItem[] = [
     submenu: [
       { title: 'Heylo', url: 'https://heylo.group/norcalevs', external: true },
       { title: 'Instagram', url: 'https://instagram.com/norcalevs', external: true },
+      { title: 'Bluesky', url: 'https://bsky.app/profile/norcalevs.org', external: true },
       { title: 'X', url: 'https://x.com/norcalevs', external: true },
+      { title: 'YouTube', url: 'https://youtube.com/@norcalevs', external: true },
+      { title: 'LinkedIn', url: 'https://www.linkedin.com/company/norcalevs', external: true },
     ],
   },
 ];
