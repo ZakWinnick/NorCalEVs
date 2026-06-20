@@ -15,7 +15,7 @@ layout: default
             <h1>Driven by Community.<span>If it plugs in, it belongs here.</span></h1>
             <p class="hero-lede">NorCal EVs is a cross-brand community connecting EV owners, enthusiasts, and the EV-curious across Northern California. Every brand, every experience level, every kind of driver.</p>
             <div class="hero-actions">
-                <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Community</a>
+                <a href="{{ site.baseurl }}/membership" class="btn btn-primary">Join the Community</a>
                 <a href="#events" class="btn btn-ghost">See Upcoming Events</a>
             </div>
         </div>
@@ -31,6 +31,45 @@ layout: default
 <section class="section about-block reveal">
     <div class="eyebrow">About</div>
     <p class="about-copy">NorCal EVs is a registered 501(c)(7) community built around real-world connection. That means monthly meetups, group drives on good roads, show &amp; tells, and casual education events. Tesla, Rivian, Ford, Lucid, Hyundai, Kia, BMW, and everyone still deciding. Membership is simple, the first event is always free, and there's no test you have to pass to belong.</p>
+</section>
+
+<section class="section building-section reveal">
+    <div class="section-heading">
+        <div class="eyebrow">What We're Building</div>
+        <h2 class="section-title">A community with real things behind it.</h2>
+    </div>
+    <div class="building-grid">
+        <div class="building-card">
+            <span class="building-num">01</span>
+            <h3>Events &amp; Drives</h3>
+            <p>Meetups, scenic drives, Cars &amp; Coffee, and signature events across Northern California.</p>
+        </div>
+        <div class="building-card">
+            <span class="building-num">02</span>
+            <h3>Community Meetups</h3>
+            <p>Regular local gatherings where EV owners connect, share, and learn from each other.</p>
+        </div>
+        <div class="building-card">
+            <span class="building-num">03</span>
+            <h3>EV Education</h3>
+            <p>Workshops and talks on charging, road trips, maintenance, and making the switch to electric.</p>
+        </div>
+        <div class="building-card">
+            <span class="building-num">04</span>
+            <h3>Cross-Brand Connection</h3>
+            <p>The only NorCal community where Tesla, Rivian, Ford, Lucid, and every other EV brand share the same space.</p>
+        </div>
+        <div class="building-card">
+            <span class="building-num">05</span>
+            <h3>Partner Collaborations</h3>
+            <p>Working with local businesses, charging networks, and organizations that support the EV ecosystem.</p>
+        </div>
+        <div class="building-card">
+            <span class="building-num">06</span>
+            <h3>Member Community</h3>
+            <p>A dedicated space for members to connect, coordinate, and shape the future of NorCal EVs.</p>
+        </div>
+    </div>
 </section>
 
 <section class="section brand-strip-section reveal">
@@ -91,19 +130,95 @@ layout: default
     </div>
 </section>
 
+<section class="section fleet-section reveal">
+    <div class="section-heading">
+        <div class="eyebrow">Member Fleet</div>
+        <h2 class="section-title">Real Owners. Real Roads.</h2>
+        <p class="section-desc">Snapshots from members across Northern California.</p>
+    </div>
+    <div class="fleet-grid">
+        {% assign fleet = site.data.fleet | slice: 0, 8 %}
+        {% for car in fleet %}
+        <article class="fleet-card">
+            <div class="fleet-card-media">
+                {% if car.photo %}
+                <img src="{{ site.baseurl }}/assets/images/fleet/{{ car.photo }}" alt="{{ car.ymm }}" loading="lazy" decoding="async" />
+                {% else %}
+                <span class="fleet-card-placeholder" aria-hidden="true">EV</span>
+                {% endif %}
+            </div>
+            <div class="fleet-card-body">
+                <h3>{{ car.ymm }}</h3>
+                {% if car.trim %}<p class="fleet-card-trim">{{ car.trim }}</p>{% endif %}
+                <p class="fleet-card-member">{{ car.member }}</p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    <div class="fleet-cta">
+        <p>Drive an EV in Northern California? Get your car in the lineup.</p>
+        <a href="{{ site.baseurl }}/submit-vehicle" class="btn btn-ghost">Add Your Vehicle</a>
+    </div>
+</section>
+
+<section class="section eventgallery-section reveal">
+    <div class="section-heading">
+        <div class="eyebrow">Event Gallery</div>
+        <h2 class="section-title">Moments from the Community.</h2>
+        <p class="section-desc">Photos from recent NorCal EVs events and meetups.</p>
+    </div>
+    <div class="eventgallery-grid">
+        {% for album in site.data.galleries %}
+        {% assign album_url = album.url | default: '/gallery' %}
+        <a class="eventgallery-card{% unless album.url %} eventgallery-card-soon{% endunless %}" href="{% if album.url %}{{ album.url }}{% else %}{{ site.baseurl }}/gallery{% endif %}"{% if album.url %} target="_blank" rel="noopener noreferrer"{% endif %}>
+            <div class="eventgallery-card-media">
+                {% if album.cover %}
+                <img src="{{ site.baseurl }}/assets/images/galleries/{{ album.cover }}" alt="{{ album.name }}" loading="lazy" decoding="async" />
+                {% else %}
+                <span class="eventgallery-card-placeholder" aria-hidden="true"></span>
+                {% endif %}
+            </div>
+            <div class="eventgallery-card-body">
+                <h3>{{ album.name }}</h3>
+                <p class="eventgallery-card-meta">{{ album.location }} &middot; {{ album.date }}</p>
+                <span class="eventgallery-card-link">{% if album.url %}View Gallery{% else %}Coming soon{% endif %}</span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="eventgallery-cta">
+        <a href="{{ site.baseurl }}/gallery" class="btn btn-ghost">See the Gallery</a>
+    </div>
+</section>
+
 <section class="section partners-section reveal">
     <div class="partners-panel">
         <div class="partners-copy">
-            <div class="eyebrow">Community Partners</div>
+            <div class="eyebrow">Our Sponsors</div>
             <h2 class="section-title">Supported by businesses that understand the scene.</h2>
-            <p class="section-desc">Partners help the community stay visible, connected, and active. Their support keeps more good events, more conversation, and more local momentum on the road.</p>
+            <p class="section-desc">These businesses support NorCal EVs and the Northern California EV community.</p>
+            <a href="{{ site.baseurl }}/sponsorships" class="partners-cta-link">Interested in sponsoring NorCal EVs? Learn more <span aria-hidden="true">↗</span></a>
         </div>
         <div class="sponsors-grid">
             {% for sponsor in site.data.sponsors %}
-            <a href="{{ sponsor.url }}" class="sponsor-card" target="_blank" rel="noopener noreferrer">
+            <a href="{{ sponsor.url }}" class="sponsor-card{% if sponsor.tier %} sponsor-tier-{{ sponsor.tier }}{% endif %}" target="_blank" rel="noopener noreferrer">
                 <img src="{{ site.baseurl }}/assets/images/{{ sponsor.logo }}" alt="{{ sponsor.name }}" loading="lazy" />
             </a>
             {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section signup-section reveal">
+    <div class="signup-panel signup-panel-cta">
+        <div class="signup-copy">
+            <div class="eyebrow">Stay Connected</div>
+            <h2 class="section-title">Be the first to know.</h2>
+            <p class="section-desc">Events, community news, and what's happening in NorCal EVs, straight to your inbox. Email us to get on the list, and include your name and region if you can.</p>
+            <div class="signup-actions">
+                <a href="mailto:info@norcalevs.org?subject=Join%20the%20NorCal%20EVs%20mailing%20list&body=Hi%20NorCal%20EVs%2C%0D%0A%0D%0APlease%20add%20me%20to%20the%20mailing%20list.%0D%0A%0D%0AFirst%20name%3A%0D%0ALast%20name%3A%0D%0AEV%20brand%20%2F%20model%20(optional)%3A%0D%0ARegion%20(optional)%3A%0D%0AI'm%20interested%20in%20(optional)%3A%20joining%20the%20community%2C%20volunteering%20at%20events%2C%20becoming%20a%20community%20leader%2C%20sponsorship%20opportunities%0D%0A" class="btn btn-primary">Join the Mailing List</a>
+            </div>
+            <p class="signup-reassure">We respect your inbox. No spam, ever.</p>
         </div>
     </div>
 </section>

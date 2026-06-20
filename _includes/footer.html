@@ -1,5 +1,5 @@
 <footer class="site-footer">
-    <div class="footer-grid">
+    <div class="footer-grid footer-grid-4">
         <div class="footer-brand-block">
             <a href="{{ site.baseurl }}/" class="footer-brand-link">
                 <img src="{{ site.baseurl }}/assets/images/logo-200.png"
@@ -11,33 +11,46 @@
                     <div class="footer-tagline">If it plugs in, it belongs here.</div>
                 </div>
             </a>
-            <p class="footer-blurb">Northern California's cross-brand EV community for owners, enthusiasts, and the EV-curious.</p>
+            <p class="footer-blurb">Northern California's cross-brand EV community. Driven by Community. If it plugs in, it belongs here.</p>
         </div>
 
-        <div class="footer-cta-card">
-            <div class="footer-card-label">Start Here</div>
-            <p>Join the community, find an event, and meet people in person.</p>
-            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Community</a>
-        </div>
+        <nav class="footer-col" aria-label="Explore">
+            <h4>Explore</h4>
+            <a href="{{ site.baseurl }}/">Home</a>
+            <a href="{{ site.baseurl }}/#events">Events</a>
+            <a href="{{ site.baseurl }}/membership">Membership</a>
+            <a href="{{ site.baseurl }}/sponsorships">Sponsorships</a>
+            <a href="https://shop.norcalevs.org" target="_blank" rel="noopener noreferrer">Shop</a>
+            <a href="{{ site.baseurl }}/resources">Resources</a>
+            <a href="{{ site.baseurl }}/leaders">Leaders</a>
+            <a href="{{ site.baseurl }}/changelog">Changelog</a>
+        </nav>
 
-        <div class="footer-links">
-            <div class="footer-col">
-                <h4>Community</h4>
-                <a href="{{ site.baseurl }}/#events">Events</a>
-                <a href="{{ site.baseurl }}/membership">Membership</a>
-                <a href="{{ site.baseurl }}/leaders">Leaders</a>
-                <a href="https://shop.norcalevs.org" target="_blank" rel="noopener noreferrer">Shop</a>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                {% for social in site.data.social %}
-                <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer">{{ social.name }}</a>
-                {% endfor %}
-            </div>
-        </div>
+        <nav class="footer-col" aria-label="Community">
+            <h4>Community</h4>
+            <a href="{{ site.baseurl }}/membership">Join the Community</a>
+            <a href="{{ site.baseurl }}/sponsorships">Become a Sponsor</a>
+            <a href="https://shop.norcalevs.org" target="_blank" rel="noopener noreferrer">Browse the Shop</a>
+            <a href="{{ site.baseurl }}/gallery">Gallery</a>
+        </nav>
+
+        <nav class="footer-col footer-social-col" aria-label="Social">
+            <h4>Social</h4>
+            <a href="https://instagram.com/norcalevs" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+            <a href="https://x.com/norcalevs" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i> X</a>
+            <a href="https://bsky.app/profile/norcalevs.org" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bluesky" aria-hidden="true"></i> Bluesky</a>
+            <a href="https://www.facebook.com/groups/norcalevs/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a>
+            <a href="https://www.linkedin.com/company/norcalevs" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            <a href="https://youtube.com/@norcalevs" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</a>
+        </nav>
     </div>
 </footer>
 <div class="footer-copy">
+    <div class="footer-legal">NorCal EVs, Inc. is a California nonprofit mutual benefit corporation organized under Section 501(c)(7) of the Internal Revenue Code.</div>
+    <div class="footer-policy-links">
+        <a href="{{ site.baseurl }}/privacy">Privacy Policy</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="{{ site.baseurl }}/terms">Terms of Service</a>
+    </div>
     <div>&copy; <span id="year"></span> {{ site.title }}. Driven by Community.</div>
-    <div class="footer-legal">NorCal EVs is a registered 501(c)(7) nonprofit social club.</div>
 </div>

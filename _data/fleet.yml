@@ -1,0 +1,24 @@
+# Member Fleet cards for the homepage "Real Owners. Real Roads." section.
+# Placeholder entries until members submit photos via /submit-vehicle.
+# Keep cross-brand representation. No performance specs (per spec): people
+# and cars, not a spec sheet. Photos: landscape crop in assets/images/fleet/.
+# Render shows a maximum of 8 cards; add more and the section rotates them.
+#   photo:  filename in assets/images/fleet/ (omit for a placeholder tile)
+#   ymm:    Year Make Model, e.g. "2024 Rivian R1T"
+#   trim:   color or trim, e.g. "El Cap Granite"
+#   member: first name and general area, e.g. "Zak, Napa"
+- ymm: "2024 Rivian R1T"
+  trim: "El Cap Granite"
+  member: "Member spotlight coming soon"
+
+- ymm: "2023 Tesla Model 3"
+  trim: "Deep Blue Metallic"
+  member: "Member spotlight coming soon"
+
+- ymm: "2024 Ford Mustang Mach-E"
+  trim: "Grabber Blue"
+  member: "Member spotlight coming soon"
+
+- ymm: "2023 Lucid Air"
+  trim: "Stellar White"
+  member: "Member spotlight coming soon"

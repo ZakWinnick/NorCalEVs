@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Membership"
-description: "Join Northern California's cross-brand EV community"
+description: "Pick how you want to be part of NorCal EVs. Free for everyone, with paid tiers for members who want to go deeper and support what we're building."
 page_class: "membership-page"
 ---
 
@@ -12,7 +12,7 @@ page_class: "membership-page"
         <p class="membership-lead">NorCal EVs is a registered 501(c)(7) community open to anyone in Northern California who owns, leases, or is curious about electric vehicles. No specific brand, model, or ownership status required. If you're EV-curious and trying to figure out your first EV, you belong here too.</p>
         <span class="first-event-microcopy">Your first event is always free</span>
         <div class="membership-actions">
-            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join the Community</a>
+            <a href="{{ site.baseurl }}/join" class="btn btn-primary">Join the Community</a>
             <a href="{{ site.baseurl }}/#events" class="btn btn-ghost">View Upcoming Events</a>
         </div>
     </div>
@@ -62,47 +62,64 @@ page_class: "membership-page"
 <section class="membership-section">
     <div class="eyebrow">Tiers</div>
     <h2 class="section-title">Pick what fits. Upgrade when it makes sense.</h2>
-    <div class="tier-grid">
-        <div class="tier-card">
-            <h4>Base Model</h4>
-            <div class="tier-price">Free</div>
-            <ul>
-                <li>Access to every event</li>
-                <li>Community discussions</li>
-                <li>Member communications</li>
-            </ul>
+    {% comment %} Launch Edition promo: Long Range at $30 for the first year,
+    first 30 members. No payment backend yet, so launch_claimed is maintained by
+    hand. When launch_claimed reaches launch_total the banner drops off the page
+    automatically (per spec: remove the promotion once 30 spots are filled). {% endcomment %}
+    {% assign launch_claimed = 0 %}
+    {% assign launch_total = 30 %}
+    {% if launch_claimed < launch_total %}
+    <div class="launch-promo">
+        <div class="launch-promo-main">
+            <span class="launch-promo-badge">Launch Edition</span>
+            <h3>Long Range for $30 your first year.</h3>
+            <p>A founding rate for the first 30 members. It renews at $50 a year after that. Once 30 spots are claimed, this offer is gone.</p>
         </div>
+        <div class="launch-promo-side">
+            <div class="launch-counter"><span>{{ launch_claimed }}</span> of {{ launch_total }} claimed</div>
+            <a href="{{ site.baseurl }}/join" class="btn btn-primary">Claim the Launch Rate</a>
+        </div>
+    </div>
+    {% endif %}
+    <div class="tier-grid tier-grid-3">
         <div class="tier-card">
             <h4>Standard Range</h4>
-            <div class="tier-price">$5 <span>/ month</span></div>
+            <div class="tier-price">Free</div>
             <ul>
-                <li>All Base Model benefits</li>
-                <li>10% off paid events</li>
-                <li>10% off the NorCal EVs store</li>
+                <li>Access to all events</li>
+                <li>Community discussions and member communications</li>
+                <li>A way to join the community and see what NorCal EVs is about</li>
             </ul>
+            <a href="{{ site.baseurl }}/join" class="btn btn-ghost tier-cta">Join Free</a>
         </div>
         <div class="tier-card tier-highlight">
             <span class="tier-badge">Best Value</span>
             <h4>Long Range</h4>
             <div class="tier-price">$50 <span>/ year</span></div>
             <ul>
-                <li>All Standard Range benefits</li>
+                <li>Everything in Standard Range</li>
+                <li>Free admission to member-only events</li>
                 <li>20% off paid events</li>
+                <li>10% off the NorCal EVs shop</li>
                 <li>Voting rights on community decisions</li>
+                <li>NorCal EVs member sticker included</li>
             </ul>
+            <a href="{{ site.baseurl }}/join" class="btn btn-primary tier-cta">Choose Long Range</a>
         </div>
         <div class="tier-card">
             <h4>Max Pack</h4>
             <div class="tier-price">$500 <span>lifetime</span></div>
             <ul>
-                <li>All Long Range benefits in perpetuity</li>
+                <li>Everything in Long Range, forever</li>
                 <li>50% off paid events</li>
-                <li>50% off the store at signup</li>
-                <li>Permanent recognition</li>
+                <li>50% off the NorCal EVs shop at signup</li>
+                <li>Permanent recognition on the website and in the community</li>
+                <li>NorCal EVs member sticker included</li>
             </ul>
+            <a href="{{ site.baseurl }}/join" class="btn btn-ghost tier-cta">Go Max Pack</a>
         </div>
     </div>
-    <p class="founding-note">A time-limited founding member coupon will be offered at launch with a discounted first-year rate on Long Range. Once it's gone, it's gone.</p>
+    <p class="tier-note">Being part of NorCal EVs has always been free, and that's not changing. Paid memberships are for people who want to support what we're building, get more out of the community, and have a say in where it goes.</p>
 </section>
 
 <section class="membership-section">
@@ -110,9 +127,10 @@ page_class: "membership-page"
     <h2 class="section-title">Real community benefits, listed honestly.</h2>
     <ul class="membership-benefits-list">
         <li>Access to every event, discussion, and member communication (all tiers)</li>
-        <li>Free admission to member-only events (Standard Range and up)</li>
-        <li>Tier-based discounts on paid events and the NorCal EVs store</li>
+        <li>Free admission to member-only events (Long Range and up)</li>
+        <li>Tier-based discounts on paid events and the NorCal EVs shop (Long Range and Max Pack)</li>
         <li>Voting rights on community decisions (Long Range and Max Pack)</li>
+        <li>A NorCal EVs member sticker (Long Range and up)</li>
         <li>Real-world community: drives, meetups, and shared experiences across every brand</li>
     </ul>
 </section>

@@ -7,6 +7,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2026.25] - 2026-06-19
+
+### Added: Membership relaunch, Sponsorships, Resources, and fuller homepage
+
+Implements the April 2026 site update spec.
+
+#### New pages
+- `sponsorships.md` (`/sponsorships`): why-sponsor, who-you'll-reach cards, four annual tiers (Community $250, Regional $500, Statewide $1,500, Premier $3,000+ limited to 4), a la carte event add-ons, launch-pricing note, and a `mailto:sponsors@norcalevs.org` contact CTA.
+- `resources.md` (`/resources`): four resource cards (New EV Owner's Guide and NorCal Drive Routes as "coming soon"; California EV Incentives and NorCal Charging Map as external links).
+- `gallery.md` (`/gallery`): event photo album landing grid, driven by `_data/galleries.yml`.
+- `submit-vehicle.md` (`/submit-vehicle`): Member Fleet "what to include" guidance with a `mailto:submissions@norcalevs.org` CTA (templated body; sender attaches the photo).
+- `join.html` (`/join`): thin redirect to Heylo so all signup CTAs route through norcalevs.org per spec.
+- `privacy.md`, `terms.md`: placeholder legal pages linked from the footer.
+- `whats-new.md` (`/changelog`): public-facing changelog (file named to avoid case-collision with `CHANGELOG.md` on case-insensitive filesystems).
+
+#### Homepage (`_layouts/home.html`)
+- Hero "Join the Community" CTA now routes to `/membership` (was a direct Heylo link).
+- New "What We're Building" six-pillar grid.
+- New "Member Fleet" section ("Real Owners. Real Roads."), driven by `_data/fleet.yml`, with placeholder cards and an Add Your Vehicle CTA.
+- New "Event Gallery" section ("Moments from the Community"), driven by `_data/galleries.yml`.
+- Sponsors section retitled "Our Sponsors" with optional tier sizing and an "Interested in sponsoring? Learn more" link to `/sponsorships`.
+- New "Stay Connected" section with a `mailto:info@norcalevs.org` CTA (templated body prompts for name, EV brand/model, region, and interests).
+
+#### Membership (`membership.md`)
+- Restructured to three tiers: Standard Range (free), Long Range ($50/yr, Best Value), Max Pack ($500 lifetime). The old $5/mo tier was removed and the former Base Model became the free Standard Range.
+- Added a Launch Edition promo banner above the cards: Long Range at $30 the first year for the first 30 members, renewing at $50. Wrapped in a Liquid conditional so it auto-hides once `launch_claimed` reaches 30. Counter is manually maintained (starts at 0) until a payment backend exists.
+- Updated benefit lists per spec (Long Range now includes member-only event admission, 10% shop discount, voting, sticker) and added a CTA button to every tier card, all routing through `/join`.
+- Tier grid is a 3-up layout on desktop and a horizontal scroll on mobile (uses `touch-action: pan-x` to avoid the iOS vertical-scroll capture problem).
+
+#### Footer (`_includes/footer.html`)
+- Rebuilt into four columns: NorCal EVs (brand + blurb), Explore, Community, and Social (Instagram, X, Bluesky, Facebook, LinkedIn, YouTube).
+- Legal line updated to "California nonprofit mutual benefit corporation organized under Section 501(c)(7)" with Privacy Policy and Terms of Service links.
+
+#### Data, config, CSS
+- `navigation.yml`: added Sponsorships and Resources to the main nav.
+- `_data/fleet.yml` and `_data/galleries.yml`: new placeholder data files.
+- `sponsors.yml`: documented optional `tier` field.
+- `_config.yml`: bumped version to 2026.25.
+- `components.css`: appended styles for all new sections, the mailto CTA panels, 3-tier grid + Launch Edition promo banner, and the 4-column footer, with responsive breakpoints.
+
+#### Notes / open items
+- Intake is by `mailto:` (no forms): `info@`, `sponsors@`, and `submissions@norcalevs.org`. Those inboxes/aliases must exist.
+- Facebook (sunset per project rule) and LinkedIn (no confirmed URL yet) are included in the footer per the spec; LinkedIn points at a placeholder company URL.
+- Launch Edition promo counter is static (starts at 0) until a payment/membership backend exists; bump `launch_claimed` in `membership.md` by hand and the banner hides itself at 30.
+
+---
+
 ## [2025.35] - 2025-11-10
 
 ### Major: Jekyll Migration & Complete Site Modernization
