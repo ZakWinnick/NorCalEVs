@@ -181,10 +181,16 @@ h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 700; line-height: 1
 
 .nav-has-sub { position: relative; }
 .nav-sub {
-  position: absolute; top: 100%; right: 0; min-width: 168px;
+  position: absolute; top: calc(100% + 8px); right: 0; min-width: 168px;
   background: var(--card); border: 1px solid var(--line-strong);
-  border-radius: var(--radius); list-style: none; padding: 6px; margin: 6px 0 0; display: none;
+  border-radius: var(--radius); list-style: none; padding: 6px; margin: 0; display: none;
 }
+/* transparent bridge across the gap so the menu stays open while the cursor
+   travels from the trigger down to the submenu */
+.nav-has-sub::after {
+  content: ''; position: absolute; top: 100%; right: 0; width: 180px; height: 10px; display: none;
+}
+.nav-has-sub:hover::after, .nav-has-sub:focus-within::after { display: block; }
 .nav-has-sub:hover .nav-sub, .nav-has-sub:focus-within .nav-sub { display: block; }
 .nav-sub a { width: 100%; }
 
