@@ -138,7 +138,7 @@ The homepage (`index.md`) has minimal front matter; the `home.html` layout handl
 
 All membership/tier CTAs route through `/join` (a redirect to Heylo); **no payment provider is wired up yet**.
 
-`sponsorships.md`, `resources.md`, `privacy.md`, `terms.md`, and `whats-new.md` (at `/changelog`) also use the `page` layout. See the April 2026 spec and the layout/contact notes above. The Sponsorships page intentionally names a tier "Premier Sponsor" (from the spec); the playbook's "never use premier" rule is about describing NorCal EVs itself, not a third-party sponsor tier label.
+`sponsorships.md`, `resources.md`, `privacy.md`, `terms.md`, and `whats-new.md` (at `/changelog`) also use the `page` layout. See the April 2026 spec and the layout/contact notes above. The Sponsorships page names its four annual tiers after EV charging levels: Plug-In ($250), Level 2 ($500), Fast Charge ($1,500), and Supercharger ($3,000+). The Supercharger tier lists "Premier logo placement" (describing the logo placement, an allowed use; the playbook's "never use premier" rule is about describing NorCal EVs itself, not a tier benefit).
 
 `leaders.md` uses the `page` layout with these sections:
 - **Intro card** with 501(c)(7) mention

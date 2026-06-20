@@ -36,7 +36,7 @@ page_class: "sponsorships-page"
     <h2 class="section-title">Partner for the full year.</h2>
     <div class="spon-tier-grid">
         <div class="spon-tier-card">
-            <h3>Community Sponsor</h3>
+            <h3>Plug-In</h3>
             <div class="spon-price">$250 <span>/ year</span></div>
             <p class="spon-tier-for">Small local businesses</p>
             <ul>
@@ -48,11 +48,11 @@ page_class: "sponsorships-page"
             </ul>
         </div>
         <div class="spon-tier-card">
-            <h3>Regional Sponsor</h3>
+            <h3>Level 2</h3>
             <div class="spon-price">$500 <span>/ year</span></div>
             <p class="spon-tier-for">Local visibility across NorCal events</p>
             <ul>
-                <li>Everything in Community Sponsor</li>
+                <li>Everything in Plug-In</li>
                 <li>Logo featured on event materials</li>
                 <li>Recognition at regional events</li>
                 <li>Two social media posts per year</li>
@@ -61,11 +61,11 @@ page_class: "sponsorships-page"
             </ul>
         </div>
         <div class="spon-tier-card">
-            <h3>Statewide Sponsor</h3>
+            <h3>Fast Charge</h3>
             <div class="spon-price">$1,500 <span>/ year</span></div>
             <p class="spon-tier-for">Broad exposure across the full community</p>
             <ul>
-                <li>Everything in Regional Sponsor</li>
+                <li>Everything in Level 2</li>
                 <li>Logo on homepage sponsor section</li>
                 <li>Featured newsletter mention</li>
                 <li>Four social media posts per year</li>
@@ -76,11 +76,11 @@ page_class: "sponsorships-page"
         </div>
         <div class="spon-tier-card spon-tier-highlight">
             <span class="spon-badge">Limited to 4 Partners</span>
-            <h3>Premier Sponsor</h3>
+            <h3>Supercharger</h3>
             <div class="spon-price">$3,000+ <span>/ year</span></div>
             <p class="spon-tier-for">Anchor partners with the highest visibility</p>
             <ul>
-                <li>Everything in Statewide Sponsor</li>
+                <li>Everything in Fast Charge</li>
                 <li>Premier logo placement on website and all materials</li>
                 <li>Recognition at all NorCal EVs events</li>
                 <li>Co-branded event opportunity</li>
