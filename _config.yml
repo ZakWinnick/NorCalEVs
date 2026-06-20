@@ -49,6 +49,15 @@ exclude:
   - README.md
   - DEPLOYMENT.md
   - CHANGELOG.md
+  # Internal docs: not site pages. They have no front matter and contain Liquid
+  # examples in code spans, which the github-pages gem's optional-front-matter
+  # plugin would otherwise try to render and fail on. Keep them out of the build.
+  - CLAUDE.md
+  - AGENTS.md
+  - BRAND_GUIDELINES.md
+  - JEKYLL_SETUP.md
+  - docs
+  - includes
   - archive
 
 # Site metadata
