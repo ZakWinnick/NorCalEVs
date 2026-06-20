@@ -76,7 +76,6 @@ page_class: "membership-page"
             <p>A founding rate for the first 30 members. It renews at $50 a year after that. Once 30 spots are claimed, this offer is gone.</p>
         </div>
         <div class="launch-promo-side">
-            <div class="launch-counter"><span>{{ launch_claimed }}</span> of {{ launch_total }} claimed</div>
             <a href="{{ site.baseurl }}/join" class="btn btn-primary">Claim the Launch Rate</a>
         </div>
     </div>

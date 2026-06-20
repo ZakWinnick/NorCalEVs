@@ -15,7 +15,7 @@ page_class: "doc-page"
             <li>Redesigned the Membership page with three tiers and a limited Launch Edition founding offer.</li>
             <li>Added a Sponsorships page with annual tiers and a la carte event options.</li>
             <li>Added a Resources page for EV owners in Northern California.</li>
-            <li>New homepage sections: What We're Building, Member Fleet, Event Gallery, and a mailing list signup.</li>
+            <li>New homepage sections: What We're Building, Our Sponsors, and a mailing list signup.</li>
             <li>Expanded the footer with Explore, Community, and Social columns.</li>
         </ul>
     </div>

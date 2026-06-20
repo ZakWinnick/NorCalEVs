@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2026.26] - 2026-06-20
+
+### Changed: Trim homepage, expand social, tighten spacing
+
+- Removed the Member Fleet and Event Gallery homepage sections, along with the `/submit-vehicle` and `/gallery` pages, their data files (`fleet.yml`, `galleries.yml`), the footer Gallery link, and all related CSS.
+- Added all six social icons (Bluesky, Facebook, Instagram, LinkedIn, X, YouTube) to the header nav, and put both the header row and the footer Social column in alphabetical order.
+- Reduced section spacing: `--section-pad` 112/88/72 to 64/52/44 across desktop/tablet/mobile.
+- Fixed primary (green) buttons on content pages rendering with teal text: `.page-content a` was overriding the button's white color, so added explicit `.page-content a.btn-primary` / `.btn-ghost` color rules.
+- Removed the "X of 30 claimed" counter from the membership Launch Edition promo (the auto-hide-when-full logic stays).
+
+---
+
 ## [2026.25] - 2026-06-19
 
 ### Added: Membership relaunch, Sponsorships, Resources, and fuller homepage

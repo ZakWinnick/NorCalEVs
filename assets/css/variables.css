@@ -46,7 +46,7 @@
 
     --container: 1180px;
     --narrow: 760px;
-    --section-pad: 112px;
+    --section-pad: 64px;
     --radius-xl: 34px;
     --radius-lg: 24px;
     --radius-md: 18px;
@@ -90,12 +90,12 @@
 
 @media (max-width: 1024px) {
     :root {
-        --section-pad: 88px;
+        --section-pad: 52px;
     }
 }
 
 @media (max-width: 768px) {
     :root {
-        --section-pad: 72px;
+        --section-pad: 44px;
     }
 }

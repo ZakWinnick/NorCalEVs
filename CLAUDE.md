@@ -43,18 +43,15 @@ Site content is driven by YAML data files in `_data/`:
 - `navigation.yml`: main nav links (Home, Membership, Sponsorships, Resources, Leaders, Shop) plus a Social submenu. Items flagged `external: true` render with a small NE arrow (↗) in the nav.
 - `social.yml`: social platform cards (Heylo, Bluesky, Instagram, X). Note: the redesigned footer (April 2026 spec) lists six socials including Facebook, LinkedIn, and YouTube hardcoded in `_includes/footer.html`, separate from this file. Facebook is included per spec even though the group is being sunset; LinkedIn uses a placeholder company URL.
 - `sponsors.yml`: homepage sponsor logos and URLs. Optional `tier` field (1/2/3) sizes logos by sponsorship level; sponsors with no tier render in the standard grid.
-- `fleet.yml`: Member Fleet cards (year/make/model, trim, member name + area, optional photo). Placeholder entries until members submit via `/submit-vehicle`. No performance specs, per spec.
-- `galleries.yml`: event photo albums (name, location, date, optional cover + external url) for the homepage Event Gallery section and the `/gallery` page.
 - `stats.yml`: community stats (not currently rendered)
 
 ### Contact (mailto, no forms)
 
-There are no HTML forms. The three intake points are `mailto:` CTAs, each to a purpose-matched address with a pre-filled subject and a templated body (URL-encoded `%0D%0A` line breaks) so the sender fills in structured fields:
+There are no HTML forms. The two intake points are `mailto:` CTAs, each to a purpose-matched address with a pre-filled subject and a templated body (URL-encoded `%0D%0A` line breaks) so the sender fills in structured fields:
 - **Mailing list** (homepage "Stay Connected", `.signup-actions`): `info@norcalevs.org`
 - **Sponsorship contact** (`/sponsorships`, `.spon-contact-actions`): `sponsors@norcalevs.org`
-- **Member Fleet submission** (`/submit-vehicle`, `.submit-actions`): `submissions@norcalevs.org` (body asks the sender to attach a photo, since mailto cannot)
 
-These addresses must exist as real inboxes/aliases. There is no Formspree or server dependency. Other contact CTAs around the site still use `contact@norcalevs.org` (resources, gallery, leaders).
+These addresses must exist as real inboxes/aliases. There is no Formspree or server dependency. Other contact CTAs around the site still use `contact@norcalevs.org` (resources, leaders).
 
 ### Routing through norcalevs.org
 
@@ -70,17 +67,17 @@ Per spec, signup links never deep-link to the Heylo join page. `join.html` (`/jo
 3. **What We're Building**: six-pillar grid (Events & Drives, Community Meetups, EV Education, Cross-Brand Connection, Partner Collaborations, Member Community)
 4. **Brand strip**: four photo tiles in a 3:2 landscape aspect (Tesla, Rivian, Lucid, Ford) with a dark-gradient overlay so the brand label stays readable. Photos live in `assets/images/community/`.
 5. **Events (combined card)**: copy + Heylo calendar merged into one dark-surface card with an inset divider. Heylo script is embedded inline with hardcoded API key and community ID.
-6. **Member Fleet** ("Real Owners. Real Roads."): card grid from `fleet.yml` (max 8), placeholder tiles until photos arrive, with an Add Your Vehicle CTA to `/submit-vehicle`
-7. **Event Gallery** ("Moments from the Community"): album grid from `galleries.yml`, links to `/gallery`
-8. **Our Sponsors**: sponsor grid from `sponsors.yml` plus an "Interested in sponsoring? Learn more" link to `/sponsorships`
-9. **Stay Connected**: mailing-list Formspree signup (name, email, EV brand/model, region, interest checkboxes)
-10. Footer (from `_includes/footer.html`)
+6. **Our Sponsors**: sponsor grid from `sponsors.yml` plus an "Interested in sponsoring? Learn more" link to `/sponsorships`
+7. **Stay Connected**: mailing-list `mailto:info@norcalevs.org` CTA panel (centered)
+8. Footer (from `_includes/footer.html`)
 
-`page.html` extends `default`. Used for `membership.md`, `leaders.md`, `sponsorships.md`, `resources.md`, `gallery.md`, `submit-vehicle.md`, `privacy.md`, `terms.md`, and `whats-new.md` (served at `/changelog`). Supports `page_class` front matter for page-specific CSS scoping. Content pages default to a narrow column; `sponsorships-page`, `resources-page`, and `gallery-page` opt into full width (alongside the existing `membership-page` / `leaders-page`).
+(The Member Fleet and Event Gallery sections, plus the `/submit-vehicle` and `/gallery` pages, were removed in June 2026.)
+
+`page.html` extends `default`. Used for `membership.md`, `leaders.md`, `sponsorships.md`, `resources.md`, `privacy.md`, `terms.md`, and `whats-new.md` (served at `/changelog`). Supports `page_class` front matter for page-specific CSS scoping. Content pages default to a narrow column; `sponsorships-page` and `resources-page` opt into full width (alongside the existing `membership-page` / `leaders-page`).
 
 ### Membership tiers
 
-`membership.md` renders **three** tiers in a `.tier-grid-3` (3-up on desktop, horizontal scroll on mobile via `touch-action: pan-x` to avoid the iOS vertical-capture bug): Standard Range (free), Long Range ($50/yr, Best Value), Max Pack ($500 lifetime). Every card has a CTA routing through `/join`. Above the cards, a **Launch Edition promo banner** (`.launch-promo`) offers Long Range at $30 the first year for the first 30 members. It is wrapped in `{% if launch_claimed < launch_total %}`, so once the manually maintained `launch_claimed` reaches 30 the banner drops off the page automatically (per spec). No payment backend exists yet, so `launch_claimed` starts at 0 and is bumped by hand.
+`membership.md` renders **three** tiers in a `.tier-grid-3` (3-up on desktop, horizontal scroll on mobile via `touch-action: pan-x` to avoid the iOS vertical-capture bug): Standard Range (free), Long Range ($50/yr, Best Value), Max Pack ($500 lifetime). Every card has a CTA routing through `/join`. Above the cards, a **Launch Edition promo banner** (`.launch-promo`) offers Long Range at $30 the first year for the first 30 members. It is wrapped in `{% if launch_claimed < launch_total %}`, so once the manually maintained `launch_claimed` reaches 30 the banner drops off the page automatically (per spec). There is no visible "X of 30 claimed" counter (removed at the user's request); `launch_claimed` starts at 0 and is bumped by hand only to trigger the auto-hide.
 
 ### CSS Architecture
 
@@ -90,7 +87,7 @@ Four modular CSS files in `assets/css/`:
   - `--card-rgb` and `--ink-rgb` invert between themes (warm cream card + deep forest ink in light, deep card + cream ink in dark)
   - `--on-dark-rgb` **stays light in both themes** for use on surfaces that are always dark regardless of theme: `.events-copy`, `.footer-grid`, `.nav-join`, brand-tile overlay text
 - **`base.css`**: reset, body, container, section utilities, button styles. `body` uses `overflow-x: clip` (not `hidden`) so it clips horizontal overflow without creating a scroll container. No `overflow-x: hidden` on wrapper elements below body (they relied on `max-width: 100%` instead).
-- **`components.css`**: all component styles including nav, hero-split, about-block, brand-strip/brand-tile, combined events card, sponsors, membership tiers, membership funnel, leaders grids, leadership expectations, footer, mobile nav, and responsive breakpoints. The April 2026 spec additions are appended in a labeled block at the end of the file: `.building-*` (What We're Building), `.fleet-*` (Member Fleet), `.eventgallery-*` / `.gallery-*`, `.signup-*` (mailto CTA panel), `.spon-*` (Sponsorships page), `.resource-*` (Resources page), `.doc-*` (privacy/terms/changelog), `.tier-grid-3` + `.launch-promo`, and `.footer-grid-4`.
+- **`components.css`**: all component styles including nav, hero-split, about-block, brand-strip/brand-tile, combined events card, sponsors, membership tiers, membership funnel, leaders grids, leadership expectations, footer, mobile nav, and responsive breakpoints. The April 2026 spec additions are appended in a labeled block at the end of the file: `.building-*` (What We're Building), `.signup-*` (mailto CTA panel), `.spon-*` (Sponsorships page), `.resource-*` (Resources page), `.doc-*` (privacy/terms/changelog), `.tier-grid-3` + `.launch-promo`, and `.footer-grid-4`.
 - **`animations.css`**: scroll reveal (`.reveal` → `.active`), `prefers-reduced-motion` support.
 
 ### Theme-color meta tags
@@ -141,7 +138,7 @@ The homepage (`index.md`) has minimal front matter; the `home.html` layout handl
 
 All membership/tier CTAs route through `/join` (a redirect to Heylo); **no payment provider is wired up yet**.
 
-`sponsorships.md`, `resources.md`, `gallery.md`, `submit-vehicle.md`, `privacy.md`, `terms.md`, and `whats-new.md` (at `/changelog`) also use the `page` layout. See the April 2026 spec and the layout/forms notes above. The Sponsorships page intentionally names a tier "Premier Sponsor" (from the spec); the playbook's "never use premier" rule is about describing NorCal EVs itself, not a third-party sponsor tier label.
+`sponsorships.md`, `resources.md`, `privacy.md`, `terms.md`, and `whats-new.md` (at `/changelog`) also use the `page` layout. See the April 2026 spec and the layout/contact notes above. The Sponsorships page intentionally names a tier "Premier Sponsor" (from the spec); the playbook's "never use premier" rule is about describing NorCal EVs itself, not a third-party sponsor tier label.
 
 `leaders.md` uses the `page` layout with these sections:
 - **Intro card** with 501(c)(7) mention
@@ -164,8 +161,7 @@ All membership/tier CTAs route through `/join` (a redirect to Heylo); **no payme
 - **Brand tile photos are manufacturer press/editorial placeholders.** Swap for real member/event photography when available, per the playbook's "real over polished" principle.
 - **Membership CTAs route to Heylo (via `/join`), not a payment flow.** When dues collection goes live, wire Stripe/Memberful/etc. into the tier cards.
 - **Founding member coupon** mechanics (timing, code, expiration) still need to be defined before launch.
-- **Intake is by `mailto:`, not forms.** The mailing-list, Member Fleet, and sponsorship CTAs email `info@`, `submissions@`, and `sponsors@norcalevs.org` respectively. Those inboxes/aliases must exist for the CTAs to work.
-- **Member Fleet (`fleet.yml`) and Event Gallery (`galleries.yml`) are placeholder content.** Populate as members submit vehicle photos (`/submit-vehicle`) and as events produce albums. Add real images under `assets/images/fleet/` and `assets/images/galleries/`.
+- **Intake is by `mailto:`, not forms.** The mailing-list and sponsorship CTAs email `info@` and `sponsors@norcalevs.org` respectively. Those inboxes/aliases must exist for the CTAs to work.
 - **Footer LinkedIn** points at a placeholder company URL, and **Facebook** is included per the April 2026 spec despite the group being sunset. Confirm or update both.
 - **Resources and changelog are starting points.** New EV Owner's Guide and NorCal Drive Routes are "coming soon"; the public changelog (`whats-new.md`) is hand-curated.
 

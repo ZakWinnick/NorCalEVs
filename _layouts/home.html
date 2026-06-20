@@ -130,67 +130,6 @@ layout: default
     </div>
 </section>
 
-<section class="section fleet-section reveal">
-    <div class="section-heading">
-        <div class="eyebrow">Member Fleet</div>
-        <h2 class="section-title">Real Owners. Real Roads.</h2>
-        <p class="section-desc">Snapshots from members across Northern California.</p>
-    </div>
-    <div class="fleet-grid">
-        {% assign fleet = site.data.fleet | slice: 0, 8 %}
-        {% for car in fleet %}
-        <article class="fleet-card">
-            <div class="fleet-card-media">
-                {% if car.photo %}
-                <img src="{{ site.baseurl }}/assets/images/fleet/{{ car.photo }}" alt="{{ car.ymm }}" loading="lazy" decoding="async" />
-                {% else %}
-                <span class="fleet-card-placeholder" aria-hidden="true">EV</span>
-                {% endif %}
-            </div>
-            <div class="fleet-card-body">
-                <h3>{{ car.ymm }}</h3>
-                {% if car.trim %}<p class="fleet-card-trim">{{ car.trim }}</p>{% endif %}
-                <p class="fleet-card-member">{{ car.member }}</p>
-            </div>
-        </article>
-        {% endfor %}
-    </div>
-    <div class="fleet-cta">
-        <p>Drive an EV in Northern California? Get your car in the lineup.</p>
-        <a href="{{ site.baseurl }}/submit-vehicle" class="btn btn-ghost">Add Your Vehicle</a>
-    </div>
-</section>
-
-<section class="section eventgallery-section reveal">
-    <div class="section-heading">
-        <div class="eyebrow">Event Gallery</div>
-        <h2 class="section-title">Moments from the Community.</h2>
-        <p class="section-desc">Photos from recent NorCal EVs events and meetups.</p>
-    </div>
-    <div class="eventgallery-grid">
-        {% for album in site.data.galleries %}
-        {% assign album_url = album.url | default: '/gallery' %}
-        <a class="eventgallery-card{% unless album.url %} eventgallery-card-soon{% endunless %}" href="{% if album.url %}{{ album.url }}{% else %}{{ site.baseurl }}/gallery{% endif %}"{% if album.url %} target="_blank" rel="noopener noreferrer"{% endif %}>
-            <div class="eventgallery-card-media">
-                {% if album.cover %}
-                <img src="{{ site.baseurl }}/assets/images/galleries/{{ album.cover }}" alt="{{ album.name }}" loading="lazy" decoding="async" />
-                {% else %}
-                <span class="eventgallery-card-placeholder" aria-hidden="true"></span>
-                {% endif %}
-            </div>
-            <div class="eventgallery-card-body">
-                <h3>{{ album.name }}</h3>
-                <p class="eventgallery-card-meta">{{ album.location }} &middot; {{ album.date }}</p>
-                <span class="eventgallery-card-link">{% if album.url %}View Gallery{% else %}Coming soon{% endif %}</span>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
-    <div class="eventgallery-cta">
-        <a href="{{ site.baseurl }}/gallery" class="btn btn-ghost">See the Gallery</a>
-    </div>
-</section>
-
 <section class="section partners-section reveal">
     <div class="partners-panel">
         <div class="partners-copy">
