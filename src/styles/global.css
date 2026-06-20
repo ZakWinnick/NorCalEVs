@@ -298,21 +298,29 @@ h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 700; line-height: 1
    SPONSORS
    ============================================================ */
 .sponsors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; margin-top: 40px; border-top: 1px solid var(--line-strong); border-left: 1px solid var(--line-strong); }
-.sponsor-card { display: grid; place-items: center; padding: 34px; border-right: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); min-height: 150px; transition: background 0.15s ease; }
+.sponsor-card { display: grid; place-items: center; padding: 34px; border-right: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); min-height: 150px; transition: background 0.2s ease; }
 .sponsor-card:hover { background: var(--bg-alt); }
 .sponsor-card img { max-height: 72px; width: auto; object-fit: contain; transition: filter 0.2s ease, opacity 0.2s ease; }
-/* Hover devices: grayscale at rest, true color on hover (works in both themes,
-   no inversion). Touch devices have no hover, so they show full color always. */
-@media (hover: hover) {
+.sponsor-logo-dark { display: none; }
+
+/* LIGHT theme, hover devices: grayscale at rest, true color on hover. */
+@media (prefers-color-scheme: light) and (hover: hover) {
   .sponsor-card img { filter: grayscale(1); opacity: 0.78; }
   .sponsor-card:hover img { filter: grayscale(0); opacity: 1; }
 }
-/* Theme-aware logo: show the dark variant in dark mode when one is provided.
-   Sponsors without a dark variant keep their single logo in both themes. */
-.sponsor-logo-dark { display: none; }
+
+/* DARK theme: at rest, show the light/monochrome dark-variant logo where one
+   is provided (sponsors without one keep their single logo). */
 @media (prefers-color-scheme: dark) {
   .sponsor-card:has(.sponsor-logo-dark) .sponsor-logo-light { display: none; }
   .sponsor-logo-dark { display: block; }
+}
+/* DARK theme, hover devices: light up the chip and reveal the full-color
+   original logo so its true brand colors read against a light background. */
+@media (prefers-color-scheme: dark) and (hover: hover) {
+  .sponsor-card:hover { background: #f4f4ef; }
+  .sponsor-card:has(.sponsor-logo-dark):hover .sponsor-logo-light { display: block; }
+  .sponsor-card:has(.sponsor-logo-dark):hover .sponsor-logo-dark { display: none; }
 }
 .sponsors-link { display: inline-block; margin-top: 30px; }
 
