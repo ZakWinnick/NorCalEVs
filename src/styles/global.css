@@ -335,7 +335,6 @@ h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 700; line-height: 1
 .signup p { color: rgba(4, 35, 42, 0.78); margin-bottom: 30px; max-width: 50ch; }
 .signup .btn-primary { background: #0e1311; border-color: #0e1311; color: #f5f5f1; }
 .signup .btn-primary:hover { background: #000; border-color: #000; }
-.signup-reassure { margin-top: 18px; font-size: 0.86rem; color: rgba(4, 35, 42, 0.7); font-family: var(--font-mono); text-align: center; }
 
 /* ============================================================
    FOOTER
