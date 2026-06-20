@@ -300,18 +300,8 @@ h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 700; line-height: 1
 .sponsors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; margin-top: 40px; border-top: 1px solid var(--line-strong); border-left: 1px solid var(--line-strong); }
 .sponsor-card { display: grid; place-items: center; padding: 34px; border-right: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); min-height: 150px; transition: background 0.15s ease; }
 .sponsor-card:hover { background: var(--bg-alt); }
-/* Logos show in full, true color by default (correct for touch / no-hover devices). */
-.sponsor-card img { max-height: 72px; width: auto; object-fit: contain; transition: filter 0.2s ease, opacity 0.2s ease; }
-/* Only hover-capable devices get the grayscale-rest, colorize-on-hover effect. */
-@media (hover: hover) {
-  .sponsor-card img { filter: grayscale(1); opacity: 0.78; }
-  .sponsor-card:hover img { filter: grayscale(0); opacity: 1; }
-}
-/* Dark mode: sit logos on a light chip so they render in true color (no inverting). */
-@media (prefers-color-scheme: dark) {
-  .sponsor-card { background: #f4f4ef; }
-  .sponsor-card:hover { background: #eaeae2; }
-}
+/* Logos render in their true colors, unmodified, in every theme and on touch. */
+.sponsor-card img { max-height: 72px; width: auto; object-fit: contain; }
 .sponsors-link { display: inline-block; margin-top: 30px; }
 
 /* ============================================================
