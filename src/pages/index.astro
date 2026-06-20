@@ -157,7 +157,10 @@ const mailto =
       <div class="sponsors-grid">
         {sponsors.map((s) => (
           <a class="sponsor-card" href={s.url} target="_blank" rel="noopener noreferrer">
-            <img src={`/assets/images/${s.logo}`} alt={s.name} loading="lazy" />
+            <img class="sponsor-logo-light" src={`/assets/images/${s.logo}`} alt={s.name} loading="lazy" />
+            {s.logoDark && (
+              <img class="sponsor-logo-dark" src={`/assets/images/${s.logoDark}`} alt={s.name} loading="lazy" />
+            )}
           </a>
         ))}
       </div>

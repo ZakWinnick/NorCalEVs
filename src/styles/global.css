@@ -307,6 +307,13 @@ h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 700; line-height: 1
   .sponsor-card img { filter: grayscale(1); opacity: 0.78; }
   .sponsor-card:hover img { filter: grayscale(0); opacity: 1; }
 }
+/* Theme-aware logo: show the dark variant in dark mode when one is provided.
+   Sponsors without a dark variant keep their single logo in both themes. */
+.sponsor-logo-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .sponsor-card:has(.sponsor-logo-dark) .sponsor-logo-light { display: none; }
+  .sponsor-logo-dark { display: block; }
+}
 .sponsors-link { display: inline-block; margin-top: 30px; }
 
 /* ============================================================

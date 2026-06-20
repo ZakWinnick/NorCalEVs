@@ -7,6 +7,8 @@ export interface Sponsor {
   name: string;
   url: string;
   logo: string;
+  // Optional light/monochrome variant shown in dark mode (for logos drawn dark).
+  logoDark?: string;
   tier?: 1 | 2 | 3;
 }
 
@@ -15,6 +17,7 @@ export const sponsors: Sponsor[] = [
     name: 'Unplugged Performance',
     url: 'https://unpluggedperformance.com/fremont/',
     logo: 'sponsor-unplugged-performance.png',
+    logoDark: 'sponsor-unplugged-performance-dark.webp',
   },
   {
     name: 'OC Customs',
