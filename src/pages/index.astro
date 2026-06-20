@@ -1,0 +1,207 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { sponsors } from "../data/sponsors";
+
+const pillars = [
+  { n: "01 / 06", t: "Events & Drives", d: "Meetups, scenic drives, Cars & Coffee, and signature events across Northern California." },
+  { n: "02 / 06", t: "Community Meetups", d: "Regular local gatherings where EV owners connect, share, and learn from each other." },
+  { n: "03 / 06", t: "EV Education", d: "Workshops and talks on charging, road trips, maintenance, and making the switch to electric." },
+  { n: "04 / 06", t: "Cross-Brand Connection", d: "The only NorCal community where Tesla, Rivian, Ford, Lucid, and every other EV brand share the same space." },
+  { n: "05 / 06", t: "Partner Collaborations", d: "Working with local businesses, charging networks, and organizations that support the EV ecosystem." },
+  { n: "06 / 06", t: "Member Community", d: "A dedicated space for members to connect, coordinate, and shape the future of NorCal EVs." },
+];
+
+const brands = [
+  { key: "tesla", label: "Tesla" },
+  { key: "rivian", label: "Rivian" },
+  { key: "lucid", label: "Lucid" },
+  { key: "ford", label: "Ford" },
+];
+
+const mailto =
+  "mailto:info@norcalevs.org?subject=Join%20the%20NorCal%20EVs%20mailing%20list&body=Hi%20NorCal%20EVs%2C%0D%0A%0D%0APlease%20add%20me%20to%20the%20mailing%20list.%0D%0A%0D%0AFirst%20name%3A%0D%0ALast%20name%3A%0D%0AEV%20brand%20%2F%20model%20(optional)%3A%0D%0ARegion%20(optional)%3A%0D%0A";
+---
+
+<BaseLayout
+  title="NorCal EVs · Driven by Community"
+  description="Northern California's cross-brand EV community. If it plugs in, it belongs here."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="kicker">Northern California Cross-Brand EV Community</span>
+        <h1 class="display">
+          Driven by Community.
+          <span class="line-2">If it plugs in, it belongs here.</span>
+        </h1>
+        <p class="lede">
+          NorCal EVs connects EV owners, enthusiasts, and the EV-curious across Northern
+          California. Every brand, every experience level, every kind of driver.
+        </p>
+        <div class="hero-actions">
+          <a href="/membership" class="btn btn-primary">Join the Community</a>
+          <a href="#events" class="btn btn-ghost">See Upcoming Events</a>
+        </div>
+        <dl class="spec-row">
+          <div class="spec"><dt>Coverage</dt><dd>Northern California</dd></div>
+          <div class="spec"><dt>Brands</dt><dd>Every EV, all welcome</dd></div>
+          <div class="spec"><dt>First event</dt><dd>Always free</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-visual">
+        <div class="photo-frame">
+          <span class="photo-accent"></span>
+          <img src="/assets/images/hero-background.jpg" alt="Northern California landscape" />
+          <span class="photo-tag">Northern California</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about">
+    <div class="container about-inner">
+      <span class="kicker on-dark">About</span>
+      <p>
+        NorCal EVs is a <span class="hl">registered 501(c)(7) community</span> built around
+        real-world connection. Monthly meetups, group drives on good roads, show &amp; tells,
+        and casual education events. Tesla, Rivian, Ford, Lucid, Hyundai, Kia, BMW, and
+        everyone still deciding. Membership is simple, the first event is always free, and
+        there's no test you have to pass to belong.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE'RE BUILDING -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">What We're Building</span>
+        <h2 class="section-title">A community with real things behind it.</h2>
+      </div>
+      <div class="build-grid">
+        {pillars.map((p) => (
+          <div class="build-cell">
+            <span class="build-num">{p.n}</span>
+            <h3>{p.t}</h3>
+            <p>{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND STRIP -->
+  <section class="section brand-strip-section">
+    <div class="container">
+      <div class="brand-grid">
+        {brands.map((b) => (
+          <div class="brand-tile">
+            <img
+              src={`/assets/images/community/brand-${b.key}.jpg`}
+              alt={b.label}
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="brand-label">{b.label}</span>
+          </div>
+        ))}
+      </div>
+      <p class="brand-caption">Tesla. Rivian. Lucid. Ford. Hyundai. Kia. BMW. <span class="hl">If it plugs in, you belong here.</span></p>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section" id="events">
+    <div class="container events-grid">
+      <div class="events-copy">
+        <span class="kicker">Upcoming</span>
+        <h2 class="section-title" style="margin-top:20px">See what the community is doing next.</h2>
+        <p class="lede" style="margin-top:22px">
+          Meetups, drives, show &amp; tells, and education events, posted as they're scheduled.
+          All members welcome, and the first event is always free.
+        </p>
+      </div>
+
+      <div class="events-panel">
+        <div class="events-panel-top">
+          <span class="events-kicker">Community Calendar</span>
+          <a href="https://heylo.group/norcalevs" target="_blank" rel="noopener noreferrer">View all events ↗</a>
+        </div>
+        <div class="events-embed">
+          <div class="events-status" id="heylo-event-status">Loading upcoming events...</div>
+          <div
+            id="heylo-event-feed"
+            data-api-key="4655dcc1-deca-40d8-b6df-06ccec55c3f8"
+            data-community-id="c7893068-9bd1-4f37-b713-e6907a3ebf60"
+          ></div>
+          <div class="events-fallback" id="heylo-event-fallback" hidden>
+            <p>The live calendar is still available in our online hub if the embedded widget does not load here.</p>
+            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View the Calendar</a>
+          </div>
+          <script is:inline src="https://www.heylo.com/embedded-events.min.js"></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Our Sponsors</span>
+        <h2 class="section-title">Supported by businesses that understand the scene.</h2>
+      </div>
+      <div class="sponsors-grid">
+        {sponsors.map((s) => (
+          <a class="sponsor-card" href={s.url} target="_blank" rel="noopener noreferrer">
+            <img src={`/assets/images/${s.logo}`} alt={s.name} loading="lazy" />
+          </a>
+        ))}
+      </div>
+      <a class="sponsors-link link-accent" href="/sponsorships">Interested in sponsoring NorCal EVs? Learn more <span class="ext-arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <!-- STAY CONNECTED -->
+  <section class="section signup">
+    <div class="container signup-inner">
+      <span class="kicker">Stay Connected</span>
+      <h2 class="section-title" style="margin-top:20px">Be the first to know.</h2>
+      <p>
+        Events, community news, and what's happening in NorCal EVs, straight to your inbox.
+        Email us to get on the list, and include your name and region if you can.
+      </p>
+      <a href={mailto} class="btn btn-primary">Join the Mailing List</a>
+      <p class="signup-reassure">We respect your inbox. No spam, ever.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  // Heylo fallback, show static CTA if the widget does not populate.
+  (function () {
+    var feed = document.getElementById("heylo-event-feed");
+    var status = document.getElementById("heylo-event-status");
+    var fallback = document.getElementById("heylo-event-fallback");
+    if (!feed) return;
+    var settled = false;
+    function settle() {
+      if (settled) return;
+      settled = true;
+      if (status) status.style.display = "none";
+    }
+    var obs = new MutationObserver(function () {
+      if (feed.children.length > 0) settle();
+    });
+    obs.observe(feed, { childList: true, subtree: true });
+    setTimeout(function () {
+      if (feed.children.length === 0) {
+        settle();
+        if (fallback) fallback.hidden = false;
+      }
+    }, 3500);
+  })();
+</script>

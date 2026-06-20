@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const entries = [
+  {
+    h: "Membership, sponsorships, and a fuller homepage",
+    items: [
+      "Redesigned the Membership page with three tiers and a limited Launch Edition founding offer.",
+      "Added a Sponsorships page with annual tiers and a la carte event options.",
+      "Added a Resources page for EV owners in Northern California.",
+      "New homepage sections: What We're Building, Our Sponsors, and a mailing list signup.",
+      "Expanded the footer with Explore, Community, and Social columns.",
+    ],
+  },
+  {
+    h: "Earlier",
+    items: [
+      "Confirmed 501(c)(7) nonprofit status across the site.",
+      "Refreshed the homepage layout, added dark mode, and improved mobile scrolling.",
+      "Launched the cross-brand community hub on Heylo.",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Changelog · NorCal EVs"
+  description="What's new on the NorCal EVs website."
+>
+  <section class="page-head">
+    <div class="container">
+      <span class="kicker">Changelog</span>
+      <h1>What's new.</h1>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:36px">
+    <div class="container">
+      <div class="doc">
+        <p class="doc-updated">A running list of notable updates to the site.</p>
+        {entries.map((e) => (
+          <div class="changelog-entry">
+            <h2>{e.h}</h2>
+            <ul>{e.items.map((i) => <li>{i}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

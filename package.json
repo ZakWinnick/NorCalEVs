@@ -1,0 +1,17 @@
+{
+  "name": "norcalevs",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^6.1.6",
+    "sharp": "^0.33.5"
+  }
+}

@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const resources = [
+  { tag: "Guide", soon: true, t: "New EV Owner's Guide", d: "Everything you need to know about owning an EV in Northern California. Charging, maintenance, incentives, and tips from experienced owners." },
+  { tag: "Incentives", t: "California EV Incentives", d: "Current state programs and rebates for buying or leasing an electric vehicle in California.", link: "https://cleanvehiclerebate.org", linkLabel: "View incentives" },
+  { tag: "Charging", t: "NorCal Charging Map", d: "Find public charging across Northern California, with real-world notes from other drivers.", link: "https://www.plugshare.com", linkLabel: "Open the map" },
+  { tag: "Drives", soon: true, t: "NorCal Drive Routes", d: "Scenic, EV-friendly routes across Northern California with charging stop recommendations." },
+];
+---
+
+<BaseLayout
+  title="Resources · NorCal EVs"
+  description="Guides, tools, and information for EV owners in Northern California."
+>
+  <section class="page-head">
+    <div class="container">
+      <span class="kicker">Resources</span>
+      <h1>Useful things for the road.</h1>
+      <p class="page-lede">Guides, tools, and local information for EV owners and the EV-curious across Northern California.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:40px">
+    <div class="container">
+      <div class="tile-grid cols-2">
+        {resources.map((r) => (
+          <article class={r.link ? "tile tile-link" : "tile"}>
+            <div class="tile-top">
+              <span class="tile-tag">{r.tag}</span>
+              {r.soon && <span class="tile-soon">Coming soon</span>}
+            </div>
+            <h3>{r.t}</h3>
+            <p>{r.d}</p>
+            {r.link ? (
+              <a class="link-accent" href={r.link} target="_blank" rel="noopener noreferrer">{r.linkLabel} <span class="ext-arrow" aria-hidden="true">↗</span></a>
+            ) : (
+              <span class="tile-muted">In progress</span>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-cta">
+    <div class="container">
+      <span class="kicker on-dark">Have something to add?</span>
+      <h2 class="section-title" style="margin-top:20px">This page grows with the community.</h2>
+      <p>
+        If there's a guide, tool, or local resource you'd find useful, tell us and we'll build
+        it out. The best resources come from members who've already been down the road.
+      </p>
+      <div class="cta-row">
+        <a href="mailto:contact@norcalevs.org" class="btn btn-primary">Suggest a Resource</a>
+        <a href="/membership" class="btn btn-ghost on-dark">Join the Community</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

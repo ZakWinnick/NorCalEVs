@@ -1,0 +1,80 @@
+---
+import { navigation } from "../data/navigation";
+---
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/assets/images/logo-400.png" alt="NorCal EVs" width="46" height="46" />
+      <span class="wordmark">NorCal EVs</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        {navigation.map((item) =>
+          item.submenu ? (
+            <li class="nav-has-sub">
+              <a href={item.url}>{item.title} <span aria-hidden="true">▾</span></a>
+              <ul class="nav-sub">
+                {item.submenu.map((sub) => (
+                  <li>
+                    <a href={sub.url} target="_blank" rel="noopener noreferrer">
+                      {sub.title} <span class="ext-arrow" aria-hidden="true">↗</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ) : (
+            <li>
+              <a href={item.url} {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                {item.title}
+                {item.external && <span class="ext-arrow" aria-hidden="true">↗</span>}
+              </a>
+            </li>
+          )
+        )}
+      </ul>
+      <a href="/membership" class="nav-cta">Join the Community</a>
+    </div>
+
+    <button class="nav-theme" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.querySelector(".nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(!!open));
+  });
+
+  // Theme toggle: flip between light/dark, persist, and respect OS as the default.
+  const themeBtn = document.querySelector(".nav-theme");
+  const root = document.documentElement;
+  function currentTheme() {
+    const set = root.getAttribute("data-theme");
+    if (set) return set;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  themeBtn?.setAttribute("aria-pressed", String(currentTheme() === "dark"));
+  themeBtn?.addEventListener("click", () => {
+    const next = currentTheme() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    themeBtn.setAttribute("aria-pressed", String(next === "dark"));
+  });
+</script>

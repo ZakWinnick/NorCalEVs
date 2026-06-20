@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const board = [
+  { t: "Executive Director", d: "Sets direction, keeps momentum, and helps make sure the community stays aligned with its mission." },
+  { t: "Vice President", d: "Supports planning and operations, and helps keep key initiatives moving when more hands are needed." },
+  { t: "Secretary", d: "Maintains records, documentation, and board communication so the community stays organized and accountable." },
+  { t: "Treasurer", d: "Oversees finances, reporting, and the basic systems that keep NorCal EVs sustainable over time." },
+];
+
+const team = [
+  { t: "Events Lead", d: "Owns the event calendar, coordinates logistics, and makes sure meetups and drives actually happen on schedule." },
+  { t: "Communications Lead", d: "Manages social media, email and newsletter, and community announcements across our online hub." },
+  { t: "Membership Lead", d: "Owns the member experience from sign-up to renewal, welcoming new members and keeping people engaged." },
+  { t: "Partnerships Lead", d: "Builds and maintains relationships with other EV groups, local businesses, and aligned community partners." },
+  { t: "Regional Leads", d: "Point people for specific NorCal areas as the community grows beyond any one city or corridor." },
+];
+
+const expectations = [
+  "Be an active, dues-paying member",
+  "Attend events regularly, not just organize them",
+  "Respond to communications within 48 hours",
+  "Follow through on commitments",
+  "Represent NorCal EVs values in how they show up",
+  "Ask for help when they need it",
+];
+---
+
+<BaseLayout
+  title="Our Leaders · NorCal EVs"
+  description="Meet the people behind NorCal EVs."
+>
+  <section class="page-head">
+    <div class="container">
+      <span class="kicker">Leadership</span>
+      <h1>Built by members who make things happen.</h1>
+      <p class="page-lede">
+        NorCal EVs is a registered 501(c)(7) community run by volunteers who care about building
+        the strongest cross-brand EV community in Northern California. Titles exist for clarity,
+        not hierarchy. Leadership here means helping the community show up consistently, stay
+        welcoming, and keep moving forward.
+      </p>
+      <div class="cta-row">
+        <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Reach Out</a>
+        <a href="/membership" class="btn btn-ghost">See Membership</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Board of Directors</span>
+        <h2 class="section-title">The team that keeps things moving.</h2>
+        <p class="section-desc">The board handles governance, finances, legal compliance, and strategic direction. It meets at least quarterly.</p>
+      </div>
+      <div class="tile-grid cols-4">
+        {board.map((m) => (
+          <div class="tile">
+            <h3>{m.t}</h3>
+            <p>{m.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Community Leadership Team</span>
+        <h2 class="section-title">The people who run the day-to-day work.</h2>
+      </div>
+      <div class="tile-grid cols-3">
+        {team.map((m) => (
+          <div class="tile">
+            <h3>{m.t}</h3>
+            <p>{m.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Leadership Expectations</span>
+        <h2 class="section-title">What we ask of anyone stepping up.</h2>
+      </div>
+      <ul class="list-check two-col">
+        {expectations.map((e) => <li>{e}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section band-cta">
+    <div class="container">
+      <span class="kicker on-dark">Get Involved</span>
+      <h2 class="section-title" style="margin-top:20px">Interested in helping build this?</h2>
+      <p>
+        We're always looking for community members who want to help organize events, welcome new
+        people, and contribute to the next stage of NorCal EVs. If that sounds like you, start
+        the conversation in our online hub or message us on social.
+      </p>
+      <div class="cta-row">
+        <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Start the Conversation</a>
+        <a href="https://bsky.app/profile/norcalevs.org" class="btn btn-ghost on-dark" target="_blank" rel="noopener noreferrer">Bluesky</a>
+        <a href="https://instagram.com/norcalevs" class="btn btn-ghost on-dark" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://x.com/norcalevs" class="btn btn-ghost on-dark" target="_blank" rel="noopener noreferrer">X</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

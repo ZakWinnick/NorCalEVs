@@ -1,0 +1,137 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const reach = [
+  { t: "EV Owners Across NorCal", d: "Owners and future owners across the Bay Area, Sacramento, North Bay, Central Valley, and beyond." },
+  { t: "Early Adopters and Enthusiasts", d: "Tech-forward, sustainability-minded consumers who invest in quality products and services." },
+  { t: "Community Influencers", d: "People who actively share their EV experience with others and drive word-of-mouth adoption." },
+];
+
+const tiers = [
+  {
+    name: "Plug-In", price: "$250", unit: "/ year", for: "Small local businesses",
+    perks: ["Logo on sponsor page", "One social media thank-you post", "Ability to offer a member discount or perk", "Option to provide a giveaway item for events", "Recognition in one newsletter or community update"],
+  },
+  {
+    name: "Level 2", price: "$500", unit: "/ year", for: "Local visibility across NorCal events",
+    perks: ["Everything in Plug-In", "Logo featured on event materials", "Recognition at regional events", "Two social media posts per year", "Table or setup at one NorCal EVs event", "Provide flyers, swag, or discount codes at events"],
+  },
+  {
+    name: "Fast Charge", price: "$1,500", unit: "/ year", for: "Broad exposure across the full community",
+    perks: ["Everything in Level 2", "Logo on homepage sponsor section", "Featured newsletter mention", "Four social media posts per year", "Recognition at all major events", "Table or setup at two events per year", "Offer a paid-member discount or perk"],
+  },
+  {
+    name: "Supercharger", price: "$3,000+", unit: "/ year", for: "Anchor partners with the highest visibility", feature: true, badge: "Limited to 4 Partners",
+    perks: ["Everything in Fast Charge", "Premier logo placement on website and all materials", "Recognition at all NorCal EVs events", "Co-branded event opportunity", "Sponsor spotlight (interview, feature, or profile)", "Six social media posts per year", "Table or setup at major events", "Category exclusivity where appropriate"],
+  },
+];
+
+const alacarte = [
+  { t: "Coffee & Food Sponsor", price: "$150 to $250", perks: ["Recognition at the event", "Social media thank-you post", "Name or logo in event recap"] },
+  { t: "Giveaway Sponsor", price: "$250 to $500", perks: ["Sponsor provides or funds a giveaway item", "Recognition during the giveaway", "Social media thank-you post"] },
+  { t: "Custom Event Sponsor", price: "Let's Talk", perks: ["Power a single meetup, drive, or community event", "On-site signage and brand mention", "Tagged in event promotion and recap posts"] },
+];
+
+const sponsorMailto =
+  "mailto:sponsors@norcalevs.org?subject=Sponsorship%20inquiry&body=Hi%20NorCal%20EVs%2C%0D%0A%0D%0AWe're%20interested%20in%20sponsoring.%0D%0A%0D%0ABusiness%3A%0D%0AContact%20name%3A%0D%0ATier%20or%20event%20add-on%20of%20interest%3A%0D%0AA%20bit%20about%20us%3A%0D%0A";
+---
+
+<BaseLayout
+  title="Sponsorships · NorCal EVs"
+  description="Partner with Northern California's cross-brand EV community. Align your brand with the people driving the future of transportation in the region."
+>
+  <section class="page-head">
+    <div class="container">
+      <span class="kicker">Why Sponsor</span>
+      <h1>Reach an audience that's driving the future.</h1>
+      <p class="page-lede">
+        NorCal EVs is a growing community of EV owners, enthusiasts, and early adopters across
+        Northern California. Our members research deeply, invest in technology, and influence
+        the buying decisions of friends, family, and coworkers considering their first EV.
+      </p>
+      <p class="section-desc">
+        Northern California has one of the highest EV adoption rates in the country. Sponsoring
+        NorCal EVs puts your brand in front of the people leading that adoption.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Who You'll Reach</span>
+        <h2 class="section-title">A focused, high-intent audience.</h2>
+      </div>
+      <div class="tile-grid cols-3">
+        {reach.map((r) => (
+          <div class="tile">
+            <h3>{r.t}</h3>
+            <p>{r.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Annual Sponsorship Tiers</span>
+        <h2 class="section-title">Partner for the full year.</h2>
+      </div>
+      <div class="tiers t4">
+        {tiers.map((t) => (
+          <div class={t.feature ? "tier feature" : "tier"}>
+            {t.badge && <span class="tier-badge">{t.badge}</span>}
+            <div class="tier-name">{t.name}</div>
+            <div class="tier-price">{t.price} <span>{t.unit}</span></div>
+            <p class="tier-for">{t.for}</p>
+            <ul>{t.perks.map((p) => <li>{p}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Event Sponsorship Add-Ons</span>
+        <h2 class="section-title">Sponsor a single event.</h2>
+        <p class="section-desc">
+          Sponsor a single event without committing to an annual package. Great for product
+          launches, seasonal promotions, or testing a partnership.
+        </p>
+      </div>
+      <div class="tile-grid cols-3">
+        {alacarte.map((a) => (
+          <div class="tile">
+            <div class="tile-top"><span class="tile-tag">{a.price}</span></div>
+            <h3>{a.t}</h3>
+            <ul class="list-check" style="margin-top:14px">{a.perks.map((p) => <li>{p}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+      <p class="section-desc" style="margin-top:26px">
+        NorCal EVs is keeping sponsorship approachable while the community grows. As we hit
+        milestones and expand our reach, sponsorship packages will scale. Lock in now and grow
+        with us.
+      </p>
+    </div>
+  </section>
+
+  <section class="section band-cta">
+    <div class="container">
+      <span class="kicker on-dark">Get In Touch</span>
+      <h2 class="section-title" style="margin-top:20px">Ready to partner with us?</h2>
+      <p>
+        Whether you're a small local business or a national brand, we'd love to hear from you.
+        Email us about your business, which tier or event you have in mind, and we'll find the
+        right fit.
+      </p>
+      <div class="cta-row">
+        <a href={sponsorMailto} class="btn btn-primary">Email sponsors@norcalevs.org</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
