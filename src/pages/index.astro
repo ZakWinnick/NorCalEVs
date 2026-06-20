@@ -17,9 +17,6 @@ const brands = [
   { key: "lucid", label: "Lucid" },
   { key: "ford", label: "Ford" },
 ];
-
-const mailto =
-  "mailto:info@norcalevs.org?subject=Join%20the%20NorCal%20EVs%20mailing%20list&body=Hi%20NorCal%20EVs%2C%0D%0A%0D%0APlease%20add%20me%20to%20the%20mailing%20list.%0D%0A%0D%0AFirst%20name%3A%0D%0ALast%20name%3A%0D%0AEV%20brand%20%2F%20model%20(optional)%3A%0D%0ARegion%20(optional)%3A%0D%0A";
 ---
 
 <BaseLayout
@@ -175,9 +172,10 @@ const mailto =
       <h2 class="section-title" style="margin-top:20px">Be the first to know.</h2>
       <p>
         Events, community news, and what's happening in NorCal EVs, straight to your inbox.
-        Email us to get on the list, and include your name and region if you can.
       </p>
-      <a href={mailto} class="btn btn-primary">Join the Mailing List</a>
+      <div class="signup-form">
+        <div class="ml-embedded" data-form="AbIwuu"></div>
+      </div>
       <p class="signup-reassure">We respect your inbox. No spam, ever.</p>
     </div>
   </section>

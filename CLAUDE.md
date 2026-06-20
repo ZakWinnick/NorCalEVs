@@ -61,8 +61,7 @@ Theme is **fully automatic** and follows the OS via `prefers-color-scheme`. Ther
 
 ### Contact (mailto, no forms)
 
-There are no HTML forms. Intake is via `mailto:` CTAs with prefilled subject/body (URL-encoded):
-- Mailing list (homepage "Stay Connected"): `info@norcalevs.org`
+The mailing-list signup (homepage "Stay Connected") is a **MailerLite embedded form** (`<div class="ml-embedded" data-form="AbIwuu">`); the MailerLite universal script (account `1120932`) is loaded in `BaseLayout`'s `<head>` so it works on every page. All other intake is via `mailto:` CTAs with prefilled subject/body (URL-encoded):
 - Sponsorship (`/sponsorships`): `sponsors@norcalevs.org`
 - Resources / general: `contact@norcalevs.org`
 
