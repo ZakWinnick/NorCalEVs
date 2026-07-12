@@ -45,13 +45,11 @@ const sponsorMailto =
       <span class="kicker">Why Sponsor</span>
       <h1>Reach an audience that's driving the future.</h1>
       <p class="page-lede">
-        NorCal EVs is a growing community of EV owners, enthusiasts, and early adopters across
-        Northern California. Our members research deeply, invest in technology, and influence
-        the buying decisions of friends, family, and coworkers considering their first EV.
+        Connect with EV owners, enthusiasts, and early adopters across Northern California.
       </p>
       <p class="section-desc">
-        Northern California has one of the highest EV adoption rates in the country. Sponsoring
-        NorCal EVs puts your brand in front of the people leading that adoption.
+        Put your brand in front of people who research deeply, invest in technology, and help
+        others make confident EV decisions.
       </p>
     </div>
   </section>
@@ -59,8 +57,10 @@ const sponsorMailto =
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">Who You'll Reach</span>
-        <h2 class="section-title">A focused, high-intent audience.</h2>
+        <div>
+          <span class="kicker">Who You'll Reach</span>
+          <h2 class="section-title" style="margin-top:18px">A focused audience.</h2>
+        </div>
       </div>
       <div class="tile-grid cols-3">
         {reach.map((r) => (
@@ -76,8 +76,10 @@ const sponsorMailto =
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">Annual Sponsorship Tiers</span>
-        <h2 class="section-title">Partner for the full year.</h2>
+        <div>
+          <span class="kicker">Annual Sponsorship Tiers</span>
+          <h2 class="section-title" style="margin-top:18px">Partner for the full year.</h2>
+        </div>
       </div>
       <div class="tiers t4">
         {tiers.map((t) => (
@@ -96,9 +98,11 @@ const sponsorMailto =
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">Event Sponsorship Add-Ons</span>
-        <h2 class="section-title">Sponsor a single event.</h2>
-        <p class="section-desc">
+        <div>
+          <span class="kicker">Event Sponsorship Add-Ons</span>
+          <h2 class="section-title" style="margin-top:18px">Sponsor a single event.</h2>
+        </div>
+        <p class="section-head-copy">
           Sponsor a single event without committing to an annual package. Great for product
           launches, seasonal promotions, or testing a partnership.
         </p>
@@ -112,10 +116,9 @@ const sponsorMailto =
           </div>
         ))}
       </div>
-      <p class="section-desc" style="margin-top:26px">
-        NorCal EVs is keeping sponsorship approachable while the community grows. As we hit
-        milestones and expand our reach, sponsorship packages will scale. Lock in now and grow
-        with us.
+      <p class="section-desc">
+        Sponsorship stays approachable while the community grows. Packages will scale as reach
+        and programming expand.
       </p>
     </div>
   </section>

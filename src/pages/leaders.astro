@@ -35,10 +35,8 @@ const expectations = [
       <span class="kicker">Leadership</span>
       <h1>Built by members who make things happen.</h1>
       <p class="page-lede">
-        NorCal EVs is a registered 501(c)(7) community run by volunteers who care about building
-        the strongest cross-brand EV community in Northern California. Titles exist for clarity,
-        not hierarchy. Leadership here means helping the community show up consistently, stay
-        welcoming, and keep moving forward.
+        A volunteer-led community built around consistency, welcome, and follow-through. Titles
+        exist for clarity, not hierarchy.
       </p>
       <div class="cta-row">
         <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Reach Out</a>
@@ -50,9 +48,11 @@ const expectations = [
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">Board of Directors</span>
-        <h2 class="section-title">The team that keeps things moving.</h2>
-        <p class="section-desc">The board handles governance, finances, legal compliance, and strategic direction. It meets at least quarterly.</p>
+        <div>
+          <span class="kicker">Board of Directors</span>
+          <h2 class="section-title" style="margin-top:18px">The team that keeps things moving.</h2>
+        </div>
+        <p class="section-head-copy">Governance, finances, legal compliance, and strategic direction.</p>
       </div>
       <div class="tile-grid cols-4">
         {board.map((m) => (
@@ -65,11 +65,13 @@ const expectations = [
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section-tight">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">Community Leadership Team</span>
-        <h2 class="section-title">The people who run the day-to-day work.</h2>
+        <div>
+          <span class="kicker">Community Leadership Team</span>
+          <h2 class="section-title" style="margin-top:18px">The people who run the work.</h2>
+        </div>
       </div>
       <div class="tile-grid cols-3">
         {team.map((m) => (
@@ -82,11 +84,13 @@ const expectations = [
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section-tight">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">Leadership Expectations</span>
-        <h2 class="section-title">What we ask of anyone stepping up.</h2>
+        <div>
+          <span class="kicker">Leadership Expectations</span>
+          <h2 class="section-title" style="margin-top:18px">What we ask of anyone stepping up.</h2>
+        </div>
       </div>
       <ul class="list-check two-col">
         {expectations.map((e) => <li>{e}</li>)}
