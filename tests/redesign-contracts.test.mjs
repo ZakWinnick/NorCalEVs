@@ -63,6 +63,12 @@ test("automatic light and dark themes remain", async () => {
   assert.match(css, /@media\s*\(prefers-color-scheme:\s*dark\)/);
 });
 
+test("shared navigation stays visible while pages scroll", async () => {
+  const css = await read("src/styles/global.css");
+
+  assert.match(css, /\.site-nav\s*\{[^}]*position:\s*sticky[^}]*top:\s*0/s);
+});
+
 test("production source contains no em dash", async () => {
   const files = [
     "src/layouts/BaseLayout.astro",

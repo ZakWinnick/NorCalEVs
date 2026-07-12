@@ -99,7 +99,7 @@ ul, ol { padding: 0; }
 .poster-grid { display: grid; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
 .link-accent { color: var(--volt-deep); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 
-.site-nav { position: relative; z-index: 100; min-height: var(--nav-height); background: var(--poster); color: var(--poster-ink); border-bottom: 1px solid var(--rule-dark); }
+.site-nav { position: sticky; top: 0; z-index: 100; min-height: var(--nav-height); background: var(--poster); color: var(--poster-ink); border-bottom: 1px solid var(--rule-dark); }
 .site-nav-inner { min-height: var(--nav-height); display: flex; align-items: center; gap: 28px; }
 .site-nav-brand { display: inline-flex; align-items: center; gap: 10px; font-size: 0.86rem; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; white-space: nowrap; }
 .site-nav-brand img { width: 34px; height: 34px; object-fit: contain; }
