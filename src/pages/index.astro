@@ -3,12 +3,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { sponsors } from "../data/sponsors";
 
 const pillars = [
-  { n: "01 / 06", t: "Events & Drives", d: "Meetups, scenic drives, Cars & Coffee, and signature events across Northern California." },
-  { n: "02 / 06", t: "Community Meetups", d: "Regular local gatherings where EV owners connect, share, and learn from each other." },
-  { n: "03 / 06", t: "EV Education", d: "Workshops and talks on charging, road trips, maintenance, and making the switch to electric." },
-  { n: "04 / 06", t: "Cross-Brand Connection", d: "The only NorCal community where Tesla, Rivian, Ford, Lucid, and every other EV brand share the same space." },
-  { n: "05 / 06", t: "Partner Collaborations", d: "Working with local businesses, charging networks, and organizations that support the EV ecosystem." },
-  { n: "06 / 06", t: "Member Community", d: "A dedicated space for members to connect, coordinate, and shape the future of NorCal EVs." },
+  { n: "01 / 06", t: "Events & Drives", d: "Meetups, scenic drives, and signature events across Northern California." },
+  { n: "02 / 06", t: "Community Meetups", d: "Local gatherings where EV owners connect and share what they know." },
+  { n: "03 / 06", t: "EV Education", d: "Useful workshops and talks on charging, road trips, and ownership." },
+  { n: "04 / 06", t: "Cross-Brand Connection", d: "Tesla, Rivian, Ford, Lucid, and every other EV in one place." },
+  { n: "05 / 06", t: "Partner Collaborations", d: "Local businesses and partners that strengthen the EV community." },
+  { n: "06 / 06", t: "Member Community", d: "A dedicated space for members to connect, coordinate, and shape what comes next." },
 ];
 
 const brands = [
@@ -23,108 +23,85 @@ const brands = [
   title="NorCal EVs · Driven by Community"
   description="Northern California's cross-brand EV community. If it plugs in, it belongs here."
 >
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="kicker">Northern California Cross-Brand EV Community</span>
-        <h1 class="display">
-          Driven by Community.
-          <span class="line-2">If it plugs in, it belongs here.</span>
-        </h1>
-        <p class="lede">
-          NorCal EVs connects EV owners, enthusiasts, and the EV-curious across Northern
-          California. Every brand, every experience level, every kind of driver.
-        </p>
-        <div class="hero-actions">
-          <a href="/membership" class="btn btn-primary">Join the Community</a>
-          <a href="#events" class="btn btn-ghost">See Upcoming Events</a>
-        </div>
-        <dl class="spec-row">
-          <div class="spec"><dt>Coverage</dt><dd>Northern California</dd></div>
-          <div class="spec"><dt>Brands</dt><dd>Every EV, all welcome</dd></div>
-          <div class="spec"><dt>Gatherings</dt><dd>Meetups & drives</dd></div>
-        </dl>
-      </div>
-
-      <div class="hero-visual">
-        <div class="photo-frame">
-          <span class="photo-accent"></span>
-          <img src="/assets/images/hero-background.jpg" alt="Northern California landscape" />
-          <span class="photo-tag">Northern California</span>
-        </div>
+  <section class="home-hero">
+    <div class="home-hero-inner container">
+      <img class="home-hero-logo" src="/assets/images/logo-400.png" alt="NorCal EVs" />
+      <span class="poster-kicker on-dark">Northern California, every EV</span>
+      <h1 class="poster-title">Plug in.<br /><span>Show up.</span></h1>
+      <p>Meetups, drives, and good people. Every brand belongs here.</p>
+      <div class="poster-actions">
+        <a class="poster-button" href="/membership">Join the community</a>
+        <a class="poster-button-ghost" href="#events">Upcoming events</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section about">
-    <div class="container about-inner">
-      <span class="kicker on-dark">About</span>
-      <p>
-        NorCal EVs is a <span class="hl">registered 501(c)(7) community</span> built around
-        real-world connection. Monthly meetups, group drives on good roads, show &amp; tells,
-        and casual education events. Tesla, Rivian, Ford, Lucid, Hyundai, Kia, BMW, and
-        everyone still deciding. Membership is simple, and there's no test you have to pass to
-        belong.
+  <section class="home-about">
+    <div class="container home-about-grid">
+      <div class="home-about-label">
+        <span class="poster-kicker on-dark">About NorCal EVs</span>
+      </div>
+      <p class="home-about-copy">
+        A registered 501(c)(7) community built for real-world connection across Northern
+        California. <span>No brand boundaries. No experience required.</span>
       </p>
     </div>
   </section>
 
-  <!-- WHAT WE'RE BUILDING -->
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">What We're Building</span>
-        <h2 class="section-title">A community with real things behind it.</h2>
+        <div>
+          <span class="poster-kicker">What we're building</span>
+          <h2 class="section-title" style="margin-top:18px">Real things.<br />Real community.</h2>
+        </div>
+        <p class="section-head-copy">Events, education, and connection that exist beyond a screen.</p>
       </div>
-      <div class="build-grid">
-        {pillars.map((p) => (
-          <div class="build-cell">
-            <span class="build-num">{p.n}</span>
-            <h3>{p.t}</h3>
-            <p>{p.d}</p>
-          </div>
+      <div class="poster-grid pillar-grid">
+        {pillars.map((pillar) => (
+          <article class="pillar-card">
+            <span class="pillar-num">{pillar.n}</span>
+            <div>
+              <h3>{pillar.t}</h3>
+              <p>{pillar.d}</p>
+            </div>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- BRAND STRIP -->
-  <section class="section brand-strip-section">
-    <div class="container">
-      <div class="brand-grid">
-        {brands.map((b) => (
-          <div class="brand-tile">
-            <img
-              src={`/assets/images/community/brand-${b.key}.jpg`}
-              alt={b.label}
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="brand-label">{b.label}</span>
-          </div>
-        ))}
-      </div>
-      <p class="brand-caption">Tesla. Rivian. Lucid. Ford. Hyundai. Kia. BMW. <span class="hl">If it plugs in, you belong here.</span></p>
+  <section class="brand-photo-section">
+    <div class="brand-photo-grid">
+      {brands.map((brand) => (
+        <figure class="brand-photo">
+          <img
+            src={`/assets/images/community/brand-${brand.key}.jpg`}
+            alt={`${brand.label} electric vehicle`}
+            loading="lazy"
+            decoding="async"
+          />
+          <span>{brand.label}</span>
+        </figure>
+      ))}
     </div>
+    <p class="container brand-statement">
+      Tesla. Rivian. Lucid. Ford. Hyundai. Kia. BMW.
+      <span>If it plugs in, you belong here.</span>
+    </p>
   </section>
 
-  <!-- EVENTS -->
   <section class="section" id="events">
-    <div class="container events-grid">
+    <div class="container events-layout">
       <div class="events-copy">
-        <span class="kicker">Upcoming</span>
-        <h2 class="section-title" style="margin-top:20px">See what the community is doing next.</h2>
-        <p class="lede" style="margin-top:22px">
-          Meetups, drives, show &amp; tells, and education events, posted as they're scheduled.
-          All members welcome.
-        </p>
+        <span class="poster-kicker">Upcoming</span>
+        <h2 class="section-title">See what is next.</h2>
+        <p>Meetups, drives, show and tells, and education events. All members welcome.</p>
       </div>
 
       <div class="events-panel">
         <div class="events-panel-top">
-          <span class="events-kicker">Community Calendar</span>
+          <span>Community Calendar</span>
           <a href="https://heylo.group/norcalevs" target="_blank" rel="noopener noreferrer">View all events ↗</a>
         </div>
         <div class="events-embed">
@@ -136,7 +113,7 @@ const brands = [
           ></div>
           <div class="events-fallback" id="heylo-event-fallback" hidden>
             <p>The live calendar is still available in our online hub if the embedded widget does not load here.</p>
-            <a href="https://heylo.group/norcalevs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View the Calendar</a>
+            <a href="https://heylo.group/norcalevs" class="poster-button" target="_blank" rel="noopener noreferrer">View the calendar</a>
           </div>
           <script is:inline src="https://www.heylo.com/embedded-events.min.js"></script>
         </div>
@@ -144,35 +121,34 @@ const brands = [
     </div>
   </section>
 
-  <!-- SPONSORS -->
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">Our Sponsors</span>
-        <h2 class="section-title">Supported by businesses that understand the scene.</h2>
+        <div>
+          <span class="poster-kicker">Our sponsors</span>
+          <h2 class="section-title" style="margin-top:18px">Backing the community.</h2>
+        </div>
+        <p class="section-head-copy">Businesses that understand where the EV community is going.</p>
       </div>
-      <div class="sponsors-grid">
-        {sponsors.map((s) => (
-          <a class="sponsor-card" href={s.url} target="_blank" rel="noopener noreferrer">
-            <img class="sponsor-logo-light" src={`/assets/images/${s.logo}`} alt={s.name} loading="lazy" />
-            {s.logoDark && (
-              <img class="sponsor-logo-dark" src={`/assets/images/${s.logoDark}`} alt={s.name} loading="lazy" />
+      <div class="sponsor-grid">
+        {sponsors.map((sponsor) => (
+          <a class="sponsor-card" href={sponsor.url} target="_blank" rel="noopener noreferrer">
+            <img class="sponsor-logo-light" src={`/assets/images/${sponsor.logo}`} alt={sponsor.name} loading="lazy" />
+            {sponsor.logoDark && (
+              <img class="sponsor-logo-dark" src={`/assets/images/${sponsor.logoDark}`} alt={sponsor.name} loading="lazy" />
             )}
           </a>
         ))}
       </div>
-      <a class="sponsors-link link-accent" href="/sponsorships">Interested in sponsoring NorCal EVs? Learn more <span class="ext-arrow" aria-hidden="true">↗</span></a>
+      <a class="sponsors-link link-accent" href="/sponsorships">Interested in sponsoring NorCal EVs? Learn more ↗</a>
     </div>
   </section>
 
-  <!-- STAY CONNECTED -->
-  <section class="section signup">
-    <div class="container signup-inner">
-      <span class="kicker">Stay Connected</span>
-      <h2 class="section-title" style="margin-top:20px">Be the first to know.</h2>
-      <p>
-        Events, community news, and what's happening in NorCal EVs, straight to your inbox.
-      </p>
+  <section class="section newsletter-band">
+    <div class="container newsletter-layout">
+      <span class="poster-kicker">Stay connected</span>
+      <h2 class="section-title">Be the first to know.</h2>
+      <p>Events, community news, and what is happening across NorCal EVs.</p>
       <div class="signup-form">
         <div class="ml-embedded" data-form="AbIwuu"></div>
       </div>
@@ -193,10 +169,10 @@ const brands = [
       settled = true;
       if (status) status.style.display = "none";
     }
-    var obs = new MutationObserver(function () {
+    var observer = new MutationObserver(function () {
       if (feed.children.length > 0) settle();
     });
-    obs.observe(feed, { childList: true, subtree: true });
+    observer.observe(feed, { childList: true, subtree: true });
     setTimeout(function () {
       if (feed.children.length === 0) {
         settle();
