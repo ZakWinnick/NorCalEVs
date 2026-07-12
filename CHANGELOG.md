@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2026.27] - 2026-07-11
+
+### Changed: Community Poster site redesign
+
+- Rebuilt the full site around the approved Community Poster visual system.
+- Centered the NorCal EVs logo in the homepage hero and omitted the proposed scrolling banner.
+- Reduced copy density and strengthened hierarchy across the homepage and interior pages.
+- Preserved the Heylo event calendar, MailerLite newsletter form, homepage sponsors, and automatic light and dark themes.
+- Improved responsive layouts, keyboard focus, and scanability across every existing route.
+
 ## [2026.26] - 2026-06-20
 
 ### Changed: Trim homepage, expand social, tighten spacing
