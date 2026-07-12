@@ -78,7 +78,7 @@ test("shared navigation stays visible while pages scroll", async () => {
 test("desktop menu text uses the approved readable size", async () => {
   const css = await read("src/styles/global.css");
 
-  assert.match(css, /\.site-nav-links a[^{]*\{[^}]*font-size:\s*0\.72rem/s);
+  assert.match(css, /\.site-nav-links a[^{]*\{[^}]*font-size:\s*0\.92rem/s);
 });
 
 test("mobile Social submenu has a collapsible accessible toggle", async () => {
