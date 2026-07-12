@@ -75,6 +75,12 @@ test("shared navigation stays visible while pages scroll", async () => {
   assert.match(css, /\.site-nav\s*\{[^}]*position:\s*sticky[^}]*top:\s*0/s);
 });
 
+test("desktop menu text uses the approved readable size", async () => {
+  const css = await read("src/styles/global.css");
+
+  assert.match(css, /\.site-nav-links a\s*\{[^}]*font-size:\s*0\.72rem/s);
+});
+
 test("production source contains no em dash", async () => {
   const files = [
     "src/layouts/BaseLayout.astro",

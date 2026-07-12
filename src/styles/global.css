@@ -106,7 +106,7 @@ ul, ol { padding: 0; }
 .site-nav-menu { margin-left: auto; display: flex; align-items: center; gap: 22px; }
 .site-nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
 .site-nav-links > li { position: relative; }
-.site-nav-links a { display: inline-flex; align-items: center; gap: 4px; padding: 11px 8px; color: var(--poster-muted); font-family: var(--font-mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.site-nav-links a { display: inline-flex; align-items: center; gap: 4px; padding: 11px 8px; color: var(--poster-muted); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .site-nav-links a:hover { color: var(--poster-ink); }
 .site-nav-submenu { position: absolute; top: calc(100% + 8px); right: 0; display: none; min-width: 180px; padding: 6px; list-style: none; background: var(--poster-soft); border: 1px solid var(--rule-dark); }
 .site-nav-submenu a { width: 100%; }
