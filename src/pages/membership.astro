@@ -1,18 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-// Launch Edition promo: Long Range at $30 for the first year, first 30 members.
-// No payment backend yet, so launchClaimed is maintained by hand. When it
-// reaches launchTotal the banner drops off automatically (per spec).
 const launchClaimed = 0;
 const launchTotal = 30;
 
 const funnel = [
-  { n: "01", t: "Discover", d: "Hear about NorCal EVs from a friend, an event, or online." },
-  { n: "02", t: "Learn", d: "Visit the site and get what we're about in under 30 seconds." },
-  { n: "03", t: "Join", d: "Sign up in our online hub and pick a tier that fits you." },
-  { n: "04", t: "Attend", d: "Come to your first event and meet the community in person." },
-  { n: "05", t: "Stay", d: "Keep coming back. That's the whole thing." },
+  { n: "01", t: "Discover", d: "Find NorCal EVs through a friend, event, or online." },
+  { n: "02", t: "Learn", d: "See what the community is about." },
+  { n: "03", t: "Join", d: "Choose the membership that fits." },
+  { n: "04", t: "Attend", d: "Come to an event and meet people." },
+  { n: "05", t: "Stay", d: "Keep showing up. That is the whole thing." },
 ];
 
 const benefits = [
@@ -27,37 +24,39 @@ const benefits = [
 
 <BaseLayout
   title="Membership · NorCal EVs"
-  description="Pick how you want to be part of NorCal EVs. Free for everyone, with paid tiers for members who want to go deeper and support what we're building."
+  description="Pick how you want to be part of NorCal EVs. Free for everyone, with paid tiers for members who want to go deeper."
 >
-  <section class="page-head">
-    <div class="container">
-      <span class="kicker">Open Membership</span>
-      <h1>Join the community, then show up.</h1>
-      <p class="page-lede">
-        NorCal EVs is a registered 501(c)(7) community open to anyone in Northern California who
-        owns, leases, or is curious about electric vehicles. No specific brand, model, or
-        ownership status required. If you're EV-curious and trying to figure out your first EV,
-        you belong here too.
-      </p>
-      <div class="cta-row">
-        <a href="/join" class="btn btn-primary">Join the Community</a>
-        <a href="/#events" class="btn btn-ghost">View Upcoming Events</a>
+  <section class="interior-hero">
+    <div class="container interior-hero-grid">
+      <div class="interior-hero-copy">
+        <span class="poster-kicker on-dark">Open membership</span>
+        <h1 class="poster-title">Join in.<br /><span>Show up.</span></h1>
+        <p>For EV owners, enthusiasts, and the EV-curious across Northern California. Every brand and experience level belongs.</p>
+        <div class="poster-actions">
+          <a href="/join" class="poster-button">Join the community</a>
+          <a href="/#events" class="poster-button-ghost">Upcoming events</a>
+        </div>
+      </div>
+      <div class="interior-hero-visual" style="background-image:url('/assets/images/community/brand-rivian.jpg')">
+        <img src="/assets/images/logo-400.png" alt="NorCal EVs" />
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section-tight">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">How It Works</span>
-        <h2 class="section-title">Five steps. No friction.</h2>
+        <div>
+          <span class="poster-kicker">How it works</span>
+          <h2 class="section-title" style="margin-top:18px">Five steps. No friction.</h2>
+        </div>
       </div>
       <div class="funnel">
-        {funnel.map((s) => (
+        {funnel.map((step) => (
           <div class="funnel-step">
-            <span class="funnel-num">{s.n}</span>
-            <div class="funnel-label">{s.t}</div>
-            <p class="funnel-desc">{s.d}</p>
+            <span class="funnel-num">{step.n}</span>
+            <div class="funnel-label">{step.t}</div>
+            <p class="funnel-desc">{step.d}</p>
           </div>
         ))}
       </div>
@@ -67,8 +66,11 @@ const benefits = [
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">Tiers</span>
-        <h2 class="section-title">Pick what fits. Upgrade when it makes sense.</h2>
+        <div>
+          <span class="poster-kicker">Membership tiers</span>
+          <h2 class="section-title" style="margin-top:18px">Pick what fits.</h2>
+        </div>
+        <p class="section-head-copy">Join for free. Paid memberships support the community and include more ways to take part.</p>
       </div>
 
       {launchClaimed < launchTotal && (
@@ -76,27 +78,27 @@ const benefits = [
           <div>
             <span class="promo-badge">Launch Edition</span>
             <h3>Long Range for $30 your first year.</h3>
-            <p>A founding rate for the first 30 members. It renews at $50 a year after that. Once 30 spots are claimed, this offer is gone.</p>
+            <p>A founding rate for the first 30 members. It renews at $50 per year.</p>
           </div>
-          <a href="https://www.heylo.com/g/c7893068-9bd1-4f37-b713-e6907a3ebf60/membership" class="btn btn-primary">Claim the Launch Rate</a>
+          <a href="https://www.heylo.com/g/c7893068-9bd1-4f37-b713-e6907a3ebf60/membership" class="btn">Claim the launch rate</a>
         </div>
       )}
 
       <div class="tiers t3">
-        <div class="tier">
+        <article class="tier">
           <div class="tier-name">Standard Range</div>
           <div class="tier-price">Free</div>
           <p class="tier-for">For anyone who wants in.</p>
           <ul>
             <li>Access to all events</li>
             <li>Community discussions and member communications</li>
-            <li>A way to join the community and see what NorCal EVs is about</li>
+            <li>A simple way to see what NorCal EVs is about</li>
           </ul>
-          <a href="/join" class="btn btn-ghost">Join Free</a>
-        </div>
+          <a href="/join" class="btn btn-ghost">Join free</a>
+        </article>
 
-        <div class="tier feature">
-          <span class="tier-badge">Best Value</span>
+        <article class="tier feature">
+          <span class="tier-badge">Best value</span>
           <div class="tier-name">Long Range</div>
           <div class="tier-price">$50 <span>/ year</span></div>
           <p class="tier-for">For members who want to go deeper.</p>
@@ -109,9 +111,9 @@ const benefits = [
             <li>NorCal EVs member sticker included</li>
           </ul>
           <a href="https://www.heylo.com/g/c7893068-9bd1-4f37-b713-e6907a3ebf60/membership" class="btn btn-primary">Choose Long Range</a>
-        </div>
+        </article>
 
-        <div class="tier">
+        <article class="tier">
           <div class="tier-name">Max Pack</div>
           <div class="tier-price">$500 <span>lifetime</span></div>
           <p class="tier-for">For the all-in founding supporters.</p>
@@ -123,38 +125,32 @@ const benefits = [
             <li>NorCal EVs member sticker included</li>
           </ul>
           <a href="https://www.heylo.com/g/c7893068-9bd1-4f37-b713-e6907a3ebf60/membership" class="btn btn-ghost">Go Max Pack</a>
-        </div>
+        </article>
       </div>
 
-      <p class="section-desc" style="margin-top:28px">
-        Being part of NorCal EVs has always been free, and that's not changing. Paid
-        memberships are for people who want to support what we're building, get more out of the
-        community, and have a say in where it goes.
-      </p>
+      <p class="section-desc">Being part of NorCal EVs has always been free. Paid memberships are for people who want to support what we are building and have a say in where it goes.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">What Members Get</span>
-        <h2 class="section-title">Real community benefits, listed honestly.</h2>
+        <div>
+          <span class="poster-kicker">What members get</span>
+          <h2 class="section-title" style="margin-top:18px">Benefits, listed honestly.</h2>
+        </div>
       </div>
       <ul class="list-check two-col">
-        {benefits.map((b) => <li>{b}</li>)}
+        {benefits.map((benefit) => <li>{benefit}</li>)}
       </ul>
     </div>
   </section>
 
-  <section class="section band-cta">
+  <section class="section band-cta membership-closing">
     <div class="container">
-      <span class="kicker on-dark">All Brands Welcome</span>
-      <h2 class="section-title" style="margin-top:20px">From Tesla to Kia to "still deciding."</h2>
-      <p>
-        The community is bigger than any one manufacturer. The best conversations happen when
-        longtime EV owners, first-time buyers, and EV-curious newcomers all end up in the same
-        parking lot.
-      </p>
+      <span class="poster-kicker on-dark">All brands welcome</span>
+      <h2 class="section-title">From Tesla to Kia to still deciding.</h2>
+      <p>Longtime EV owners, first-time buyers, and curious newcomers all belong in the same parking lot.</p>
     </div>
   </section>
 </BaseLayout>
