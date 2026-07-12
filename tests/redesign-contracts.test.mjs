@@ -47,6 +47,12 @@ test("approved homepage hero centers the brand mark", async () => {
   assert.match(css, /\.home-hero\s*\{[^}]*text-align:\s*center/s);
 });
 
+test("homepage uses the approved Upcoming heading", async () => {
+  const page = await read("src/pages/index.astro");
+
+  assert.match(page, />See What's Next</);
+});
+
 test("redesign has no scrolling banner", async () => {
   const page = await read("src/pages/index.astro");
   const css = await read("src/styles/global.css");
