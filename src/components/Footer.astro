@@ -3,17 +3,17 @@ import { social } from "../data/social";
 const year = new Date().getFullYear();
 ---
 
-<footer class="footer">
-  <div class="container footer-grid">
+<footer class="site-footer">
+  <div class="container site-footer-grid">
     <div>
-      <div class="footer-brand">
+      <div class="site-footer-brand">
         <img src="/assets/images/logo-400.png" alt="NorCal EVs" width="58" height="58" />
-        <span class="wordmark">NorCal EVs</span>
+        <span>NorCal EVs</span>
       </div>
-      <p class="footer-tagline">Driven by Community. If it plugs in, it belongs here. Northern California's cross-brand EV community.</p>
+      <p class="site-footer-tagline">Driven by Community. If it plugs in, it belongs here. Northern California's cross-brand EV community.</p>
     </div>
 
-    <div class="footer-col">
+    <div class="site-footer-col">
       <h4>Explore</h4>
       <ul>
         <li><a href="/membership">Membership</a></li>
@@ -24,7 +24,7 @@ const year = new Date().getFullYear();
       </ul>
     </div>
 
-    <div class="footer-col">
+    <div class="site-footer-col">
       <h4>Connect</h4>
       <ul>
         {social.map((s) => (
@@ -35,7 +35,7 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
-  <div class="container footer-bottom">
+  <div class="container site-footer-bottom">
     <span>&copy; {year} NorCal EVs. A registered 501(c)(7) community.</span>
     <span><a href="/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/terms">Terms</a></span>
   </div>

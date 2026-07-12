@@ -2,24 +2,24 @@
 import { navigation } from "../data/navigation";
 ---
 
-<nav class="nav">
-  <div class="container nav-inner">
-    <a href="/" class="nav-brand">
+<nav class="site-nav">
+  <div class="container site-nav-inner">
+    <a href="/" class="site-nav-brand">
       <img src="/assets/images/logo-400.png" alt="NorCal EVs" width="46" height="46" />
-      <span class="wordmark">NorCal EVs</span>
+      <span>NorCal EVs</span>
     </a>
 
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+    <button class="site-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
       <span></span><span></span><span></span>
     </button>
 
-    <div class="nav-menu" id="nav-menu">
-      <ul class="nav-links">
+    <div class="site-nav-menu" id="nav-menu">
+      <ul class="site-nav-links">
         {navigation.map((item) =>
           item.submenu ? (
-            <li class="nav-has-sub">
+            <li class="site-nav-has-sub">
               <a href={item.url}>{item.title} <span aria-hidden="true">▾</span></a>
-              <ul class="nav-sub">
+              <ul class="site-nav-submenu">
                 {item.submenu.map((sub) => (
                   <li>
                     <a href={sub.url} target="_blank" rel="noopener noreferrer">
@@ -39,13 +39,13 @@ import { navigation } from "../data/navigation";
           )
         )}
       </ul>
-      <a href="/membership" class="nav-cta">Join the Community</a>
+      <a href="/membership" class="site-nav-join">Join the Community</a>
     </div>
   </div>
 </nav>
 
 <script>
-  const toggle = document.querySelector(".nav-toggle");
+  const toggle = document.querySelector(".site-nav-toggle");
   const menu = document.getElementById("nav-menu");
   toggle?.addEventListener("click", () => {
     const open = menu?.classList.toggle("open");
