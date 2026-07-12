@@ -202,6 +202,7 @@ ul, ol { padding: 0; }
 .page-head { padding-block: clamp(64px, 8vw, 100px); }
 .page-head h1 { max-width: 920px; margin-top: 20px; font-size: clamp(3.1rem, 7vw, 6rem); font-weight: 800; line-height: 0.86; letter-spacing: -0.06em; text-transform: uppercase; }
 .page-head .page-lede { margin-top: 22px; color: var(--poster-muted); }
+.error-page { min-height: 64vh; display: flex; align-items: center; }
 
 .tile-grid { display: grid; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
 .tile-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
