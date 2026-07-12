@@ -18,8 +18,15 @@ import { navigation } from "../data/navigation";
         {navigation.map((item) =>
           item.submenu ? (
             <li class="site-nav-has-sub">
-              <a href={item.url}>{item.title} <span aria-hidden="true">▾</span></a>
-              <ul class="site-nav-submenu">
+              <button
+                type="button"
+                class="site-nav-submenu-toggle"
+                aria-expanded="false"
+                aria-controls={`submenu-${item.title.toLowerCase()}`}
+              >
+                {item.title} <span aria-hidden="true">▾</span>
+              </button>
+              <ul class="site-nav-submenu" id={`submenu-${item.title.toLowerCase()}`}>
                 {item.submenu.map((sub) => (
                   <li>
                     <a href={sub.url} target="_blank" rel="noopener noreferrer">
@@ -50,5 +57,13 @@ import { navigation } from "../data/navigation";
   toggle?.addEventListener("click", () => {
     const open = menu?.classList.toggle("open");
     toggle.setAttribute("aria-expanded", String(!!open));
+  });
+
+  document.querySelectorAll(".site-nav-submenu-toggle").forEach((submenuToggle) => {
+    submenuToggle.addEventListener("click", () => {
+      const parent = submenuToggle.closest(".site-nav-has-sub");
+      const open = parent?.classList.toggle("submenu-open");
+      submenuToggle.setAttribute("aria-expanded", String(!!open));
+    });
   });
 </script>

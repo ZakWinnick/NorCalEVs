@@ -78,7 +78,29 @@ test("shared navigation stays visible while pages scroll", async () => {
 test("desktop menu text uses the approved readable size", async () => {
   const css = await read("src/styles/global.css");
 
-  assert.match(css, /\.site-nav-links a\s*\{[^}]*font-size:\s*0\.72rem/s);
+  assert.match(css, /\.site-nav-links a[^{]*\{[^}]*font-size:\s*0\.72rem/s);
+});
+
+test("mobile Social submenu has a collapsible accessible toggle", async () => {
+  const nav = await read("src/components/Nav.astro");
+  const css = await read("src/styles/global.css");
+
+  assert.match(nav, /class="site-nav-submenu-toggle"[^>]*aria-expanded="false"/s);
+  assert.match(nav, /submenu-open/);
+  assert.match(css, /\.site-nav-has-sub\.submenu-open\s+\.site-nav-submenu\s*\{\s*display:\s*block/);
+  assert.match(css, /@media\s*\(min-width:\s*1041px\)[^{]*\{[^}]*\.site-nav-has-sub:hover/s);
+});
+
+test("calendar fallback action is centered", async () => {
+  const css = await read("src/styles/global.css");
+
+  assert.match(css, /\.events-fallback\s+\.poster-button\s*\{[^}]*margin-inline:\s*auto/s);
+});
+
+test("sponsor logos animate on hover-capable devices", async () => {
+  const css = await read("src/styles/global.css");
+
+  assert.match(css, /@media\s*\(hover:\s*hover\)[^{]*\{[^}]*\.sponsor-card:hover img\s*\{[^}]*transform:\s*scale\(1\.06\)/s);
 });
 
 test("production source contains no em dash", async () => {
